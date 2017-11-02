@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartz.Net_RemoteServer", "Quartz.Net_RemoteServer\Quartz.Net_RemoteServer.csproj", "{D48A984F-0D7B-40DF-A2B2-633EAB6EC7B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartz.Net_Web", "Quartz.Net_Web\Quartz.Net_Web.csproj", "{87BCE9A5-0238-4F49-8642-7D54DD0B2698}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartz.Net_JobBase", "Quartz.Net_JobItem\Quartz.Net_JobBase.csproj", "{14199771-D551-41BA-846B-13FE79B8D21C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartz.Net_EFModel", "Quartz.Net_EFModel\Quartz.Net_EFModel.csproj", "{AF2A8FD6-0625-42A8-B1CE-4C3590336E4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartz.Net_RepositoryInterface", "Quartz.Net_RepositoryInterface\Quartz.Net_RepositoryInterface.csproj", "{19211B50-6429-441C-BF24-416FB4CC1AF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartz.Net_RepositoryImplements", "Quartz.Net_RepositoryImplements\Quartz.Net_RepositoryImplements.csproj", "{8C668A9F-3D9E-4D24-BD59-A58C0BE1C1E0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D48A984F-0D7B-40DF-A2B2-633EAB6EC7B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D48A984F-0D7B-40DF-A2B2-633EAB6EC7B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D48A984F-0D7B-40DF-A2B2-633EAB6EC7B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D48A984F-0D7B-40DF-A2B2-633EAB6EC7B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87BCE9A5-0238-4F49-8642-7D54DD0B2698}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87BCE9A5-0238-4F49-8642-7D54DD0B2698}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87BCE9A5-0238-4F49-8642-7D54DD0B2698}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87BCE9A5-0238-4F49-8642-7D54DD0B2698}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14199771-D551-41BA-846B-13FE79B8D21C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14199771-D551-41BA-846B-13FE79B8D21C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14199771-D551-41BA-846B-13FE79B8D21C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14199771-D551-41BA-846B-13FE79B8D21C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF2A8FD6-0625-42A8-B1CE-4C3590336E4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF2A8FD6-0625-42A8-B1CE-4C3590336E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF2A8FD6-0625-42A8-B1CE-4C3590336E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF2A8FD6-0625-42A8-B1CE-4C3590336E4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19211B50-6429-441C-BF24-416FB4CC1AF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19211B50-6429-441C-BF24-416FB4CC1AF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19211B50-6429-441C-BF24-416FB4CC1AF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19211B50-6429-441C-BF24-416FB4CC1AF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C668A9F-3D9E-4D24-BD59-A58C0BE1C1E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C668A9F-3D9E-4D24-BD59-A58C0BE1C1E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C668A9F-3D9E-4D24-BD59-A58C0BE1C1E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C668A9F-3D9E-4D24-BD59-A58C0BE1C1E0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
