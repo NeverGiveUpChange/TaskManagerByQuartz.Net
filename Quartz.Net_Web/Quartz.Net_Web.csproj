@@ -158,7 +158,6 @@
     <Compile Include="App_Start\MefDependencySolver.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\QuartzJobManageController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Factories\ResponseDataFactory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -213,9 +212,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\QuartzJobManage\Index.cshtml" />
     <Content Include="Views\QuartzJobManage\Test.cshtml" />
     <Content Include="Views\QuartzJobManage\Test1.cshtml" />
