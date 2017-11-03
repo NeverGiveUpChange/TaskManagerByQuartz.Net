@@ -44,9 +44,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Quartz.Net_EFModel\Quartz.Net_EFModel.csproj">
-      <Project>{AF2A8FD6-0625-42A8-B1CE-4C3590336E4A}</Project>
-      <Name>Quartz.Net_EFModel</Name>
+    <ProjectReference Include="..\Quartz.Net_EFModel_MySql\Quartz.Net_EFModel_MySql.csproj">
+      <Project>{FF0BD2B4-9619-4EF2-AE31-B341A26BDF7A}</Project>
+      <Name>Quartz.Net_EFModel_MySql</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

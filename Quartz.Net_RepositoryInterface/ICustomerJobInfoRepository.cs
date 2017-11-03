@@ -1,4 +1,5 @@
-﻿using Quartz.Net_EFModel;
+﻿
+using Quartz.Net_EFModel_MySql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace Quartz.Net_RepositoryInterface
         /// </summary>
         /// <param name="whereLambda">新的任务模型</param>
         /// <returns>更新的任务编号</returns>
-        int UpdateCustomerJobInfo(Customer_JobInfo customerJobInfoModel);
+        int UpdateCustomerJobInfo(customer_quartzjobinfo customerJobInfoModel);
         /// <summary>
         /// 加载任务列表
         /// </summary>
@@ -38,12 +39,12 @@ namespace Quartz.Net_RepositoryInterface
         /// <param name="pageIndex">索引页</param>
         /// <param name="pageSize">页数量</param>
         /// <returns>查询数据集和总条数</returns>
-        Tuple<IQueryable<Customer_JobInfo>, int> LoadCustomerInfoes<K>(Expression<Func<Customer_JobInfo, bool>> whereLambda, Expression<Func<Customer_JobInfo, K>> orderByLambda, bool isAsc,int pageIndex,int pageSize);
+        Tuple<IQueryable<customer_quartzjobinfo>, int> LoadCustomerInfoes<K>(Expression<Func<customer_quartzjobinfo, bool>> whereLambda, Expression<Func<customer_quartzjobinfo, K>> orderByLambda, bool isAsc,int pageIndex,int pageSize);
         /// <summary>
         /// 加载单个任务
         /// </summary>
         /// <param name="whereLambda">条件表达式</param>
         /// <returns>单个任务</returns>
-        Customer_JobInfo LoadCustomerInfo(Expression<Func<Customer_JobInfo, bool>> whereLambda);
+        customer_quartzjobinfo LoadCustomerInfo(Expression<Func<customer_quartzjobinfo, bool>> whereLambda);
     }
 }

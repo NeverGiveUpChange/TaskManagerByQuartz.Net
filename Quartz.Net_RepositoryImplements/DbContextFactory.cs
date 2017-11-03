@@ -1,4 +1,5 @@
-﻿using Quartz.Net_EFModel;
+﻿
+using Quartz.Net_EFModel_MySql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +11,14 @@ namespace Quartz.Net_RepositoryImplements
 {
     internal class DbContextFactory
     {
-        public static QuartzManagerEntities DbContext
+        public static bihu_analyticsEntities DbContext
         {
             get
             {
-                var _dbContext = CallContext.GetData("DbContext") as QuartzManagerEntities;
+                var _dbContext = CallContext.GetData("DbContext") as bihu_analyticsEntities;
                 if (_dbContext == null)
                 {
-                    _dbContext = new QuartzManagerEntities();
+                    _dbContext = new bihu_analyticsEntities();
                     CallContext.SetData("DbContext", _dbContext);
                 }
                 return _dbContext;

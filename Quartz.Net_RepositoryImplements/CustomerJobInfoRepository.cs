@@ -1,4 +1,5 @@
-﻿using Quartz.Net_EFModel;
+﻿
+using Quartz.Net_EFModel_MySql;
 using Quartz.Net_RepositoryInterface;
 using System;
 using System.ComponentModel.Composition;
@@ -10,14 +11,14 @@ namespace Quartz.Net_RepositoryImplements
     [Export("CustomerJobInfoRepository",typeof(ICustomerJobInfoRepository))]
     internal class CustomerJobInfoRepository : ICustomerJobInfoRepository
     {
-        private readonly QuartzManagerEntities _dbContext;
+        private readonly bihu_analyticsEntities _dbContext;
         public CustomerJobInfoRepository()
         {
             _dbContext = DbContextFactory.DbContext;
         }
         public int AddCustomerJobInfo(string jobName, string jobGroupName, string triggerName, string triggerGroupName, string cron, string jobDescription, string requestUrl)
         {
-            var customerJobInfoModel = _dbContext.Customer_JobInfo.Add(new Customer_JobInfo
+            var customerJobInfoModel = _dbContext.customer_quartzjobinfo.Add(new customer_quartzjobinfo
             {
                 CreateTime = DateTime.Now,
                 Cron = cron,
@@ -36,25 +37,25 @@ namespace Quartz.Net_RepositoryImplements
             return customerJobInfoModel.Id;
         }
 
-        public int UpdateCustomerJobInfo(Customer_JobInfo customerJobInfoModel)
+        public int UpdateCustomerJobInfo(customer_quartzjobinfo customerJobInfoModel)
         {
 
             _dbContext.SaveChanges();
             return customerJobInfoModel.Id;
         }
 
-        public Tuple<IQueryable<Customer_JobInfo>, int> LoadCustomerInfoes<K>(Expression<Func<Customer_JobInfo,bool>>whereLambda, Expression<Func<Customer_JobInfo, K>> orderByLambda, bool isAsc,int pageIndex,int pageSize)
+        public Tuple<IQueryable<customer_quartzjobinfo>, int> LoadCustomerInfoes<K>(Expression<Func<customer_quartzjobinfo, bool>>whereLambda, Expression<Func<customer_quartzjobinfo, K>> orderByLambda, bool isAsc,int pageIndex,int pageSize)
         {
             int totalCount = 0;
-            var customerJobInfoModelQueryable = _dbContext.Customer_JobInfo.Where(whereLambda);
+            var customerJobInfoModelQueryable = _dbContext.customer_quartzjobinfo.Where(whereLambda);
 
             totalCount = customerJobInfoModelQueryable.Count();
-            return new Tuple<IQueryable<Customer_JobInfo>, int>(isAsc? customerJobInfoModelQueryable.OrderBy(orderByLambda).Skip(pageIndex-1).Take(pageSize): customerJobInfoModelQueryable.OrderByDescending(orderByLambda).Skip((pageIndex-1)*pageSize).Take(pageSize), totalCount);
+            return new Tuple<IQueryable<customer_quartzjobinfo>, int>(isAsc? customerJobInfoModelQueryable.OrderBy(orderByLambda).Skip(pageIndex-1).Take(pageSize): customerJobInfoModelQueryable.OrderByDescending(orderByLambda).Skip((pageIndex-1)*pageSize).Take(pageSize), totalCount);
 
         }
-        public Customer_JobInfo LoadCustomerInfo(Expression<Func<Customer_JobInfo, bool>> whereLambda)
+        public customer_quartzjobinfo LoadCustomerInfo(Expression<Func<customer_quartzjobinfo, bool>> whereLambda)
         {
-            return _dbContext.Customer_JobInfo.SingleOrDefault(whereLambda);
+            return _dbContext.customer_quartzjobinfo.SingleOrDefault(whereLambda);
         }
     }
 }

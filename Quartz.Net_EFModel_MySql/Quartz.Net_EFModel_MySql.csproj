@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FF0BD2B4-9619-4EF2-AE31-B341A26BDF7A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Quartz.Net_EFModel_MySql</RootNamespace>
+    <AssemblyName>Quartz.Net_EFModel_MySql</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySql.Data.6.5.4\lib\net40\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="customer_quartzjobinfo.cs">
+      <DependentUpon>QuartzEfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="qrtz_blob_triggers.cs">
+      <DependentUpon>QuartzEfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="qrtz_calendars.cs">
+      <DependentUpon>QuartzEfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="qrtz_cron_triggers.cs">
+      <DependentUpon>QuartzEfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="qrtz_fired_triggers.cs">
+      <DependentUpon>QuartzEfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="qrtz_job_details.cs">
+      <DependentUpon>QuartzEfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="qrtz_locks.cs">
+      <DependentUpon>QuartzEfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="qrtz_paused_trigger_grps.cs">
+      <DependentUpon>QuartzEfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="qrtz_scheduler_state.cs">
+      <DependentUpon>QuartzEfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="qrtz_simple_triggers.cs">
+      <DependentUpon>QuartzEfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="qrtz_simprop_triggers.cs">
+      <DependentUpon>QuartzEfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="qrtz_triggers.cs">
+      <DependentUpon>QuartzEfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuartzEfModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuartzEfModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuartzEfModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuartzEfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuartzEfModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuartzEfModel.edmx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="QuartzEfModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuartzEfModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuartzEfModel.edmx.diagram">
+      <DependentUpon>QuartzEfModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="QuartzEfModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuartzEfModel.edmx</DependentUpon>
+      <LastGenOutput>QuartzEfModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="QuartzEfModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuartzEfModel.edmx</DependentUpon>
+      <LastGenOutput>QuartzEfModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

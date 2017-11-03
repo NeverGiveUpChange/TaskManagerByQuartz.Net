@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartz.Net_RemoteServer", "Quartz.Net_RemoteServer\Quartz.Net_RemoteServer.csproj", "{D48A984F-0D7B-40DF-A2B2-633EAB6EC7B2}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartz.Net_RepositoryInterface", "Quartz.Net_RepositoryInterface\Quartz.Net_RepositoryInterface.csproj", "{19211B50-6429-441C-BF24-416FB4CC1AF3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartz.Net_RepositoryImplements", "Quartz.Net_RepositoryImplements\Quartz.Net_RepositoryImplements.csproj", "{8C668A9F-3D9E-4D24-BD59-A58C0BE1C1E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartz.Net_EFModel_MySql", "Quartz.Net_EFModel_MySql\Quartz.Net_EFModel_MySql.csproj", "{FF0BD2B4-9619-4EF2-AE31-B341A26BDF7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,8 +47,15 @@ Global
 		{8C668A9F-3D9E-4D24-BD59-A58C0BE1C1E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C668A9F-3D9E-4D24-BD59-A58C0BE1C1E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C668A9F-3D9E-4D24-BD59-A58C0BE1C1E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF0BD2B4-9619-4EF2-AE31-B341A26BDF7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF0BD2B4-9619-4EF2-AE31-B341A26BDF7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF0BD2B4-9619-4EF2-AE31-B341A26BDF7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF0BD2B4-9619-4EF2-AE31-B341A26BDF7A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E6146A4-C263-4855-8BD2-160EEAF166A9}
 	EndGlobalSection
 EndGlobal

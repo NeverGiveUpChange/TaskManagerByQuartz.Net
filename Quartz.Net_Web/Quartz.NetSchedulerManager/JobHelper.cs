@@ -1,11 +1,12 @@
 ﻿
-using Quartz.Net_EFModel;
+
 using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Diagnostics;
 using System.ComponentModel.Composition;
+using Quartz.Net_EFModel_MySql;
 
 namespace Quartz.Net_Web.Quartz.NetSchedulerManager
 {
@@ -22,8 +23,10 @@ namespace Quartz.Net_Web.Quartz.NetSchedulerManager
         /// </summary>
         /// <param name="jobInfo">任务信息</param>
         /// <returns></returns>
-        public bool RunJob(Customer_JobInfo jobInfo)
+        public bool RunJob(customer_quartzjobinfo jobInfo)
         {
+
+
             Assembly assembly = Assembly.LoadFile(AppDomain.CurrentDomain.BaseDirectory + $"bin/{jobInfo.DLLName}");
             var type = assembly.GetType(jobInfo.FullJobName);
             JobKey jobKey = _createJobKey(jobInfo.JobName, jobInfo.JobGroupName);
@@ -32,7 +35,7 @@ namespace Quartz.Net_Web.Quartz.NetSchedulerManager
                 IJobDetail job = JobBuilder.Create(type)
                     .WithIdentity(jobKey)
                     .UsingJobData(_createJobDataMap("jobId", jobInfo.Id))
-                    .UsingJobData(_createJobDataMap("requestUrl",jobInfo.RequestUrl))//添加此任务请求地址附带到Context上下文中
+                    .UsingJobData(_createJobDataMap("requestUrl", jobInfo.RequestUrl))//添加此任务请求地址附带到Context上下文中
                     .Build();
 
                 CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.CronSchedule(jobInfo.Cron);
@@ -61,6 +64,7 @@ withMisfireHandlingInstructionFireAndProceed
 
             }
             return true;
+
         }
         /// <summary>
         /// 删除任务
@@ -68,7 +72,7 @@ withMisfireHandlingInstructionFireAndProceed
         /// <param name="jobInfo">任务信息</param>
         /// <returns></returns>
 
-        public bool DeleteJob(Customer_JobInfo jobInfo)
+        public bool DeleteJob(customer_quartzjobinfo jobInfo)
         {
             var jobKey = _createJobKey(jobInfo.JobName, jobInfo.JobGroupName);
             var triggerKey = _createTriggerKey(jobInfo.TriggerName, jobInfo.TriggerGroupName);
@@ -83,7 +87,7 @@ withMisfireHandlingInstructionFireAndProceed
         /// </summary>
         /// <param name="jobInfo">任务信息</param>
         /// <returns></returns>
-        public bool PauseJob(Customer_JobInfo jobInfo)
+        public bool PauseJob(customer_quartzjobinfo jobInfo)
         {
             var jobKey = _createJobKey(jobInfo.JobName, jobInfo.JobGroupName);
             _scheduler.PauseJob(jobKey);
@@ -95,7 +99,7 @@ withMisfireHandlingInstructionFireAndProceed
         /// </summary>
         /// <param name="jobInfo">任务信息</param>
         /// <returns></returns>
-        public bool ResumeJob(Customer_JobInfo jobInfo)
+        public bool ResumeJob(customer_quartzjobinfo jobInfo)
         {
             var jobKey = _createJobKey(jobInfo.JobName, jobInfo.JobGroupName);
             _scheduler.ResumeJob(jobKey);
@@ -107,7 +111,7 @@ withMisfireHandlingInstructionFireAndProceed
         /// </summary>
         /// <param name="jobInfo">任务信息</param>
         /// <returns></returns>
-        public bool ModifyJobCron(Customer_JobInfo jobInfo)
+        public bool ModifyJobCron(customer_quartzjobinfo jobInfo)
         {
             CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.CronSchedule(jobInfo.Cron);
             var triggerKey = _createTriggerKey(jobInfo.TriggerName, jobInfo.TriggerGroupName);
@@ -138,7 +142,7 @@ withMisfireHandlingInstructionFireAndProceed
         /// <param name="pageIndex">当前索引页</param>
         /// <param name="pageSize">每页数量</param>
         /// <returns></returns>
-        public object GetJobList(List<Customer_JobInfo> customerJobInfoList, int jobStatus, int pageIndex, int pageSize)
+        public object GetJobList(List<customer_quartzjobinfo> customerJobInfoList, int jobStatus, int pageIndex, int pageSize)
         {
             var allJobList = customerJobInfoList.Select(x => new
             {
@@ -149,13 +153,13 @@ withMisfireHandlingInstructionFireAndProceed
                 x.TriggerGroupName,
                 x.Description,
                 x.Cron,
-                JobStartTime = x.JobStartTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                JobStartTime = x.JobStartTime.Value.ToString("yyyy-MM-dd HH:mm:ss"),
                 CreateTime = x.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
                 x.Deleted,
                 Customer_TriggerState = x.TriggerState,
                 TriggerState = _changeType(_getTriggerState(x.TriggerName, x.TriggerGroupName))
             }).ToList();
-            allJobList = jobStatus == 5 || jobStatus == -1 ? allJobList.Where(x => x.Customer_TriggerState == jobStatus).ToList() : allJobList.Where(x => x.TriggerState == jobStatus ).ToList();
+            allJobList = jobStatus == 5 || jobStatus == -1 ? allJobList.Where(x => x.Customer_TriggerState == jobStatus).ToList() : allJobList.Where(x => x.TriggerState == jobStatus).ToList();
             return allJobList.Select(x => new
             {
                 x.Id,
@@ -166,7 +170,7 @@ withMisfireHandlingInstructionFireAndProceed
                 x.Description,
                 x.Cron,
                 x.JobStartTime,
-                x.CreateTime
+                //x.CreateTime
             });
         }
         private JobKey _createJobKey(string jobName, string jobGroupName)

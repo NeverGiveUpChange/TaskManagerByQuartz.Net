@@ -1,0 +1,799 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="bihu_analyticsModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="customer_quartzjobinfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="JobGroupName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TriggerName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TriggerGroupName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cron" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TriggerState" Type="int" Nullable="false" />
+          <Property Name="DLLName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="FullJobName" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="Exception" Type="varchar" MaxLength="1000" />
+          <Property Name="RequestUrl" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="JobStartTime" Type="datetime" Precision="0" />
+          <Property Name="PreTime" Type="datetime" Precision="0" />
+          <Property Name="EndTime" Type="datetime" Precision="0" />
+          <Property Name="NextTime" Type="datetime" Precision="0" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="Deleted" Type="bool" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="qrtz_blob_triggers">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="TRIGGER_NAME" />
+            <PropertyRef Name="TRIGGER_GROUP" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="TRIGGER_NAME" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TRIGGER_GROUP" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="BLOB_DATA" Type="blob" />
+        </EntityType>
+        <EntityType Name="qrtz_calendars">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="CALENDAR_NAME" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="CALENDAR_NAME" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="CALENDAR" Type="blob" Nullable="false" />
+        </EntityType>
+        <EntityType Name="qrtz_cron_triggers">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="TRIGGER_NAME" />
+            <PropertyRef Name="TRIGGER_GROUP" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="TRIGGER_NAME" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TRIGGER_GROUP" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="CRON_EXPRESSION" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="TIME_ZONE_ID" Type="varchar" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="qrtz_fired_triggers">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="ENTRY_ID" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="ENTRY_ID" Type="varchar" MaxLength="140" Nullable="false" />
+          <Property Name="TRIGGER_NAME" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TRIGGER_GROUP" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="INSTANCE_NAME" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="FIRED_TIME" Type="bigint" Nullable="false" />
+          <Property Name="SCHED_TIME" Type="bigint" Nullable="false" />
+          <Property Name="PRIORITY" Type="int" Nullable="false" />
+          <Property Name="STATE" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="JOB_NAME" Type="varchar" MaxLength="200" />
+          <Property Name="JOB_GROUP" Type="varchar" MaxLength="200" />
+          <Property Name="IS_NONCONCURRENT" Type="bool" />
+          <Property Name="REQUESTS_RECOVERY" Type="bool" />
+        </EntityType>
+        <EntityType Name="qrtz_job_details">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="JOB_NAME" />
+            <PropertyRef Name="JOB_GROUP" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="JOB_NAME" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="JOB_GROUP" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="250" />
+          <Property Name="JOB_CLASS_NAME" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="IS_DURABLE" Type="bool" Nullable="false" />
+          <Property Name="IS_NONCONCURRENT" Type="bool" Nullable="false" />
+          <Property Name="IS_UPDATE_DATA" Type="bool" Nullable="false" />
+          <Property Name="REQUESTS_RECOVERY" Type="bool" Nullable="false" />
+          <Property Name="JOB_DATA" Type="blob" />
+        </EntityType>
+        <EntityType Name="qrtz_locks">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="LOCK_NAME" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="LOCK_NAME" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="qrtz_paused_trigger_grps">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="TRIGGER_GROUP" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="TRIGGER_GROUP" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="qrtz_scheduler_state">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="INSTANCE_NAME" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="INSTANCE_NAME" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="LAST_CHECKIN_TIME" Type="bigint" Nullable="false" />
+          <Property Name="CHECKIN_INTERVAL" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="qrtz_simple_triggers">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="TRIGGER_NAME" />
+            <PropertyRef Name="TRIGGER_GROUP" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="TRIGGER_NAME" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TRIGGER_GROUP" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="REPEAT_COUNT" Type="bigint" Nullable="false" />
+          <Property Name="REPEAT_INTERVAL" Type="bigint" Nullable="false" />
+          <Property Name="TIMES_TRIGGERED" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="qrtz_simprop_triggers">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="TRIGGER_NAME" />
+            <PropertyRef Name="TRIGGER_GROUP" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="TRIGGER_NAME" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TRIGGER_GROUP" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="STR_PROP_1" Type="varchar" MaxLength="512" />
+          <Property Name="STR_PROP_2" Type="varchar" MaxLength="512" />
+          <Property Name="STR_PROP_3" Type="varchar" MaxLength="512" />
+          <Property Name="INT_PROP_1" Type="int" />
+          <Property Name="INT_PROP_2" Type="int" />
+          <Property Name="LONG_PROP_1" Type="bigint" />
+          <Property Name="LONG_PROP_2" Type="bigint" />
+          <Property Name="DEC_PROP_1" Type="decimal" Precision="13" Scale="4" />
+          <Property Name="DEC_PROP_2" Type="decimal" Precision="13" Scale="4" />
+          <Property Name="BOOL_PROP_1" Type="bool" />
+          <Property Name="BOOL_PROP_2" Type="bool" />
+          <Property Name="TIME_ZONE_ID" Type="varchar" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="qrtz_triggers">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="TRIGGER_NAME" />
+            <PropertyRef Name="TRIGGER_GROUP" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="TRIGGER_NAME" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TRIGGER_GROUP" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="JOB_NAME" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="JOB_GROUP" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="250" />
+          <Property Name="NEXT_FIRE_TIME" Type="bigint" />
+          <Property Name="PREV_FIRE_TIME" Type="bigint" />
+          <Property Name="PRIORITY" Type="int" />
+          <Property Name="TRIGGER_STATE" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="TRIGGER_TYPE" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="START_TIME" Type="bigint" Nullable="false" />
+          <Property Name="END_TIME" Type="bigint" />
+          <Property Name="CALENDAR_NAME" Type="varchar" MaxLength="200" />
+          <Property Name="MISFIRE_INSTR" Type="smallint" />
+          <Property Name="JOB_DATA" Type="blob" />
+        </EntityType>
+        <Association Name="qrtz_blob_triggers_ibfk_1">
+          <End Role="qrtz_triggers" Type="Self.qrtz_triggers" Multiplicity="1" />
+          <End Role="qrtz_blob_triggers" Type="Self.qrtz_blob_triggers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="qrtz_triggers">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="TRIGGER_NAME" />
+              <PropertyRef Name="TRIGGER_GROUP" />
+            </Principal>
+            <Dependent Role="qrtz_blob_triggers">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="TRIGGER_NAME" />
+              <PropertyRef Name="TRIGGER_GROUP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="qrtz_cron_triggers_ibfk_1">
+          <End Role="qrtz_triggers" Type="Self.qrtz_triggers" Multiplicity="1" />
+          <End Role="qrtz_cron_triggers" Type="Self.qrtz_cron_triggers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="qrtz_triggers">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="TRIGGER_NAME" />
+              <PropertyRef Name="TRIGGER_GROUP" />
+            </Principal>
+            <Dependent Role="qrtz_cron_triggers">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="TRIGGER_NAME" />
+              <PropertyRef Name="TRIGGER_GROUP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="qrtz_simple_triggers_ibfk_1">
+          <End Role="qrtz_triggers" Type="Self.qrtz_triggers" Multiplicity="1" />
+          <End Role="qrtz_simple_triggers" Type="Self.qrtz_simple_triggers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="qrtz_triggers">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="TRIGGER_NAME" />
+              <PropertyRef Name="TRIGGER_GROUP" />
+            </Principal>
+            <Dependent Role="qrtz_simple_triggers">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="TRIGGER_NAME" />
+              <PropertyRef Name="TRIGGER_GROUP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="qrtz_simprop_triggers_ibfk_1">
+          <End Role="qrtz_triggers" Type="Self.qrtz_triggers" Multiplicity="1" />
+          <End Role="qrtz_simprop_triggers" Type="Self.qrtz_simprop_triggers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="qrtz_triggers">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="TRIGGER_NAME" />
+              <PropertyRef Name="TRIGGER_GROUP" />
+            </Principal>
+            <Dependent Role="qrtz_simprop_triggers">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="TRIGGER_NAME" />
+              <PropertyRef Name="TRIGGER_GROUP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="qrtz_triggers_ibfk_1">
+          <End Role="qrtz_job_details" Type="Self.qrtz_job_details" Multiplicity="1" />
+          <End Role="qrtz_triggers" Type="Self.qrtz_triggers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qrtz_job_details">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="JOB_NAME" />
+              <PropertyRef Name="JOB_GROUP" />
+            </Principal>
+            <Dependent Role="qrtz_triggers">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="JOB_NAME" />
+              <PropertyRef Name="JOB_GROUP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bihu_analyticsModelStoreContainer">
+          <EntitySet Name="customer_quartzjobinfo" EntityType="Self.customer_quartzjobinfo" Schema="bihu_analytics" store:Type="Tables" />
+          <EntitySet Name="qrtz_blob_triggers" EntityType="Self.qrtz_blob_triggers" Schema="bihu_analytics" store:Type="Tables" />
+          <EntitySet Name="qrtz_calendars" EntityType="Self.qrtz_calendars" Schema="bihu_analytics" store:Type="Tables" />
+          <EntitySet Name="qrtz_cron_triggers" EntityType="Self.qrtz_cron_triggers" Schema="bihu_analytics" store:Type="Tables" />
+          <EntitySet Name="qrtz_fired_triggers" EntityType="Self.qrtz_fired_triggers" Schema="bihu_analytics" store:Type="Tables" />
+          <EntitySet Name="qrtz_job_details" EntityType="Self.qrtz_job_details" Schema="bihu_analytics" store:Type="Tables" />
+          <EntitySet Name="qrtz_locks" EntityType="Self.qrtz_locks" Schema="bihu_analytics" store:Type="Tables" />
+          <EntitySet Name="qrtz_paused_trigger_grps" EntityType="Self.qrtz_paused_trigger_grps" Schema="bihu_analytics" store:Type="Tables" />
+          <EntitySet Name="qrtz_scheduler_state" EntityType="Self.qrtz_scheduler_state" Schema="bihu_analytics" store:Type="Tables" />
+          <EntitySet Name="qrtz_simple_triggers" EntityType="Self.qrtz_simple_triggers" Schema="bihu_analytics" store:Type="Tables" />
+          <EntitySet Name="qrtz_simprop_triggers" EntityType="Self.qrtz_simprop_triggers" Schema="bihu_analytics" store:Type="Tables" />
+          <EntitySet Name="qrtz_triggers" EntityType="Self.qrtz_triggers" Schema="bihu_analytics" store:Type="Tables" />
+          <AssociationSet Name="qrtz_blob_triggers_ibfk_1" Association="Self.qrtz_blob_triggers_ibfk_1">
+            <End Role="qrtz_triggers" EntitySet="qrtz_triggers" />
+            <End Role="qrtz_blob_triggers" EntitySet="qrtz_blob_triggers" />
+          </AssociationSet>
+          <AssociationSet Name="qrtz_cron_triggers_ibfk_1" Association="Self.qrtz_cron_triggers_ibfk_1">
+            <End Role="qrtz_triggers" EntitySet="qrtz_triggers" />
+            <End Role="qrtz_cron_triggers" EntitySet="qrtz_cron_triggers" />
+          </AssociationSet>
+          <AssociationSet Name="qrtz_simple_triggers_ibfk_1" Association="Self.qrtz_simple_triggers_ibfk_1">
+            <End Role="qrtz_triggers" EntitySet="qrtz_triggers" />
+            <End Role="qrtz_simple_triggers" EntitySet="qrtz_simple_triggers" />
+          </AssociationSet>
+          <AssociationSet Name="qrtz_simprop_triggers_ibfk_1" Association="Self.qrtz_simprop_triggers_ibfk_1">
+            <End Role="qrtz_triggers" EntitySet="qrtz_triggers" />
+            <End Role="qrtz_simprop_triggers" EntitySet="qrtz_simprop_triggers" />
+          </AssociationSet>
+          <AssociationSet Name="qrtz_triggers_ibfk_1" Association="Self.qrtz_triggers_ibfk_1">
+            <End Role="qrtz_job_details" EntitySet="qrtz_job_details" />
+            <End Role="qrtz_triggers" EntitySet="qrtz_triggers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bihu_analyticsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="qrtz_blob_triggers">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="TRIGGER_NAME" />
+            <PropertyRef Name="TRIGGER_GROUP" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TRIGGER_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TRIGGER_GROUP" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BLOB_DATA" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="qrtz_triggers" Relationship="Self.qrtz_blob_triggers_ibfk_1" FromRole="qrtz_blob_triggers" ToRole="qrtz_triggers" />
+        </EntityType>
+        <EntityType Name="qrtz_calendars">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="CALENDAR_NAME" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CALENDAR_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CALENDAR" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="qrtz_cron_triggers">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="TRIGGER_NAME" />
+            <PropertyRef Name="TRIGGER_GROUP" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TRIGGER_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TRIGGER_GROUP" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CRON_EXPRESSION" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIME_ZONE_ID" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="qrtz_triggers" Relationship="Self.qrtz_cron_triggers_ibfk_1" FromRole="qrtz_cron_triggers" ToRole="qrtz_triggers" />
+        </EntityType>
+        <EntityType Name="qrtz_fired_triggers">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="ENTRY_ID" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ENTRY_ID" Type="String" MaxLength="140" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TRIGGER_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TRIGGER_GROUP" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INSTANCE_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FIRED_TIME" Type="Int64" Nullable="false" />
+          <Property Name="SCHED_TIME" Type="Int64" Nullable="false" />
+          <Property Name="PRIORITY" Type="Int32" Nullable="false" />
+          <Property Name="STATE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JOB_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="JOB_GROUP" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IS_NONCONCURRENT" Type="Boolean" />
+          <Property Name="REQUESTS_RECOVERY" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="qrtz_job_details">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="JOB_NAME" />
+            <PropertyRef Name="JOB_GROUP" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JOB_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JOB_GROUP" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="JOB_CLASS_NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IS_DURABLE" Type="Boolean" Nullable="false" />
+          <Property Name="IS_NONCONCURRENT" Type="Boolean" Nullable="false" />
+          <Property Name="IS_UPDATE_DATA" Type="Boolean" Nullable="false" />
+          <Property Name="REQUESTS_RECOVERY" Type="Boolean" Nullable="false" />
+          <Property Name="JOB_DATA" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="qrtz_triggers" Relationship="Self.qrtz_triggers_ibfk_1" FromRole="qrtz_job_details" ToRole="qrtz_triggers" />
+        </EntityType>
+        <EntityType Name="qrtz_locks">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="LOCK_NAME" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LOCK_NAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="qrtz_paused_trigger_grps">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="TRIGGER_GROUP" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TRIGGER_GROUP" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="qrtz_scheduler_state">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="INSTANCE_NAME" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INSTANCE_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LAST_CHECKIN_TIME" Type="Int64" Nullable="false" />
+          <Property Name="CHECKIN_INTERVAL" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="qrtz_simple_triggers">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="TRIGGER_NAME" />
+            <PropertyRef Name="TRIGGER_GROUP" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TRIGGER_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TRIGGER_GROUP" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="REPEAT_COUNT" Type="Int64" Nullable="false" />
+          <Property Name="REPEAT_INTERVAL" Type="Int64" Nullable="false" />
+          <Property Name="TIMES_TRIGGERED" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="qrtz_triggers" Relationship="Self.qrtz_simple_triggers_ibfk_1" FromRole="qrtz_simple_triggers" ToRole="qrtz_triggers" />
+        </EntityType>
+        <EntityType Name="qrtz_simprop_triggers">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="TRIGGER_NAME" />
+            <PropertyRef Name="TRIGGER_GROUP" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TRIGGER_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TRIGGER_GROUP" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STR_PROP_1" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="STR_PROP_2" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="STR_PROP_3" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="INT_PROP_1" Type="Int32" />
+          <Property Name="INT_PROP_2" Type="Int32" />
+          <Property Name="LONG_PROP_1" Type="Int64" />
+          <Property Name="LONG_PROP_2" Type="Int64" />
+          <Property Name="DEC_PROP_1" Type="Decimal" />
+          <Property Name="DEC_PROP_2" Type="Decimal" />
+          <Property Name="BOOL_PROP_1" Type="Boolean" />
+          <Property Name="BOOL_PROP_2" Type="Boolean" />
+          <Property Name="TIME_ZONE_ID" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="qrtz_triggers" Relationship="Self.qrtz_simprop_triggers_ibfk_1" FromRole="qrtz_simprop_triggers" ToRole="qrtz_triggers" />
+        </EntityType>
+        <EntityType Name="qrtz_triggers">
+          <Key>
+            <PropertyRef Name="SCHED_NAME" />
+            <PropertyRef Name="TRIGGER_NAME" />
+            <PropertyRef Name="TRIGGER_GROUP" />
+          </Key>
+          <Property Name="SCHED_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TRIGGER_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TRIGGER_GROUP" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JOB_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JOB_GROUP" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="NEXT_FIRE_TIME" Type="Int64" />
+          <Property Name="PREV_FIRE_TIME" Type="Int64" />
+          <Property Name="PRIORITY" Type="Int32" />
+          <Property Name="TRIGGER_STATE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TRIGGER_TYPE" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="START_TIME" Type="Int64" Nullable="false" />
+          <Property Name="END_TIME" Type="Int64" />
+          <Property Name="CALENDAR_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MISFIRE_INSTR" Type="Int16" />
+          <Property Name="JOB_DATA" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="qrtz_blob_triggers" Relationship="Self.qrtz_blob_triggers_ibfk_1" FromRole="qrtz_triggers" ToRole="qrtz_blob_triggers" />
+          <NavigationProperty Name="qrtz_cron_triggers" Relationship="Self.qrtz_cron_triggers_ibfk_1" FromRole="qrtz_triggers" ToRole="qrtz_cron_triggers" />
+          <NavigationProperty Name="qrtz_job_details" Relationship="Self.qrtz_triggers_ibfk_1" FromRole="qrtz_triggers" ToRole="qrtz_job_details" />
+          <NavigationProperty Name="qrtz_simple_triggers" Relationship="Self.qrtz_simple_triggers_ibfk_1" FromRole="qrtz_triggers" ToRole="qrtz_simple_triggers" />
+          <NavigationProperty Name="qrtz_simprop_triggers" Relationship="Self.qrtz_simprop_triggers_ibfk_1" FromRole="qrtz_triggers" ToRole="qrtz_simprop_triggers" />
+        </EntityType>
+        <Association Name="qrtz_blob_triggers_ibfk_1">
+          <End Role="qrtz_triggers" Type="Self.qrtz_triggers" Multiplicity="1" />
+          <End Role="qrtz_blob_triggers" Type="Self.qrtz_blob_triggers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="qrtz_triggers">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="TRIGGER_NAME" />
+              <PropertyRef Name="TRIGGER_GROUP" />
+            </Principal>
+            <Dependent Role="qrtz_blob_triggers">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="TRIGGER_NAME" />
+              <PropertyRef Name="TRIGGER_GROUP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="qrtz_cron_triggers_ibfk_1">
+          <End Role="qrtz_triggers" Type="Self.qrtz_triggers" Multiplicity="1" />
+          <End Role="qrtz_cron_triggers" Type="Self.qrtz_cron_triggers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="qrtz_triggers">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="TRIGGER_NAME" />
+              <PropertyRef Name="TRIGGER_GROUP" />
+            </Principal>
+            <Dependent Role="qrtz_cron_triggers">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="TRIGGER_NAME" />
+              <PropertyRef Name="TRIGGER_GROUP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="qrtz_triggers_ibfk_1">
+          <End Role="qrtz_job_details" Type="Self.qrtz_job_details" Multiplicity="1" />
+          <End Role="qrtz_triggers" Type="Self.qrtz_triggers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qrtz_job_details">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="JOB_NAME" />
+              <PropertyRef Name="JOB_GROUP" />
+            </Principal>
+            <Dependent Role="qrtz_triggers">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="JOB_NAME" />
+              <PropertyRef Name="JOB_GROUP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="qrtz_simple_triggers_ibfk_1">
+          <End Role="qrtz_triggers" Type="Self.qrtz_triggers" Multiplicity="1" />
+          <End Role="qrtz_simple_triggers" Type="Self.qrtz_simple_triggers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="qrtz_triggers">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="TRIGGER_NAME" />
+              <PropertyRef Name="TRIGGER_GROUP" />
+            </Principal>
+            <Dependent Role="qrtz_simple_triggers">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="TRIGGER_NAME" />
+              <PropertyRef Name="TRIGGER_GROUP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="qrtz_simprop_triggers_ibfk_1">
+          <End Role="qrtz_triggers" Type="Self.qrtz_triggers" Multiplicity="1" />
+          <End Role="qrtz_simprop_triggers" Type="Self.qrtz_simprop_triggers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="qrtz_triggers">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="TRIGGER_NAME" />
+              <PropertyRef Name="TRIGGER_GROUP" />
+            </Principal>
+            <Dependent Role="qrtz_simprop_triggers">
+              <PropertyRef Name="SCHED_NAME" />
+              <PropertyRef Name="TRIGGER_NAME" />
+              <PropertyRef Name="TRIGGER_GROUP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bihu_analyticsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="qrtz_blob_triggers" EntityType="Self.qrtz_blob_triggers" />
+          <EntitySet Name="qrtz_calendars" EntityType="Self.qrtz_calendars" />
+          <EntitySet Name="qrtz_cron_triggers" EntityType="Self.qrtz_cron_triggers" />
+          <EntitySet Name="qrtz_fired_triggers" EntityType="Self.qrtz_fired_triggers" />
+          <EntitySet Name="qrtz_job_details" EntityType="Self.qrtz_job_details" />
+          <EntitySet Name="qrtz_locks" EntityType="Self.qrtz_locks" />
+          <EntitySet Name="qrtz_paused_trigger_grps" EntityType="Self.qrtz_paused_trigger_grps" />
+          <EntitySet Name="qrtz_scheduler_state" EntityType="Self.qrtz_scheduler_state" />
+          <EntitySet Name="qrtz_simple_triggers" EntityType="Self.qrtz_simple_triggers" />
+          <EntitySet Name="qrtz_simprop_triggers" EntityType="Self.qrtz_simprop_triggers" />
+          <EntitySet Name="qrtz_triggers" EntityType="Self.qrtz_triggers" />
+          <AssociationSet Name="qrtz_blob_triggers_ibfk_1" Association="Self.qrtz_blob_triggers_ibfk_1">
+            <End Role="qrtz_triggers" EntitySet="qrtz_triggers" />
+            <End Role="qrtz_blob_triggers" EntitySet="qrtz_blob_triggers" />
+          </AssociationSet>
+          <AssociationSet Name="qrtz_cron_triggers_ibfk_1" Association="Self.qrtz_cron_triggers_ibfk_1">
+            <End Role="qrtz_triggers" EntitySet="qrtz_triggers" />
+            <End Role="qrtz_cron_triggers" EntitySet="qrtz_cron_triggers" />
+          </AssociationSet>
+          <AssociationSet Name="qrtz_triggers_ibfk_1" Association="Self.qrtz_triggers_ibfk_1">
+            <End Role="qrtz_job_details" EntitySet="qrtz_job_details" />
+            <End Role="qrtz_triggers" EntitySet="qrtz_triggers" />
+          </AssociationSet>
+          <AssociationSet Name="qrtz_simple_triggers_ibfk_1" Association="Self.qrtz_simple_triggers_ibfk_1">
+            <End Role="qrtz_triggers" EntitySet="qrtz_triggers" />
+            <End Role="qrtz_simple_triggers" EntitySet="qrtz_simple_triggers" />
+          </AssociationSet>
+          <AssociationSet Name="qrtz_simprop_triggers_ibfk_1" Association="Self.qrtz_simprop_triggers_ibfk_1">
+            <End Role="qrtz_triggers" EntitySet="qrtz_triggers" />
+            <End Role="qrtz_simprop_triggers" EntitySet="qrtz_simprop_triggers" />
+          </AssociationSet>
+          <EntitySet Name="customer_quartzjobinfo" EntityType="bihu_analyticsModel.customer_quartzjobinfo" />
+        </EntityContainer>
+        <EntityType Name="customer_quartzjobinfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="JobGroupName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TriggerName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TriggerGroupName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Cron" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TriggerState" Type="Int32" Nullable="false" />
+          <Property Name="DLLName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FullJobName" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="Exception" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="RequestUrl" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="JobStartTime" Type="DateTime" />
+          <Property Name="PreTime" Type="DateTime" />
+          <Property Name="EndTime" Type="DateTime" />
+          <Property Name="NextTime" Type="DateTime" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bihu_analyticsModelStoreContainer" CdmEntityContainer="bihu_analyticsEntities">
+          <EntitySetMapping Name="qrtz_blob_triggers">
+            <EntityTypeMapping TypeName="bihu_analyticsModel.qrtz_blob_triggers">
+              <MappingFragment StoreEntitySet="qrtz_blob_triggers">
+                <ScalarProperty Name="SCHED_NAME" ColumnName="SCHED_NAME" />
+                <ScalarProperty Name="TRIGGER_NAME" ColumnName="TRIGGER_NAME" />
+                <ScalarProperty Name="TRIGGER_GROUP" ColumnName="TRIGGER_GROUP" />
+                <ScalarProperty Name="BLOB_DATA" ColumnName="BLOB_DATA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qrtz_calendars">
+            <EntityTypeMapping TypeName="bihu_analyticsModel.qrtz_calendars">
+              <MappingFragment StoreEntitySet="qrtz_calendars">
+                <ScalarProperty Name="SCHED_NAME" ColumnName="SCHED_NAME" />
+                <ScalarProperty Name="CALENDAR_NAME" ColumnName="CALENDAR_NAME" />
+                <ScalarProperty Name="CALENDAR" ColumnName="CALENDAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qrtz_cron_triggers">
+            <EntityTypeMapping TypeName="bihu_analyticsModel.qrtz_cron_triggers">
+              <MappingFragment StoreEntitySet="qrtz_cron_triggers">
+                <ScalarProperty Name="SCHED_NAME" ColumnName="SCHED_NAME" />
+                <ScalarProperty Name="TRIGGER_NAME" ColumnName="TRIGGER_NAME" />
+                <ScalarProperty Name="TRIGGER_GROUP" ColumnName="TRIGGER_GROUP" />
+                <ScalarProperty Name="CRON_EXPRESSION" ColumnName="CRON_EXPRESSION" />
+                <ScalarProperty Name="TIME_ZONE_ID" ColumnName="TIME_ZONE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qrtz_fired_triggers">
+            <EntityTypeMapping TypeName="bihu_analyticsModel.qrtz_fired_triggers">
+              <MappingFragment StoreEntitySet="qrtz_fired_triggers">
+                <ScalarProperty Name="SCHED_NAME" ColumnName="SCHED_NAME" />
+                <ScalarProperty Name="ENTRY_ID" ColumnName="ENTRY_ID" />
+                <ScalarProperty Name="TRIGGER_NAME" ColumnName="TRIGGER_NAME" />
+                <ScalarProperty Name="TRIGGER_GROUP" ColumnName="TRIGGER_GROUP" />
+                <ScalarProperty Name="INSTANCE_NAME" ColumnName="INSTANCE_NAME" />
+                <ScalarProperty Name="FIRED_TIME" ColumnName="FIRED_TIME" />
+                <ScalarProperty Name="SCHED_TIME" ColumnName="SCHED_TIME" />
+                <ScalarProperty Name="PRIORITY" ColumnName="PRIORITY" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="JOB_NAME" ColumnName="JOB_NAME" />
+                <ScalarProperty Name="JOB_GROUP" ColumnName="JOB_GROUP" />
+                <ScalarProperty Name="IS_NONCONCURRENT" ColumnName="IS_NONCONCURRENT" />
+                <ScalarProperty Name="REQUESTS_RECOVERY" ColumnName="REQUESTS_RECOVERY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qrtz_job_details">
+            <EntityTypeMapping TypeName="bihu_analyticsModel.qrtz_job_details">
+              <MappingFragment StoreEntitySet="qrtz_job_details">
+                <ScalarProperty Name="SCHED_NAME" ColumnName="SCHED_NAME" />
+                <ScalarProperty Name="JOB_NAME" ColumnName="JOB_NAME" />
+                <ScalarProperty Name="JOB_GROUP" ColumnName="JOB_GROUP" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="JOB_CLASS_NAME" ColumnName="JOB_CLASS_NAME" />
+                <ScalarProperty Name="IS_DURABLE" ColumnName="IS_DURABLE" />
+                <ScalarProperty Name="IS_NONCONCURRENT" ColumnName="IS_NONCONCURRENT" />
+                <ScalarProperty Name="IS_UPDATE_DATA" ColumnName="IS_UPDATE_DATA" />
+                <ScalarProperty Name="REQUESTS_RECOVERY" ColumnName="REQUESTS_RECOVERY" />
+                <ScalarProperty Name="JOB_DATA" ColumnName="JOB_DATA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qrtz_locks">
+            <EntityTypeMapping TypeName="bihu_analyticsModel.qrtz_locks">
+              <MappingFragment StoreEntitySet="qrtz_locks">
+                <ScalarProperty Name="SCHED_NAME" ColumnName="SCHED_NAME" />
+                <ScalarProperty Name="LOCK_NAME" ColumnName="LOCK_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qrtz_paused_trigger_grps">
+            <EntityTypeMapping TypeName="bihu_analyticsModel.qrtz_paused_trigger_grps">
+              <MappingFragment StoreEntitySet="qrtz_paused_trigger_grps">
+                <ScalarProperty Name="SCHED_NAME" ColumnName="SCHED_NAME" />
+                <ScalarProperty Name="TRIGGER_GROUP" ColumnName="TRIGGER_GROUP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qrtz_scheduler_state">
+            <EntityTypeMapping TypeName="bihu_analyticsModel.qrtz_scheduler_state">
+              <MappingFragment StoreEntitySet="qrtz_scheduler_state">
+                <ScalarProperty Name="SCHED_NAME" ColumnName="SCHED_NAME" />
+                <ScalarProperty Name="INSTANCE_NAME" ColumnName="INSTANCE_NAME" />
+                <ScalarProperty Name="LAST_CHECKIN_TIME" ColumnName="LAST_CHECKIN_TIME" />
+                <ScalarProperty Name="CHECKIN_INTERVAL" ColumnName="CHECKIN_INTERVAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qrtz_simple_triggers">
+            <EntityTypeMapping TypeName="bihu_analyticsModel.qrtz_simple_triggers">
+              <MappingFragment StoreEntitySet="qrtz_simple_triggers">
+                <ScalarProperty Name="SCHED_NAME" ColumnName="SCHED_NAME" />
+                <ScalarProperty Name="TRIGGER_NAME" ColumnName="TRIGGER_NAME" />
+                <ScalarProperty Name="TRIGGER_GROUP" ColumnName="TRIGGER_GROUP" />
+                <ScalarProperty Name="REPEAT_COUNT" ColumnName="REPEAT_COUNT" />
+                <ScalarProperty Name="REPEAT_INTERVAL" ColumnName="REPEAT_INTERVAL" />
+                <ScalarProperty Name="TIMES_TRIGGERED" ColumnName="TIMES_TRIGGERED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qrtz_simprop_triggers">
+            <EntityTypeMapping TypeName="bihu_analyticsModel.qrtz_simprop_triggers">
+              <MappingFragment StoreEntitySet="qrtz_simprop_triggers">
+                <ScalarProperty Name="SCHED_NAME" ColumnName="SCHED_NAME" />
+                <ScalarProperty Name="TRIGGER_NAME" ColumnName="TRIGGER_NAME" />
+                <ScalarProperty Name="TRIGGER_GROUP" ColumnName="TRIGGER_GROUP" />
+                <ScalarProperty Name="STR_PROP_1" ColumnName="STR_PROP_1" />
+                <ScalarProperty Name="STR_PROP_2" ColumnName="STR_PROP_2" />
+                <ScalarProperty Name="STR_PROP_3" ColumnName="STR_PROP_3" />
+                <ScalarProperty Name="INT_PROP_1" ColumnName="INT_PROP_1" />
+                <ScalarProperty Name="INT_PROP_2" ColumnName="INT_PROP_2" />
+                <ScalarProperty Name="LONG_PROP_1" ColumnName="LONG_PROP_1" />
+                <ScalarProperty Name="LONG_PROP_2" ColumnName="LONG_PROP_2" />
+                <ScalarProperty Name="DEC_PROP_1" ColumnName="DEC_PROP_1" />
+                <ScalarProperty Name="DEC_PROP_2" ColumnName="DEC_PROP_2" />
+                <ScalarProperty Name="BOOL_PROP_1" ColumnName="BOOL_PROP_1" />
+                <ScalarProperty Name="BOOL_PROP_2" ColumnName="BOOL_PROP_2" />
+                <ScalarProperty Name="TIME_ZONE_ID" ColumnName="TIME_ZONE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qrtz_triggers">
+            <EntityTypeMapping TypeName="bihu_analyticsModel.qrtz_triggers">
+              <MappingFragment StoreEntitySet="qrtz_triggers">
+                <ScalarProperty Name="SCHED_NAME" ColumnName="SCHED_NAME" />
+                <ScalarProperty Name="TRIGGER_NAME" ColumnName="TRIGGER_NAME" />
+                <ScalarProperty Name="TRIGGER_GROUP" ColumnName="TRIGGER_GROUP" />
+                <ScalarProperty Name="JOB_NAME" ColumnName="JOB_NAME" />
+                <ScalarProperty Name="JOB_GROUP" ColumnName="JOB_GROUP" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="NEXT_FIRE_TIME" ColumnName="NEXT_FIRE_TIME" />
+                <ScalarProperty Name="PREV_FIRE_TIME" ColumnName="PREV_FIRE_TIME" />
+                <ScalarProperty Name="PRIORITY" ColumnName="PRIORITY" />
+                <ScalarProperty Name="TRIGGER_STATE" ColumnName="TRIGGER_STATE" />
+                <ScalarProperty Name="TRIGGER_TYPE" ColumnName="TRIGGER_TYPE" />
+                <ScalarProperty Name="START_TIME" ColumnName="START_TIME" />
+                <ScalarProperty Name="END_TIME" ColumnName="END_TIME" />
+                <ScalarProperty Name="CALENDAR_NAME" ColumnName="CALENDAR_NAME" />
+                <ScalarProperty Name="MISFIRE_INSTR" ColumnName="MISFIRE_INSTR" />
+                <ScalarProperty Name="JOB_DATA" ColumnName="JOB_DATA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customer_quartzjobinfo">
+            <EntityTypeMapping TypeName="bihu_analyticsModel.customer_quartzjobinfo">
+              <MappingFragment StoreEntitySet="customer_quartzjobinfo">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="NextTime" ColumnName="NextTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="PreTime" ColumnName="PreTime" />
+                <ScalarProperty Name="JobStartTime" ColumnName="JobStartTime" />
+                <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="FullJobName" ColumnName="FullJobName" />
+                <ScalarProperty Name="DLLName" ColumnName="DLLName" />
+                <ScalarProperty Name="TriggerState" ColumnName="TriggerState" />
+                <ScalarProperty Name="Cron" ColumnName="Cron" />
+                <ScalarProperty Name="TriggerGroupName" ColumnName="TriggerGroupName" />
+                <ScalarProperty Name="TriggerName" ColumnName="TriggerName" />
+                <ScalarProperty Name="JobGroupName" ColumnName="JobGroupName" />
+                <ScalarProperty Name="JobName" ColumnName="JobName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
