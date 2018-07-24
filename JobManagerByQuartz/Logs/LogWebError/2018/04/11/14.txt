@@ -1,0 +1,75 @@
+
+ 
+记录时间：2018-04-11 14:16:20,174 
+线程ID:[5] 
+日志级别：  ERROR 
+错误描述：唯一编号：b6777b7658cc4733a64e257c853b0289
+                                请求地址：http://localhost:52044/JobManager/RunJob
+                                请求方式：POST
+                                请求参数：jobId=30
+                                返回内容：
+ 
+Autofac.Core.DependencyResolutionException: An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = JobCronTrigger (ReflectionActivator), Services = [JobCronTrigger (JobManager_Core.JobTriggerAbstract.JobBaseTrigger)], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = Shared, Ownership = OwnedByLifetimeScope ---> An exception was thrown while invoking the constructor 'Void .ctor()' on type 'JobCronTrigger'. ---> 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.5.19:564 (See inner exception for details.) (See inner exception for details.) ---> Autofac.Core.DependencyResolutionException: An exception was thrown while invoking the constructor 'Void .ctor()' on type 'JobCronTrigger'. ---> 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.5.19:564 (See inner exception for details.) ---> System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.5.19:564
+
+Server stack trace: 
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(EndPoint ipEndPoint)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 Quartz.Simpl.IRemotableQuartzScheduler.get_SchedulerName()
+   在 Quartz.Impl.RemoteScheduler.<get_SchedulerName>b__6(IRemotableQuartzScheduler x)
+   在 Quartz.Impl.RemoteScheduler.CallInGuard[T](Func`2 func)
+   在 Quartz.Impl.RemoteScheduler.get_SchedulerName()
+   在 Quartz.Impl.SchedulerRepository.Bind(IScheduler sched)
+   在 Quartz.Impl.StdSchedulerFactory.Instantiate()
+   在 Quartz.Impl.StdSchedulerFactory.GetScheduler()
+   在 JobManager_Core.JobCommon.SchedulerManager._getScheduler(String ip) 位置 E:\BiHuProjects\BiHuManBu_JobManagerByQuartz_3.0\JobManager_Core\JobCommon\SchedulerManager.cs:行号 43
+   在 JobManager_Core.JobCommon.SchedulerManager.get_Instance() 位置 E:\BiHuProjects\BiHuManBu_JobManagerByQuartz_3.0\JobManager_Core\JobCommon\SchedulerManager.cs:行号 28
+   在 JobManager_Core.JobTriggerImplements.JobCronTrigger..ctor() 位置 E:\BiHuProjects\BiHuManBu_JobManagerByQuartz_3.0\JobManager_Core\JobTriggerImplements\JobCronTrigger.cs:行号 15
+   在 lambda_method(Closure , Object[] )
+   在 Autofac.Core.Activators.Reflection.ConstructorParameterBinding.Instantiate()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Autofac.Core.Activators.Reflection.ConstructorParameterBinding.Instantiate()
+   在 Autofac.Core.Activators.Reflection.ReflectionActivator.ActivateInstance(IComponentContext context, IEnumerable`1 parameters)
+   在 Autofac.Core.Resolving.InstanceLookup.Activate(IEnumerable`1 parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Autofac.Core.Resolving.InstanceLookup.Activate(IEnumerable`1 parameters)
+   在 Autofac.Core.Resolving.InstanceLookup.<Execute>b__5_0()
+   在 Autofac.Core.Lifetime.LifetimeScope.GetOrCreateAndShare(Guid id, Func`1 creator)
+   在 Autofac.Core.Resolving.InstanceLookup.Execute()
+   在 Autofac.Core.Resolving.ResolveOperation.GetOrCreateInstance(ISharingLifetimeScope currentOperationScope, IComponentRegistration registration, IEnumerable`1 parameters)
+   在 Autofac.Core.Resolving.ResolveOperation.Execute(IComponentRegistration registration, IEnumerable`1 parameters)
+   在 Autofac.Core.Lifetime.LifetimeScope.ResolveComponent(IComponentRegistration registration, IEnumerable`1 parameters)
+   在 Autofac.ResolutionExtensions.TryResolveService(IComponentContext context, Service service, IEnumerable`1 parameters, Object& instance)
+   在 Autofac.ResolutionExtensions.ResolveService(IComponentContext context, Service service, IEnumerable`1 parameters)
+   在 Autofac.Features.Indexed.KeyedServiceIndex`2.get_Item(TKey key)
+   在 JobManagerByQuartz.CommonService.ServiceGetter.GetByKeyed[T,K](K serviceKey) 位置 E:\BiHuProjects\BiHuManBu_JobManagerByQuartz_3.0\JobManagerByQuartz\CommonService\ServiceGetter.cs:行号 18
+   在 JobManagerByQuartz.Controllers.JobManagerController._setSpecificTrigger(String triggerType) 位置 E:\BiHuProjects\BiHuManBu_JobManagerByQuartz_3.0\JobManagerByQuartz\Controllers\JobManagerController.cs:行号 193
+   在 JobManagerByQuartz.Controllers.JobManagerController._operateJob(Int32 jobId, Func`2 operateJobFunc) 位置 E:\BiHuProjects\BiHuManBu_JobManagerByQuartz_3.0\JobManagerByQuartz\Controllers\JobManagerController.cs:行号 178
+   在 JobManagerByQuartz.Controllers.JobManagerController.RunJob(Int32 jobId) 位置 E:\BiHuProjects\BiHuManBu_JobManagerByQuartz_3.0\JobManagerByQuartz\Controllers\JobManagerController.cs:行号 94
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)

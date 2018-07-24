@@ -25,6 +25,7 @@ namespace Quartz.Net_EFModel_MySql
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<customer_quartzjobinfo> customer_quartzjobinfo { get; set; }
         public DbSet<qrtz_blob_triggers> qrtz_blob_triggers { get; set; }
         public DbSet<qrtz_calendars> qrtz_calendars { get; set; }
         public DbSet<qrtz_cron_triggers> qrtz_cron_triggers { get; set; }
@@ -36,6 +37,5 @@ namespace Quartz.Net_EFModel_MySql
         public DbSet<qrtz_simple_triggers> qrtz_simple_triggers { get; set; }
         public DbSet<qrtz_simprop_triggers> qrtz_simprop_triggers { get; set; }
         public DbSet<qrtz_triggers> qrtz_triggers { get; set; }
-        public DbSet<customer_quartzjobinfo> customer_quartzjobinfo { get; set; }
     }
 }

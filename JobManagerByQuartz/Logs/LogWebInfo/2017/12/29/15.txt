@@ -1,0 +1,3344 @@
+
+ 
+记录时间：2017-12-29 15:40:43,571 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：dc70eafc813b4f668761d291d6695e75
+                                请求地址：http://localhost:52043/
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:40:44,300 
+线程ID:[7] 
+日志级别：  INFO  
+日志描述：唯一编号：d8f80a07b4604c4f9e2e3b95f284ec8d
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:40:45,941 
+线程ID:[7] 
+日志级别：  INFO  
+日志描述：唯一编号：d8f80a07b4604c4f9e2e3b95f284ec8d
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[],"TotalCount":0}}
+ 
+
+ 
+记录时间：2017-12-29 15:41:36,699 
+线程ID:[7] 
+日志级别：  INFO  
+日志描述：唯一编号：b7c69fe69b404faba4cc71befb6cd7af
+                                请求地址：http://localhost:52043/
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:41:37,381 
+线程ID:[7] 
+日志级别：  INFO  
+日志描述：唯一编号：60d412ce27814d669f4e84868ed86ffd
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:41:38,837 
+线程ID:[7] 
+日志级别：  INFO  
+日志描述：唯一编号：60d412ce27814d669f4e84868ed86ffd
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[],"TotalCount":0}}
+ 
+
+ 
+记录时间：2017-12-29 15:41:52,657 
+线程ID:[7] 
+日志级别：  INFO  
+日志描述：唯一编号：8ec186e3e19e45e6b0db4dbc1dd8035d
+                                请求地址：http://localhost:52043/JobManager/AddJob
+                                请求方式：POST
+                                请求参数：JobName=312312312&TriggerType=JobCronTrigger&JobDescription=eqweqweqw&RequestUrl=http://localhost:52043/JobManager/Test&CronJob[Cron]=0/15 * * * * ?
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:41:52,909 
+线程ID:[7] 
+日志级别：  INFO  
+日志描述：唯一编号：8ec186e3e19e45e6b0db4dbc1dd8035d
+                                请求地址：http://localhost:52043/JobManager/AddJob
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"添加成功","Data":29}
+ 
+
+ 
+记录时间：2017-12-29 15:41:52,926 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：035e3906df644b828b12524df709fa31
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=-1&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=-1&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:41:52,952 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：035e3906df644b828b12524df709fa31
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=-1&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"","NextTime":"","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:41:54,075 
+线程ID:[13] 
+日志级别：  INFO  
+日志描述：唯一编号：94e6b4d8eabe436dbc1447b2c8c3f01f
+                                请求地址：http://localhost:52043/JobManager/RunJob
+                                请求方式：POST
+                                请求参数：jobId=29
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:41:54,457 
+线程ID:[13] 
+日志级别：  INFO  
+日志描述：唯一编号：94e6b4d8eabe436dbc1447b2c8c3f01f
+                                请求地址：http://localhost:52043/JobManager/RunJob
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":{"Id":29,"JobName":"312312312","JobGroupName":"JobGroupNameFor_312312312","TriggerName":"TriggerNameFor_312312312","TriggerGroupName":"TriggerGroupNameFor_312312312","Cron":"0/15 * * * * ?","TriggerState":-1,"DLLName":"JobManager_Core.dll","FullJobName":"JobManager_Core.JobExcute.JobItem","Exception":null,"RequestUrl":"http://localhost:52043/JobManager/Test","JobStartTime":null,"PreTime":null,"EndTime":null,"NextTime":null,"Description":"eqweqweqw","Deleted":false,"CreateTime":"2017-12-29T15:41:53","Cycle":null,"RepeatCount":null,"TriggerType":"JobCronTrigger"}}
+ 
+
+ 
+记录时间：2017-12-29 15:41:54,477 
+线程ID:[13] 
+日志级别：  INFO  
+日志描述：唯一编号：23b1ebd441344325bb5b8e01c94ed297
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=-2&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=-2&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:41:54,486 
+线程ID:[13] 
+日志级别：  INFO  
+日志描述：唯一编号：23b1ebd441344325bb5b8e01c94ed297
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=-2&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[],"TotalCount":0}}
+ 
+
+ 
+记录时间：2017-12-29 15:41:54,709 
+线程ID:[7] 
+日志级别：  INFO  
+日志描述：唯一编号：07a58a546d3d48998b4e318637adacf9
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:41:54,817 
+线程ID:[7] 
+日志级别：  INFO  
+日志描述：唯一编号：07a58a546d3d48998b4e318637adacf9
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:41:56,214 
+线程ID:[7] 
+日志级别：  INFO  
+日志描述：唯一编号：d07d4a3af2ef4550990d7bc3bc8857b9
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=-2&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=-2&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:41:56,227 
+线程ID:[7] 
+日志级别：  INFO  
+日志描述：唯一编号：d07d4a3af2ef4550990d7bc3bc8857b9
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=-2&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"","NextTime":"","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:41:57,731 
+线程ID:[7] 
+日志级别：  INFO  
+日志描述：唯一编号：fb4b6c3b5bbd437398076f3b8fd45b49
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=-2&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=-2&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:41:57,741 
+线程ID:[7] 
+日志级别：  INFO  
+日志描述：唯一编号：fb4b6c3b5bbd437398076f3b8fd45b49
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=-2&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"","NextTime":"","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:42:33,317 
+线程ID:[11] 
+日志级别：  INFO  
+日志描述：唯一编号：1a28dee3931a4e67a646a323b829dd79
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:42:33,319 
+线程ID:[11] 
+日志级别：  INFO  
+日志描述：唯一编号：1a28dee3931a4e67a646a323b829dd79
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:43:16,384 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：b1ebb169d92a495c8bf50154609f125a
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:43:24,075 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：8cae3fc2bbf646a6afb46db4deee5038
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:43:24,076 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：8cae3fc2bbf646a6afb46db4deee5038
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:43:27,424 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：b1ebb169d92a495c8bf50154609f125a
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:43:28,396 
+线程ID:[18] 
+日志级别：  INFO  
+日志描述：唯一编号：d1d44c1a9d0648b39139040f31abdbe9
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:43:30,726 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：b1117c59289a45488f7761cb8dc95183
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:43:30,726 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：b1117c59289a45488f7761cb8dc95183
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:43:33,534 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：7affb05d49194a5da3a0abd28c1e280f
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:43:37,631 
+线程ID:[18] 
+日志级别：  INFO  
+日志描述：唯一编号：d1d44c1a9d0648b39139040f31abdbe9
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:43:37,632 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：45c93032acb04e82806e8ee3d510bce4
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:43:37,633 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：45c93032acb04e82806e8ee3d510bce4
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:43:43,318 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：7affb05d49194a5da3a0abd28c1e280f
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:43:43,321 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：4e73aaecfc8c446e8378fe81ad81f8e5
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:43:48,308 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：64648af96ea04f7bbed149aee6e5f035
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:43:48,309 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：64648af96ea04f7bbed149aee6e5f035
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:43:49,499 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：4e73aaecfc8c446e8378fe81ad81f8e5
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:43:51,204 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：2ee4aec1ca5c40cf8d71cb5f456ae78f
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:43:55,459 
+线程ID:[18] 
+日志级别：  INFO  
+日志描述：唯一编号：35b92612f64249f28030a3e0170e19f9
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:43:55,459 
+线程ID:[18] 
+日志级别：  INFO  
+日志描述：唯一编号：35b92612f64249f28030a3e0170e19f9
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:43:55,505 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：5cfd72ca76c84452be1fb6756f1dfe06
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:43:57,054 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：2ee4aec1ca5c40cf8d71cb5f456ae78f
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:43:57,167 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：5cfd72ca76c84452be1fb6756f1dfe06
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:44:02,824 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：680eabec968c49508daed0fbb2fbb81e
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:44:02,825 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：680eabec968c49508daed0fbb2fbb81e
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:44:04,262 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：150e373574744dd8bf731e3c1967cc69
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:44:18,718 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：150e373574744dd8bf731e3c1967cc69
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:44:18,733 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：8b5a3749a590431cb985e94ed77aaca8
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:44:18,734 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：8b5a3749a590431cb985e94ed77aaca8
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:44:20,566 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：59c7aae40f6d46fba4338657625d91f6
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:44:21,347 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：59c7aae40f6d46fba4338657625d91f6
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:44:32,448 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：6454603b8d5f4221bf2c5a63feaeda87
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:44:32,449 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：6454603b8d5f4221bf2c5a63feaeda87
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:44:34,053 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：a6613bd688e74d479e2cff905c282e3f
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:44:34,817 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：a6613bd688e74d479e2cff905c282e3f
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:44:52,336 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：32f895953a414053bcff70a1691ff0a4
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:44:52,338 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：32f895953a414053bcff70a1691ff0a4
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:44:59,009 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：42a5bb6425614dfba0c191b1decc11be
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:01,668 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：42a5bb6425614dfba0c191b1decc11be
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:45:01,688 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：203698dbbc8f49c4b91a1729abfdd98e
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:01,689 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：203698dbbc8f49c4b91a1729abfdd98e
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:45:01,747 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：77bdfdbf440b451a868170b2046da350
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:01,777 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：77bdfdbf440b451a868170b2046da350
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:45:11,005 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：7af4f08f70bd4f5bae386047e6605bdf
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:11,015 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：7af4f08f70bd4f5bae386047e6605bdf
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:45:00","NextTime":"2017-12-29 15:45:15","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:45:15,057 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：eefd2efc137a49c09b6435d9c5c384e6
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:15,058 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：3a5b74f70d194e78857e3f82a4fcc3a4
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:15,058 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：eefd2efc137a49c09b6435d9c5c384e6
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:45:15,140 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：3a5b74f70d194e78857e3f82a4fcc3a4
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:45:15,454 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：bb5c695782234aa38e8a312bfa99930e
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:15,464 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：bb5c695782234aa38e8a312bfa99930e
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:45:15","NextTime":"2017-12-29 15:45:30","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:45:16,475 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：641b64663c834c0e95ff15d929ef32c6
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:16,490 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：641b64663c834c0e95ff15d929ef32c6
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:45:15","NextTime":"2017-12-29 15:45:30","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:45:17,076 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：16324a27306e4acb8c6c74caedcc4a88
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:17,085 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：16324a27306e4acb8c6c74caedcc4a88
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:45:15","NextTime":"2017-12-29 15:45:30","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:45:17,597 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：5bafd9e7d4144982a013f32ee6d906bf
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:17,607 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：5bafd9e7d4144982a013f32ee6d906bf
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:45:15","NextTime":"2017-12-29 15:45:30","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:45:20,599 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：acbe1c4e81b347658871f6773e248dea
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:20,611 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：acbe1c4e81b347658871f6773e248dea
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:45:15","NextTime":"2017-12-29 15:45:30","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:45:21,316 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：0e914eb8d4cb44b2ae969be4d1b4f3dd
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:21,325 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：0e914eb8d4cb44b2ae969be4d1b4f3dd
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:45:15","NextTime":"2017-12-29 15:45:30","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:45:21,895 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：6bc2e5e867b34d5381f051936a839b8e
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:21,905 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：6bc2e5e867b34d5381f051936a839b8e
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:45:15","NextTime":"2017-12-29 15:45:30","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:45:22,851 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：4a585196e84f444588e295575ef1eac2
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:22,860 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：4a585196e84f444588e295575ef1eac2
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:45:15","NextTime":"2017-12-29 15:45:30","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:45:23,676 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：bca9b2c0d62d4afe859592f40c872b37
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:23,685 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：bca9b2c0d62d4afe859592f40c872b37
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:45:15","NextTime":"2017-12-29 15:45:30","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:45:24,214 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：7a8c6c6e7cc44015b271d74ce5986496
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:24,224 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：7a8c6c6e7cc44015b271d74ce5986496
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:45:15","NextTime":"2017-12-29 15:45:30","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:45:24,667 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：344b1f2ebe914500b61028eee9a87a8d
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:24,677 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：344b1f2ebe914500b61028eee9a87a8d
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:45:15","NextTime":"2017-12-29 15:45:30","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:45:24,939 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：efe676128ed348c38233f40a592df755
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:24,948 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：efe676128ed348c38233f40a592df755
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:45:15","NextTime":"2017-12-29 15:45:30","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:45:25,185 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：a05d94f777f648bb83b64f71e153a544
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:25,195 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：a05d94f777f648bb83b64f71e153a544
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:45:15","NextTime":"2017-12-29 15:45:30","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:45:30,055 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：1d5ee33d97ef440e8b6de00b164a56d5
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:30,056 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：1d5ee33d97ef440e8b6de00b164a56d5
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:45:30,055 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：53ea4ae5d1f44a90a55f1cdfd4357169
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:30,148 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：53ea4ae5d1f44a90a55f1cdfd4357169
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:45:45,052 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：d0209774498749e3aa672a95c6b33674
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:45,052 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：d0209774498749e3aa672a95c6b33674
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:45:45,052 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：222df541c5f44028bef709f579763559
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:45:45,163 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：222df541c5f44028bef709f579763559
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:46:00,050 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：c5b3e9231e2a418197fca467827340fa
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:46:00,051 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：54907f8d03a9437bb4b4ee6244d964db
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:46:00,051 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：c5b3e9231e2a418197fca467827340fa
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:46:00,127 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：54907f8d03a9437bb4b4ee6244d964db
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:46:15,041 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：65b88048351c44759ee3084824777d2d
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:46:15,042 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：65b88048351c44759ee3084824777d2d
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:46:15,041 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：ca70f766b58c4e8bb2a98808556f4254
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:46:15,142 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：ca70f766b58c4e8bb2a98808556f4254
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:46:30,055 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：22469e4efac64666935f44cd869df60c
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:46:30,056 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：22469e4efac64666935f44cd869df60c
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:46:30,056 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：71e1e6b4cf774d1a8b51eb9dfa39e6fb
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:46:30,148 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：71e1e6b4cf774d1a8b51eb9dfa39e6fb
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:46:40,983 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：a2cca10079fe46d890ef356e5e6956c4
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:46:40,993 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：a2cca10079fe46d890ef356e5e6956c4
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:46:30","NextTime":"2017-12-29 15:46:45","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:46:45,052 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：bd9fdb3984264eb5ada0821b331342b0
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:46:45,052 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：bdf7f233c64e49d2a5605ef72aff8f5e
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:46:45,052 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：bd9fdb3984264eb5ada0821b331342b0
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:46:45,154 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：bdf7f233c64e49d2a5605ef72aff8f5e
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:47:00,050 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：15677111ee3e4cbd95e1a4e9dc72d0b4
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:47:00,050 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：15677111ee3e4cbd95e1a4e9dc72d0b4
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:47:00,050 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：169ee61eb0894a6fa9f94c018bd2251d
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:47:00,143 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：169ee61eb0894a6fa9f94c018bd2251d
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:47:15,039 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：63871076716948b185fb565dfac6d496
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:47:15,040 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：63871076716948b185fb565dfac6d496
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:47:15,039 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：740eebf739884bc29784e6ab389b1414
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:47:15,125 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：740eebf739884bc29784e6ab389b1414
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:47:30,092 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：5d87ad9aaec145eca870d501df7d5a79
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:47:30,092 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：06c4ea2fb2b84cb6bc277de76ad41d42
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:47:30,092 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：5d87ad9aaec145eca870d501df7d5a79
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:47:30,189 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：06c4ea2fb2b84cb6bc277de76ad41d42
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:47:45,060 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：55a5d6537f5b44248e89fda29959b0a3
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:47:45,060 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：55a5d6537f5b44248e89fda29959b0a3
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:47:45,060 
+线程ID:[15] 
+日志级别：  INFO  
+日志描述：唯一编号：289df4a36b2449a99be9cccba0806281
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:47:45,146 
+线程ID:[15] 
+日志级别：  INFO  
+日志描述：唯一编号：289df4a36b2449a99be9cccba0806281
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:48:00,058 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：c8a2169132d8434898d6dd1fa0d4c9f4
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:48:00,059 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：c8a2169132d8434898d6dd1fa0d4c9f4
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:48:00,059 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：716f7589bcb948639296b664cc70e17d
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:48:00,144 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：716f7589bcb948639296b664cc70e17d
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:48:15,059 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：f201e90af77441d48d6c15cbfcda2212
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:48:15,060 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：f201e90af77441d48d6c15cbfcda2212
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:48:15,060 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：7aa5ad0e44bc4b64bbdfa7c70afdd353
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:48:15,163 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：7aa5ad0e44bc4b64bbdfa7c70afdd353
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:48:30,057 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：cdb5cdf733074d64b50c22ed318d7fdb
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:48:30,057 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：cdb5cdf733074d64b50c22ed318d7fdb
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:48:30,057 
+线程ID:[15] 
+日志级别：  INFO  
+日志描述：唯一编号：8d3ec9c69304495385722e5e5dc8ce50
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:48:30,157 
+线程ID:[15] 
+日志级别：  INFO  
+日志描述：唯一编号：8d3ec9c69304495385722e5e5dc8ce50
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:48:45,101 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：cdcb39e1942d440aacc4fc8d4b92e429
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:48:45,102 
+线程ID:[15] 
+日志级别：  INFO  
+日志描述：唯一编号：91010ad7ff10439183af0d9a30a79cc6
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:48:45,102 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：cdcb39e1942d440aacc4fc8d4b92e429
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:48:45,229 
+线程ID:[15] 
+日志级别：  INFO  
+日志描述：唯一编号：91010ad7ff10439183af0d9a30a79cc6
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:49:00,056 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：032b92b93a5c4bfbbd1217e461b45fde
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:49:00,057 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：032b92b93a5c4bfbbd1217e461b45fde
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:49:00,057 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：ba09736dfa5b4d59afbe6dcd4fafcb65
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:49:00,136 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：ba09736dfa5b4d59afbe6dcd4fafcb65
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:49:15,058 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：487b014eed12479abbda17ae222f83ff
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:49:15,059 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：8a73336e82ad40b6ac4dfa6ba9cdbe24
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:49:15,059 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：487b014eed12479abbda17ae222f83ff
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:49:15,166 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：8a73336e82ad40b6ac4dfa6ba9cdbe24
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:49:30,047 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：6ee35da51b5847f7acfa5fd95764f5d6
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:49:30,047 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：6ee35da51b5847f7acfa5fd95764f5d6
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:49:30,047 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：a64dde3623084f36adbb35f721193846
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:49:30,163 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：a64dde3623084f36adbb35f721193846
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:49:45,050 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：6dc84df71a01465485076bbbf80e3691
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:49:45,051 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：6dc84df71a01465485076bbbf80e3691
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:49:45,050 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：7df706a39d514e299769b492bb6cb288
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:49:45,122 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：7df706a39d514e299769b492bb6cb288
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:50:00,048 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：97b80a051e4f4cc688a30cc8bfdc48a6
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:50:00,049 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：97b80a051e4f4cc688a30cc8bfdc48a6
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:50:00,048 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：defcc48c2b1f4cbbbdfebcd9dc150b44
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:50:00,128 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：defcc48c2b1f4cbbbdfebcd9dc150b44
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:50:15,050 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：c9be0ff97bbd4b4688093e96c3896b10
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:50:15,051 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：c9be0ff97bbd4b4688093e96c3896b10
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:50:15,051 
+线程ID:[15] 
+日志级别：  INFO  
+日志描述：唯一编号：0fec2d9052ce40e5852e6b405e60e8e6
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:50:15,148 
+线程ID:[15] 
+日志级别：  INFO  
+日志描述：唯一编号：0fec2d9052ce40e5852e6b405e60e8e6
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:50:30,054 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：aac2c982bcc34c0fb04565b19534a019
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:50:30,054 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：aac2c982bcc34c0fb04565b19534a019
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:50:30,054 
+线程ID:[15] 
+日志级别：  INFO  
+日志描述：唯一编号：f5eb073ac3424b16949a9ce47ca167e3
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:50:30,209 
+线程ID:[15] 
+日志级别：  INFO  
+日志描述：唯一编号：f5eb073ac3424b16949a9ce47ca167e3
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:50:45,047 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：26b3c7a983264a0ab758bdf58dbfb7c5
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:50:45,047 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：26b3c7a983264a0ab758bdf58dbfb7c5
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:50:45,047 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：9401d8b84b554a18af500de337f7fed5
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:50:45,123 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：9401d8b84b554a18af500de337f7fed5
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:51:00,047 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：6843445a95eb483482f69ec4e2883191
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:51:00,048 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：6843445a95eb483482f69ec4e2883191
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:51:00,048 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：158acc85d9914564ad811169d69879e0
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:51:00,134 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：158acc85d9914564ad811169d69879e0
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:51:15,046 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：65fe6bd3f31d4777bf2dec60381ad2f7
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:51:15,046 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：316bda57dad14488b5508efe60541bc0
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:51:15,046 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：65fe6bd3f31d4777bf2dec60381ad2f7
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:51:15,123 
+线程ID:[17] 
+日志级别：  INFO  
+日志描述：唯一编号：316bda57dad14488b5508efe60541bc0
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:51:30,050 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：8ca8b76e6686491ea27350e1e10cb26f
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:51:30,050 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：8ca8b76e6686491ea27350e1e10cb26f
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:51:30,050 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：444f5f1a1b80427aaa28fc628e484034
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:51:30,154 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：444f5f1a1b80427aaa28fc628e484034
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:51:45,060 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：b605aeeaa2424b399c684db7c95ef9f7
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:51:45,061 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：b605aeeaa2424b399c684db7c95ef9f7
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:51:45,061 
+线程ID:[15] 
+日志级别：  INFO  
+日志描述：唯一编号：2211b48d6daf442e90cece03ae1b1da9
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:51:45,160 
+线程ID:[15] 
+日志级别：  INFO  
+日志描述：唯一编号：2211b48d6daf442e90cece03ae1b1da9
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:52:00,056 
+线程ID:[15] 
+日志级别：  INFO  
+日志描述：唯一编号：7be957ec905b4097bfa6a07d36b29e7b
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:52:00,056 
+线程ID:[15] 
+日志级别：  INFO  
+日志描述：唯一编号：7be957ec905b4097bfa6a07d36b29e7b
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:52:00,056 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：5eeab797fdc24b4c980822898300a8b2
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:52:00,141 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：5eeab797fdc24b4c980822898300a8b2
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:52:15,054 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：704f2c5d4f6d47538da63fcc9d53c31f
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:52:15,054 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：704f2c5d4f6d47538da63fcc9d53c31f
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:52:15,054 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：bb587dd95bc74a9f97da8b8f7358eb91
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:52:15,138 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：bb587dd95bc74a9f97da8b8f7358eb91
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:52:30,052 
+线程ID:[24] 
+日志级别：  INFO  
+日志描述：唯一编号：c6e2bce9c3344b468d5db4f3b17148e4
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:52:30,052 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：df5331cf7c024a63b5f42190ce061b52
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:52:30,053 
+线程ID:[24] 
+日志级别：  INFO  
+日志描述：唯一编号：c6e2bce9c3344b468d5db4f3b17148e4
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:52:30,262 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：df5331cf7c024a63b5f42190ce061b52
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:52:45,059 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：3e75654593104bf1b21c29da0e4b0b4a
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:52:45,059 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：3e75654593104bf1b21c29da0e4b0b4a
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:52:45,060 
+线程ID:[24] 
+日志级别：  INFO  
+日志描述：唯一编号：b47a539aa915452abb25e7fe6669f8ef
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:52:45,160 
+线程ID:[24] 
+日志级别：  INFO  
+日志描述：唯一编号：b47a539aa915452abb25e7fe6669f8ef
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:53:00,049 
+线程ID:[24] 
+日志级别：  INFO  
+日志描述：唯一编号：7c644c0c57a24b82a61fb0d919763789
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:53:00,049 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：4ececc0bf34c4a8dab651a59454a182f
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:53:00,049 
+线程ID:[24] 
+日志级别：  INFO  
+日志描述：唯一编号：7c644c0c57a24b82a61fb0d919763789
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:53:00,149 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：4ececc0bf34c4a8dab651a59454a182f
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:53:15,045 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：360a4df126354201a0fe6c328b096a68
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:53:15,046 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：360a4df126354201a0fe6c328b096a68
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:53:15,046 
+线程ID:[15] 
+日志级别：  INFO  
+日志描述：唯一编号：aac6288db7ec49a2a8a7f48aa52d55d6
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:53:15,146 
+线程ID:[15] 
+日志级别：  INFO  
+日志描述：唯一编号：aac6288db7ec49a2a8a7f48aa52d55d6
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:53:30,051 
+线程ID:[24] 
+日志级别：  INFO  
+日志描述：唯一编号：9d3e2e6faa9242aa9062d3f7d4a4b2ab
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:53:30,051 
+线程ID:[24] 
+日志级别：  INFO  
+日志描述：唯一编号：9d3e2e6faa9242aa9062d3f7d4a4b2ab
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:53:30,051 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：fdd3264f3d8b425a803ea2a19d8472e1
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:53:30,152 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：fdd3264f3d8b425a803ea2a19d8472e1
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:53:45,058 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：10a88974fcf24f499c4af45b5e9f2c57
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:53:45,059 
+线程ID:[19] 
+日志级别：  INFO  
+日志描述：唯一编号：06d49d56790a4282a3aca547336448bc
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:53:45,059 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：10a88974fcf24f499c4af45b5e9f2c57
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:53:45,158 
+线程ID:[19] 
+日志级别：  INFO  
+日志描述：唯一编号：06d49d56790a4282a3aca547336448bc
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:53:55,484 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：7dcc74b99ea44940b65d20ed3c0b74b3
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:53:55,494 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：7dcc74b99ea44940b65d20ed3c0b74b3
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:53:45","NextTime":"2017-12-29 15:54:00","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:54:00,050 
+线程ID:[25] 
+日志级别：  INFO  
+日志描述：唯一编号：e3a43c74305846c28ee643f58fc30ca7
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:54:00,051 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：5390bed0c969405fb693d5edd791a56a
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:54:00,051 
+线程ID:[25] 
+日志级别：  INFO  
+日志描述：唯一编号：e3a43c74305846c28ee643f58fc30ca7
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:54:00,149 
+线程ID:[12] 
+日志级别：  INFO  
+日志描述：唯一编号：5390bed0c969405fb693d5edd791a56a
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:54:15,053 
+线程ID:[25] 
+日志级别：  INFO  
+日志描述：唯一编号：3c2d3231b44c49ceb079d8f093604bf6
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:54:15,053 
+线程ID:[25] 
+日志级别：  INFO  
+日志描述：唯一编号：3c2d3231b44c49ceb079d8f093604bf6
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:54:15,053 
+线程ID:[19] 
+日志级别：  INFO  
+日志描述：唯一编号：ce58692fcb024c77b517ac5662591166
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:54:15,180 
+线程ID:[19] 
+日志级别：  INFO  
+日志描述：唯一编号：ce58692fcb024c77b517ac5662591166
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:54:30,051 
+线程ID:[22] 
+日志级别：  INFO  
+日志描述：唯一编号：7a6b0c764ea5437aa72e6ebf2c6f389b
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:54:30,052 
+线程ID:[22] 
+日志级别：  INFO  
+日志描述：唯一编号：7a6b0c764ea5437aa72e6ebf2c6f389b
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:54:30,052 
+线程ID:[25] 
+日志级别：  INFO  
+日志描述：唯一编号：eb3568a2d7d243738b88276ed41931d3
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:54:30,177 
+线程ID:[25] 
+日志级别：  INFO  
+日志描述：唯一编号：eb3568a2d7d243738b88276ed41931d3
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:54:45,060 
+线程ID:[25] 
+日志级别：  INFO  
+日志描述：唯一编号：8d9962944a114491aea9058f1f4c4184
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:54:45,060 
+线程ID:[21] 
+日志级别：  INFO  
+日志描述：唯一编号：8aec852fed4f4aa788d0979d24d9183e
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:54:45,061 
+线程ID:[25] 
+日志级别：  INFO  
+日志描述：唯一编号：8d9962944a114491aea9058f1f4c4184
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:54:45,143 
+线程ID:[21] 
+日志级别：  INFO  
+日志描述：唯一编号：8aec852fed4f4aa788d0979d24d9183e
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:55:00,055 
+线程ID:[25] 
+日志级别：  INFO  
+日志描述：唯一编号：efe6653e59ec40b29cb3217ed4ae1025
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:55:00,056 
+线程ID:[25] 
+日志级别：  INFO  
+日志描述：唯一编号：efe6653e59ec40b29cb3217ed4ae1025
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:55:00,056 
+线程ID:[19] 
+日志级别：  INFO  
+日志描述：唯一编号：06f8f8e94b60482f8cbcbe5281df5770
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:55:00,148 
+线程ID:[19] 
+日志级别：  INFO  
+日志描述：唯一编号：06f8f8e94b60482f8cbcbe5281df5770
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:55:15,053 
+线程ID:[25] 
+日志级别：  INFO  
+日志描述：唯一编号：064852540ed64035a4096763b1166846
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:55:15,053 
+线程ID:[25] 
+日志级别：  INFO  
+日志描述：唯一编号：064852540ed64035a4096763b1166846
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:55:15,053 
+线程ID:[19] 
+日志级别：  INFO  
+日志描述：唯一编号：733784dba61b4ecc80502d908cd7c24b
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:55:15,154 
+线程ID:[19] 
+日志级别：  INFO  
+日志描述：唯一编号：733784dba61b4ecc80502d908cd7c24b
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:55:30,049 
+线程ID:[21] 
+日志级别：  INFO  
+日志描述：唯一编号：9bd41167016f4733bfba9c8e6ae311e2
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:55:30,050 
+线程ID:[21] 
+日志级别：  INFO  
+日志描述：唯一编号：9bd41167016f4733bfba9c8e6ae311e2
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:55:30,050 
+线程ID:[25] 
+日志级别：  INFO  
+日志描述：唯一编号：372d5d5dedf841069ea6bab68fb2fe8c
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:55:30,152 
+线程ID:[25] 
+日志级别：  INFO  
+日志描述：唯一编号：372d5d5dedf841069ea6bab68fb2fe8c
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:55:45,060 
+线程ID:[25] 
+日志级别：  INFO  
+日志描述：唯一编号：a4aec771cb884ea1a7e5a2e5802f8c3b
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:55:45,060 
+线程ID:[25] 
+日志级别：  INFO  
+日志描述：唯一编号：a4aec771cb884ea1a7e5a2e5802f8c3b
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:55:45,060 
+线程ID:[19] 
+日志级别：  INFO  
+日志描述：唯一编号：51ce4a9f669a416490a56814aa8d16c9
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:55:45,183 
+线程ID:[19] 
+日志级别：  INFO  
+日志描述：唯一编号：51ce4a9f669a416490a56814aa8d16c9
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:56:00,057 
+线程ID:[21] 
+日志级别：  INFO  
+日志描述：唯一编号：4af083ced36b4adcb91b4f70b9467bdb
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:56:00,058 
+线程ID:[21] 
+日志级别：  INFO  
+日志描述：唯一编号：4af083ced36b4adcb91b4f70b9467bdb
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:56:00,142 
+线程ID:[13] 
+日志级别：  INFO  
+日志描述：唯一编号：cbef37954f7541fabb79f9dc41378d93
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:56:00,181 
+线程ID:[13] 
+日志级别：  INFO  
+日志描述：唯一编号：cbef37954f7541fabb79f9dc41378d93
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:56:13,050 
+线程ID:[21] 
+日志级别：  INFO  
+日志描述：唯一编号：5a51ba7174044afe824096c7c33d93ca
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:56:13,059 
+线程ID:[21] 
+日志级别：  INFO  
+日志描述：唯一编号：5a51ba7174044afe824096c7c33d93ca
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:56:00","NextTime":"2017-12-29 15:56:15","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:56:13,816 
+线程ID:[18] 
+日志级别：  INFO  
+日志描述：唯一编号：bbecb3cd25a74098b9ba060a5388429f
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:56:13,825 
+线程ID:[18] 
+日志级别：  INFO  
+日志描述：唯一编号：bbecb3cd25a74098b9ba060a5388429f
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:56:00","NextTime":"2017-12-29 15:56:15","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:56:14,253 
+线程ID:[22] 
+日志级别：  INFO  
+日志描述：唯一编号：b7a3dd1440c04a91919ead48416d7b27
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:56:14,263 
+线程ID:[22] 
+日志级别：  INFO  
+日志描述：唯一编号：b7a3dd1440c04a91919ead48416d7b27
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:56:00","NextTime":"2017-12-29 15:56:15","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:56:14,426 
+线程ID:[18] 
+日志级别：  INFO  
+日志描述：唯一编号：31e68873e15f443bb0c92fba4dffd20a
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:56:14,436 
+线程ID:[18] 
+日志级别：  INFO  
+日志描述：唯一编号：31e68873e15f443bb0c92fba4dffd20a
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:56:00","NextTime":"2017-12-29 15:56:15","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:56:14,562 
+线程ID:[22] 
+日志级别：  INFO  
+日志描述：唯一编号：e147eb4468e84fb8beb3674531f81de9
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:56:14,571 
+线程ID:[22] 
+日志级别：  INFO  
+日志描述：唯一编号：e147eb4468e84fb8beb3674531f81de9
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:56:00","NextTime":"2017-12-29 15:56:15","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:56:14,666 
+线程ID:[18] 
+日志级别：  INFO  
+日志描述：唯一编号：d7268569f85240958b1479caaad56cc1
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:56:14,675 
+线程ID:[18] 
+日志级别：  INFO  
+日志描述：唯一编号：d7268569f85240958b1479caaad56cc1
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:56:00","NextTime":"2017-12-29 15:56:15","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2017-12-29 15:56:15,046 
+线程ID:[22] 
+日志级别：  INFO  
+日志描述：唯一编号：53dacb99ba0140bcb92ec966259b370e
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:56:15,047 
+线程ID:[22] 
+日志级别：  INFO  
+日志描述：唯一编号：53dacb99ba0140bcb92ec966259b370e
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:56:15,047 
+线程ID:[21] 
+日志级别：  INFO  
+日志描述：唯一编号：85acc0a1adfb4c9b85df5e456f302b1d
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:56:15,162 
+线程ID:[21] 
+日志级别：  INFO  
+日志描述：唯一编号：85acc0a1adfb4c9b85df5e456f302b1d
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:56:30,033 
+线程ID:[18] 
+日志级别：  INFO  
+日志描述：唯一编号：a5d944a864ae46fb9a619fd2a231b4ce
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:56:30,033 
+线程ID:[21] 
+日志级别：  INFO  
+日志描述：唯一编号：1ba8f2c7bf1d4097874122a71e9a2c30
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:56:30,033 
+线程ID:[18] 
+日志级别：  INFO  
+日志描述：唯一编号：a5d944a864ae46fb9a619fd2a231b4ce
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:56:30,126 
+线程ID:[21] 
+日志级别：  INFO  
+日志描述：唯一编号：1ba8f2c7bf1d4097874122a71e9a2c30
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:56:45,053 
+线程ID:[21] 
+日志级别：  INFO  
+日志描述：唯一编号：a4a5b669cc65451d91c311f8e678c6cf
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:56:45,054 
+线程ID:[21] 
+日志级别：  INFO  
+日志描述：唯一编号：a4a5b669cc65451d91c311f8e678c6cf
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:56:45,053 
+线程ID:[22] 
+日志级别：  INFO  
+日志描述：唯一编号：fd4802d673114b4788aea9948cf34ccd
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:56:45,149 
+线程ID:[22] 
+日志级别：  INFO  
+日志描述：唯一编号：fd4802d673114b4788aea9948cf34ccd
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:57:00,051 
+线程ID:[18] 
+日志级别：  INFO  
+日志描述：唯一编号：64cc6fa79e324d14895a09f97bea541f
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:57:00,052 
+线程ID:[18] 
+日志级别：  INFO  
+日志描述：唯一编号：64cc6fa79e324d14895a09f97bea541f
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:57:00,051 
+线程ID:[21] 
+日志级别：  INFO  
+日志描述：唯一编号：bc9f6097eec144e697f8addcff6c70ca
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:57:00,147 
+线程ID:[21] 
+日志级别：  INFO  
+日志描述：唯一编号：bc9f6097eec144e697f8addcff6c70ca
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 
+
+ 
+记录时间：2017-12-29 15:57:15,064 
+线程ID:[21] 
+日志级别：  INFO  
+日志描述：唯一编号：01e55c58d3ff4adcb7b399a0c8941e11
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:57:15,065 
+线程ID:[22] 
+日志级别：  INFO  
+日志描述：唯一编号：e4e7fe596d564d3892c41df728e070a8
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-29 15:57:15,065 
+线程ID:[21] 
+日志级别：  INFO  
+日志描述：唯一编号：01e55c58d3ff4adcb7b399a0c8941e11
+                                请求地址：http://localhost:52043/JobManager/Test
+                                请求方式：GET
+                                请求参数：
+                                返回内容：""
+ 
+
+ 
+记录时间：2017-12-29 15:57:15,157 
+线程ID:[22] 
+日志级别：  INFO  
+日志描述：唯一编号：e4e7fe596d564d3892c41df728e070a8
+                                请求地址：http://localhost:52043/JobManager/UpdateJobInfo
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"操作成功","Data":0}
+ 

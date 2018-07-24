@@ -5,23 +5,23 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="82b1e8e299624fedb94c1e0df5cd51a8" Name="Diagram1">
-        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_blob_triggers" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_calendars" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_cron_triggers" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_fired_triggers" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_job_details" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_locks" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_paused_trigger_grps" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_scheduler_state" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_simple_triggers" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_simprop_triggers" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_triggers" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
-        <AssociationConnector Association="bihu_analyticsModel.qrtz_blob_triggers_ibfk_1" ManuallyRouted="false" />
-        <AssociationConnector Association="bihu_analyticsModel.qrtz_cron_triggers_ibfk_1" ManuallyRouted="false" />
-        <AssociationConnector Association="bihu_analyticsModel.qrtz_triggers_ibfk_1" ManuallyRouted="false" />
-        <AssociationConnector Association="bihu_analyticsModel.qrtz_simple_triggers_ibfk_1" ManuallyRouted="false" />
-        <AssociationConnector Association="bihu_analyticsModel.qrtz_simprop_triggers_ibfk_1" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="bihu_analyticsModel.customer_quartzjobinfo" Width="1.5" PointX="10.375" PointY="9.75" />
+        <EntityTypeShape EntityType="bihu_analyticsModel.customer_quartzjobinfo" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_blob_triggers" Width="1.5" PointX="5.25" PointY="4.5" />
+        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_calendars" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_cron_triggers" Width="1.5" PointX="5.25" PointY="7.125" />
+        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_fired_triggers" Width="1.5" PointX="7.75" PointY="6.75" />
+        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_job_details" Width="1.5" PointX="0.75" PointY="6.25" />
+        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_locks" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_paused_trigger_grps" Width="1.5" PointX="9.75" PointY="3.75" />
+        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_scheduler_state" Width="1.5" PointX="9.75" PointY="6.75" />
+        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_simple_triggers" Width="1.5" PointX="5.25" PointY="1.5" />
+        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_simprop_triggers" Width="1.5" PointX="5.25" PointY="10" />
+        <EntityTypeShape EntityType="bihu_analyticsModel.qrtz_triggers" Width="1.5" PointX="3" PointY="5.25" />
+        <AssociationConnector Association="bihu_analyticsModel.qrtz_blob_triggers_ibfk_1" />
+        <AssociationConnector Association="bihu_analyticsModel.qrtz_cron_triggers_ibfk_1" />
+        <AssociationConnector Association="bihu_analyticsModel.qrtz_triggers_ibfk_1" />
+        <AssociationConnector Association="bihu_analyticsModel.qrtz_simple_triggers_ibfk_1" />
+        <AssociationConnector Association="bihu_analyticsModel.qrtz_simprop_triggers_ibfk_1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

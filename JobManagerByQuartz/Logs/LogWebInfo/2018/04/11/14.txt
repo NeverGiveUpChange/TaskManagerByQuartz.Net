@@ -1,0 +1,418 @@
+
+ 
+记录时间：2018-04-11 14:06:08,750 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：f5cf1a83f0914ea1b32037090edad9d5
+                                请求地址：http://localhost:52043/
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:12:27,735 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：54c828589d23424aa8ca901870a3c302
+                                请求地址：http://localhost:52044/
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:12:29,529 
+线程ID:[7] 
+日志级别：  INFO  
+日志描述：唯一编号：30f14141b27242cc99a7f0a34473272a
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:13:12,660 
+线程ID:[7] 
+日志级别：  INFO  
+日志描述：唯一编号：30f14141b27242cc99a7f0a34473272a
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:57:15","NextTime":"2017-12-29 15:57:30","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2018-04-11 14:13:25,814 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：9e974c0fa7584df29a2759fdf5599eb9
+                                请求地址：http://localhost:52044/JobManager/AddJob
+                                请求方式：POST
+                                请求参数：JobName=1312312312&TriggerType=JobCronTrigger&JobDescription=1231231231&RequestUrl=13123123&CronJob[Cron]=* * * * * ?
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:13:28,948 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：9e974c0fa7584df29a2759fdf5599eb9
+                                请求地址：http://localhost:52044/JobManager/AddJob
+                                请求方式：POST
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"添加成功","Data":30}
+ 
+
+ 
+记录时间：2018-04-11 14:13:28,974 
+线程ID:[7] 
+日志级别：  INFO  
+日志描述：唯一编号：30033242188341a2af5292febba30806
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=-1&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=-1&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:13:30,941 
+线程ID:[7] 
+日志级别：  INFO  
+日志描述：唯一编号：30033242188341a2af5292febba30806
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=-1&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":30,"JobName":"1312312312","TriggerType":"复杂任务","Description":"1231231231","Cron":"* * * * * ?","PreTime":"","NextTime":"","JobStartTime":"","CreateTime":"2018-04-11 14:13:29","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2018-04-11 14:13:42,794 
+线程ID:[14] 
+日志级别：  INFO  
+日志描述：唯一编号：7fa28fee9b5042129674f816ab7b5e9d
+                                请求地址：http://localhost:52044/JobManager/RunJob
+                                请求方式：POST
+                                请求参数：jobId=30
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:14:05,603 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：d252463129f1445d9a5a9aa8434fe08e
+                                请求地址：http://localhost:52044/JobManager/RunJob
+                                请求方式：POST
+                                请求参数：jobId=30
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:14:48,137 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：8d1120411899460fa8706a03341c8cb1
+                                请求地址：http://localhost:52044/
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:14:48,920 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：2722f1228c2547d6891a876450e172fa
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:15:01,925 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：2722f1228c2547d6891a876450e172fa
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:57:15","NextTime":"2017-12-29 15:57:30","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2018-04-11 14:15:09,768 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：494bfa0ffb154faba929f58d4cd31c8c
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=-1&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=-1&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:15:11,404 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：494bfa0ffb154faba929f58d4cd31c8c
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=-1&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":30,"JobName":"1312312312","TriggerType":"复杂任务","Description":"1231231231","Cron":"* * * * * ?","PreTime":"","NextTime":"","JobStartTime":"","CreateTime":"2018-04-11 14:13:29","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2018-04-11 14:15:13,628 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：b6777b7658cc4733a64e257c853b0289
+                                请求地址：http://localhost:52044/JobManager/RunJob
+                                请求方式：POST
+                                请求参数：jobId=30
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:16:20,354 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：4e0e43720d334b88a7a8fccf723b4d54
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=-2&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=-2&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:16:21,703 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：4e0e43720d334b88a7a8fccf723b4d54
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=-2&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[],"TotalCount":0}}
+ 
+
+ 
+记录时间：2018-04-11 14:21:05,019 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：e1da3322e1ee4c3cbb9c3b701b723caf
+                                请求地址：http://localhost:52044/
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:21:05,914 
+线程ID:[10] 
+日志级别：  INFO  
+日志描述：唯一编号：1caff5362286483f8f9d56ec23a366f6
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:21:10,944 
+线程ID:[10] 
+日志级别：  INFO  
+日志描述：唯一编号：1caff5362286483f8f9d56ec23a366f6
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:57:15","NextTime":"2017-12-29 15:57:30","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2018-04-11 14:21:11,005 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：b0a8223a978b43128479b20d61da49ea
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=-1&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=-1&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:21:12,986 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：b0a8223a978b43128479b20d61da49ea
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=-1&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":30,"JobName":"1312312312","TriggerType":"复杂任务","Description":"1231231231","Cron":"* * * * * ?","PreTime":"","NextTime":"","JobStartTime":"","CreateTime":"2018-04-11 14:13:29","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2018-04-11 14:21:15,465 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：93941f661fdd4b9ca4ac1014557f6e76
+                                请求地址：http://localhost:52044/JobManager/RunJob
+                                请求方式：POST
+                                请求参数：jobId=30
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:33:49,983 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：bcccd40cc8124949956440fa3df0f6bf
+                                请求地址：http://localhost:52044/
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:33:51,740 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：dccc50acb6c3464292a3c2a01c56a2ea
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:34:02,300 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：dccc50acb6c3464292a3c2a01c56a2ea
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:57:15","NextTime":"2017-12-29 15:57:30","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2018-04-11 14:34:06,961 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：b4b5f53553fe4493b5c646ef1a861f28
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=-2&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=-2&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:34:09,321 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：b4b5f53553fe4493b5c646ef1a861f28
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=-2&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[],"TotalCount":0}}
+ 
+
+ 
+记录时间：2018-04-11 14:34:11,331 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：46ce190c4e804bd99918d2b168a94aa2
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=-1&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=-1&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:34:13,707 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：46ce190c4e804bd99918d2b168a94aa2
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=-1&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":30,"JobName":"1312312312","TriggerType":"复杂任务","Description":"1231231231","Cron":"* * * * * ?","PreTime":"","NextTime":"","JobStartTime":"","CreateTime":"2018-04-11 14:13:29","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2018-04-11 14:34:15,669 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：a26bb46307e54186a4ee2ca501ad991c
+                                请求地址：http://localhost:52044/JobManager/RunJob
+                                请求方式：POST
+                                请求参数：jobId=30
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:42:09,904 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：449e21a4a4b64fe5ac2d06facadf8e8d
+                                请求地址：http://localhost:52044/
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:42:11,314 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：15ecd7e4644c440f9340f1165d3cb3ef
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:42:16,854 
+线程ID:[8] 
+日志级别：  INFO  
+日志描述：唯一编号：15ecd7e4644c440f9340f1165d3cb3ef
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":29,"JobName":"312312312","TriggerType":"复杂任务","Description":"eqweqweqw","Cron":"0/15 * * * * ?","PreTime":"2017-12-29 15:57:15","NextTime":"2017-12-29 15:57:30","JobStartTime":"","CreateTime":"2017-12-29 15:41:53","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2018-04-11 14:42:20,216 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：9bf4ba773cac43299329b121b8a1d3f9
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=-1&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=-1&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2018-04-11 14:42:25,860 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：9bf4ba773cac43299329b121b8a1d3f9
+                                请求地址：http://localhost:52044/JobManager/GetJobList?jobStatus=-1&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[{"Id":30,"JobName":"1312312312","TriggerType":"复杂任务","Description":"1231231231","Cron":"* * * * * ?","PreTime":"","NextTime":"","JobStartTime":"","CreateTime":"2018-04-11 14:13:29","Exception":null}],"TotalCount":1}}
+ 
+
+ 
+记录时间：2018-04-11 14:42:28,198 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：3e1578ff8af44963848070e6a988b033
+                                请求地址：http://localhost:52044/JobManager/RunJob
+                                请求方式：POST
+                                请求参数：jobId=30
+                                返回内容：
+ 

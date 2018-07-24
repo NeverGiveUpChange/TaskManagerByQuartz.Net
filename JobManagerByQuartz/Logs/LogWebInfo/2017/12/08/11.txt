@@ -1,0 +1,33 @@
+
+ 
+记录时间：2017-12-08 11:00:28,018 
+线程ID:[5] 
+日志级别：  INFO  
+日志描述：唯一编号：7648dbbc7fd64fb89f6511b9f8d87fee
+                                请求地址：http://localhost:52043/
+                                请求方式：GET
+                                请求参数：
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-08 11:00:29,676 
+线程ID:[7] 
+日志级别：  INFO  
+日志描述：唯一编号：294672572eb14edfaab3ca63cd1be89d
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：jobStatus=6&pageIndex=1&pageSize=5
+                                返回内容：
+ 
+
+ 
+记录时间：2017-12-08 11:00:31,349 
+线程ID:[7] 
+日志级别：  INFO  
+日志描述：唯一编号：294672572eb14edfaab3ca63cd1be89d
+                                请求地址：http://localhost:52043/JobManager/GetJobList?jobStatus=6&pageIndex=1&pageSize=5
+                                请求方式：GET
+                                请求参数：
+                                返回内容：{"StausCode":"1","Message":"获取成功","Data":{"JobList":[],"TotalCount":0}}
+ 

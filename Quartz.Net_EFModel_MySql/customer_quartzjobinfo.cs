@@ -32,5 +32,8 @@ namespace Quartz.Net_EFModel_MySql
         public string Description { get; set; }
         public bool Deleted { get; set; }
         public System.DateTime CreateTime { get; set; }
+        public Nullable<int> Cycle { get; set; }
+        public Nullable<int> RepeatCount { get; set; }
+        public string TriggerType { get; set; }
     }
 }

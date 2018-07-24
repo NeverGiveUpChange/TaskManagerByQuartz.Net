@@ -33,23 +33,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Common.Logging">
-      <HintPath>..\..\..\BiHuWalkingNew\Lib\Quartz.NetManageProject\Quartz.Net\Common.Logging.dll</HintPath>
+      <HintPath>..\Lib\Quartz\Common.Logging.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging.Core">
-      <HintPath>..\..\..\BiHuWalkingNew\Lib\Quartz.NetManageProject\Quartz.Net\Common.Logging.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\Lib\Quartz\Common.Logging.Core.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MySql.Data.6.5.4\lib\net40\MySql.Data.dll</HintPath>
+      <HintPath>..\Lib\Mysql\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="Quartz">
-      <HintPath>..\..\..\BiHuWalkingNew\Lib\Quartz.NetManageProject\Quartz.Net\Quartz.dll</HintPath>
+      <HintPath>..\Lib\Quartz\Quartz.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -57,16 +55,36 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="Topshelf">
+      <HintPath>..\Lib\Quartz\Topshelf.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyJobListener.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="Events\Observer.cs" />
+    <Compile Include="Events\ObserverBase.cs" />
+    <Compile Include="Events\SubjectBase.cs" />
+    <Compile Include="Listeners\MyJobListener.cs" />
+    <Compile Include="Listeners\MySchedulerListener.cs" />
+    <Compile Include="Listeners\MyTriggerListener.cs" />
+    <Compile Include="Models\JobExcutedCallBackModel.cs" />
+    <Compile Include="Models\SchedulerExecutedCallBackModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuartzServer.cs" />
+    <Compile Include="RemotingSchedulerExporterOverrided\RemotingSchedulerExporterOverrided.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="InstallWindowsServer\Install.bat" />
+    <None Include="log4net.config" />
+    <None Include="RemoteServer.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Quartz.Net_Infrastructure\Quartz.Net_Infrastructure.csproj">
+      <Project>{0dae60bb-e900-4632-8593-096f2550fb13}</Project>
+      <Name>Quartz.Net_Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Quartz.Net_RepositoryImplements\Quartz.Net_RepositoryImplements.csproj">
       <Project>{8c668a9f-3d9e-4d24-bd59-a58c0be1c1e0}</Project>
       <Name>Quartz.Net_RepositoryImplements</Name>
@@ -75,6 +93,9 @@
       <Project>{19211b50-6429-441c-bf24-416fb4cc1af3}</Project>
       <Name>Quartz.Net_RepositoryInterface</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

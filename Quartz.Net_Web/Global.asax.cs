@@ -18,11 +18,7 @@ namespace Quartz.Net_Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            #region 设置Mef在Mvc中初始化
-            DirectoryCatalog catalog = new DirectoryCatalog(AppDomain.CurrentDomain.SetupInformation.PrivateBinPath);
-            MefDependencySolver solver = new App_Start.MefDependencySolver(catalog);
-            DependencyResolver.SetResolver(solver);
-            #endregion
+            AutoFacConfig.BuiderIocContainer();
 
         }
     }

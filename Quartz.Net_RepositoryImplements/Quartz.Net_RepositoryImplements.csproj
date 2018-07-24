@@ -31,10 +31,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\Lib\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,13 +46,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerJobInfoRepository.cs" />
-    <Compile Include="DbContextFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Quartz.Net_EFModel_MySql\Quartz.Net_EFModel_MySql.csproj">
       <Project>{ff0bd2b4-9619-4ef2-ae31-b341a26bdf7a}</Project>
       <Name>Quartz.Net_EFModel_MySql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Quartz.Net_Infrastructure\Quartz.Net_Infrastructure.csproj">
+      <Project>{0dae60bb-e900-4632-8593-096f2550fb13}</Project>
+      <Name>Quartz.Net_Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\Quartz.Net_RepositoryInterface\Quartz.Net_RepositoryInterface.csproj">
       <Project>{19211B50-6429-441C-BF24-416FB4CC1AF3}</Project>
