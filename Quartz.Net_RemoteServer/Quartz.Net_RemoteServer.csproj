@@ -78,7 +78,9 @@
     <None Include="App.config" />
     <None Include="InstallWindowsServer\Install.bat" />
     <None Include="log4net.config" />
-    <None Include="RemoteServer.config" />
+    <None Include="RemoteServer.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Quartz.Net_Infrastructure\Quartz.Net_Infrastructure.csproj">

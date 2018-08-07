@@ -29,7 +29,7 @@ namespace Quartz.Net_RemoteServer
             properties["quartz.threadPool.threadCount"] = "5";
             properties["lazy-init"] = "false";
             properties["quartz.threadPool.threadPriority"] = "Normal";
-            properties["quartz.scheduler.exporter.type"] = "Quartz.Net_RemoteServer.RemotingSchedulerExporterOverrided.RemotingSchedulerExporterOverrided, JobManager_RemoteServer";
+            properties["quartz.scheduler.exporter.type"] = "Quartz.Net_RemoteServer.RemotingSchedulerExporterOverrided.RemotingSchedulerExporterOverrided, Quartz.Net_RemoteServer";
             properties["quartz.scheduler.exporter.port"] = ConfigurationManager.AppSettings["port"];
             properties["quartz.scheduler.exporter.bindName"] = ConfigurationManager.AppSettings["bindName"];//名称
             //通道类型

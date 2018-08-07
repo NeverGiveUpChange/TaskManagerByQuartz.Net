@@ -15,19 +15,9 @@ namespace Quartz.Net_RemoteServer.Listeners
     //TODOThink:构造通知类型
     internal class MySchedulerListener : SubjectBase, ISchedulerListener
     {
-
-        //private static string _localIP = string.Empty;
-        //private HttpClientHelper _httpClient;
-        //const string log4netSchedulerInfoKey = "logSchedulerInfo";
-        //const string log4netSchedulerErrorKey = "logSchedulerError";
-        //const string log4netJobInfoKey = "logJobInfo";
-        //const string log4netJobErrorKey = "logJobError";
-        //readonly string quartzServerName = "Bh_Crm_QuartzServer";
         public MySchedulerListener()
         {
             new Observer(this);
-            //_httpClient = new HttpClientHelper();
-            //_localIP = IPHelper.IpAddress;
         }
 
         /// <summary>
@@ -128,37 +118,19 @@ namespace Quartz.Net_RemoteServer.Listeners
             var operateState = "正常";
             var subject = "调度器被关闭";
             _sendMail(subject, null, Log4NetKeys.Log4netSchedulerInfoKey, CustomerLogUtil.Info, operateState, operateType);
-            //var schedulerInfo = CustomerLogFormatUtil.LogSchedulerMsgFormat(_localIP, quartzServerName, operateType, operateState);
-            //CustomerLog.Info(log4netSchedulerInfoKey, schedulerInfo);
-            //_sendMail(subject, schedulerInfo);
+ 
             Console.WriteLine("调度器被关闭");
         }
 
         private void _postAsync(string jobName, int jobState, string operateType, bool IsDelete = false)
         {
             this.NotifyAsync(new JobExcutedCallBackModel { Log4NetKey_JobInfo = Log4NetKeys.Log4netJobInfoKey, IsJobDeleted = IsDelete, JobName = jobName, JobState = jobState, Log4NetKey_JobError = Log4NetKeys.Log4netJobErrorKey, OperateType = operateType, RequestUrl = "", RequestBody = new { JobName = jobName, JobState = jobState, Deleted = IsDelete } });
-            //try
-            //{
-            //    var result = _httpClient.PostAsync(new { JobName = jobName, JobState = jobState, Deleted = IsDelete }).Result;
-            //    CustomerLog.Info(log4netJobInfoKey, CustomerLogFormatUtil.LogJobMsgFormat(jobName, jobState, operateType));
-            //}
-            //catch (Exception ex)
-            //{
-            //    CustomerLog.Error(log4netJobErrorKey, CustomerLogFormatUtil.LogJobMsgFormat(jobName, jobState, operateType), ex);
-            //}
         }
 
         private void _sendMail(string subject, Exception ex, string log4NetKey_scheduler, Action<string, string, Exception> logSchedulerAction, string operateState, string operateType)
         {
             this.NotifyAsync(new SchedulerExecutedCallBackModel { CCMailAddressList = new List<string>(), Exception = ex, Log4NetKey_Scheduler = log4NetKey_scheduler, LogSchedulerAction = logSchedulerAction, OperateState = operateState, OperateType = operateType, Subject = subject, ToMailAddressList = new List<string> { "chenlong@91bihu.com" } });
         }
-        //private void _sendMail(string subject, string body)
-        //{
-        //    var mailMessageConfigurationInfo = new MailMessageConfigurationInfo { Body = body, ToMailAddressList = new List<string> { "chenlong@91bihu.com" }, Subject = subject };
-        //    var mailClient = MailClient.GetInstance;
-        //    mailClient.SendMail(mailMessageConfigurationInfo);
-
-        //}
 
         public void JobScheduled(ITrigger trigger)
         {
