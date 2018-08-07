@@ -87,11 +87,6 @@ namespace Quartz.Net_RemoteServer.Listeners
             var operateState = "异常";
             var subject = "调度器运行发生异常";
             _sendMail(subject, cause.GetBaseException(), Log4NetKeys.Log4netSchedulerErrorKey, CustomerLogUtil.Error, operateState, operateType);
-
-
-            //var schedulerError = CustomerLogFormatUtil.LogSchedulerMsgFormat(_localIP, quartzServerName, operateType, operateState);
-            //CustomerLog.Error(log4netSchedulerErrorKey, schedulerError, cause.GetBaseException());
-            //_sendMail(subject, schedulerError);
         }
         /// <summary>
         ///调度器启动时被执行
@@ -102,11 +97,6 @@ namespace Quartz.Net_RemoteServer.Listeners
             var operateState = "正常";
             var subject = "调度器被启动";
             _sendMail(subject, null, Log4NetKeys.Log4netSchedulerInfoKey, CustomerLogUtil.Info, operateState, operateType);
-
-
-            //var schedulerInfo = CustomerLogFormatUtil.LogSchedulerMsgFormat(_localIP, quartzServerName, operateType, operateState);
-            //CustomerLog.Info(log4netSchedulerInfoKey, schedulerInfo);
-            //_sendMail(subject, schedulerInfo);
             Console.WriteLine("调度器被启动");
         }
         /// <summary>
@@ -129,7 +119,7 @@ namespace Quartz.Net_RemoteServer.Listeners
 
         private void _sendMail(string subject, Exception ex, string log4NetKey_scheduler, Action<string, string, Exception> logSchedulerAction, string operateState, string operateType)
         {
-            this.NotifyAsync(new SchedulerExecutedCallBackModel { CCMailAddressList = new List<string>(), Exception = ex, Log4NetKey_Scheduler = log4NetKey_scheduler, LogSchedulerAction = logSchedulerAction, OperateState = operateState, OperateType = operateType, Subject = subject, ToMailAddressList = new List<string> { "chenlong@91bihu.com" } });
+            this.NotifyAsync(new SchedulerExecutedCallBackModel { CCMailAddressList = new List<string>(), Exception = ex, Log4NetKey_Scheduler = log4NetKey_scheduler, LogSchedulerAction = logSchedulerAction, OperateState = operateState, OperateType = operateType, Subject = subject, ToMailAddressList = new List<string> { "xxxx" } });
         }
 
         public void JobScheduled(ITrigger trigger)

@@ -45,13 +45,13 @@ namespace Quartz.Net_RemoteServer.Events
         protected void NotifyAsync(JobExcutedCallBackModel jobExcutedCallBackModel)
         {
             _jobExecutedCallBack.BeginInvoke(jobExcutedCallBackModel, null, null);
-            //this._jobExecutedCallBack(jobExcutedCallBackModel);
+
 
         }
         protected void NotifyAsync(SchedulerExecutedCallBackModel schedulerExecutedCallBackModel)
         {
             _schedulerExecutedCallBack.BeginInvoke(schedulerExecutedCallBackModel, null, null);
-            //this._schedulerExecutedCallBack(schedulerExecutedCallBackModel);
+           
         }
 
     }
