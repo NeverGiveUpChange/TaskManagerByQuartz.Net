@@ -1,6 +1,6 @@
 ﻿
 using Newtonsoft.Json;
-using Quartz.Net_Infrastructure.LogUtil;
+
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -20,17 +20,17 @@ namespace JobManagerByQuartz.CustomerFilters
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var uniqueID = Guid.NewGuid().ToString("N");
-            var requestMethodParameters = _getRequestMethodParameters(filterContext);
-            CustomerLogUtil.Info(Log4NetKeys.Log4netWebInfoKey, CustomerLogFormatUtil.LogWebMsgFormat(uniqueID, filterContext.HttpContext.Request.Url.ToString(), requestMethodParameters["httpMethod"], requestMethodParameters["requestParams"]));
-            filterContext.Controller.ViewData["ID"] = uniqueID;
+            //var requestMethodParameters = _getRequestMethodParameters(filterContext);
+            //CustomerLogUtil.Info(Log4NetKeys.Log4netWebInfoKey, CustomerLogFormatUtil.LogWebMsgFormat(uniqueID, filterContext.HttpContext.Request.Url.ToString(), requestMethodParameters["httpMethod"], requestMethodParameters["requestParams"]));
+            //filterContext.Controller.ViewData["ID"] = uniqueID;
         }
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             if (filterContext.Result is JsonResult)
             {
-                var uniqueID = filterContext.Controller.ViewData["ID"] as string;
-                var jsonResult = filterContext.Result as JsonResult;
-                CustomerLogUtil.Info(Log4NetKeys.Log4netWebInfoKey, CustomerLogFormatUtil.LogWebMsgFormat(uniqueID, filterContext.HttpContext.Request.Url.ToString(), filterContext.HttpContext.Request.HttpMethod, reponseData: JsonConvert.SerializeObject(jsonResult.Data)));
+                //var uniqueID = filterContext.Controller.ViewData["ID"] as string;
+                //var jsonResult = filterContext.Result as JsonResult;
+                //CustomerLogUtil.Info(Log4NetKeys.Log4netWebInfoKey, CustomerLogFormatUtil.LogWebMsgFormat(uniqueID, filterContext.HttpContext.Request.Url.ToString(), filterContext.HttpContext.Request.HttpMethod, reponseData: JsonConvert.SerializeObject(jsonResult.Data)));
             }
             base.OnActionExecuted(filterContext);
         }
@@ -70,12 +70,12 @@ namespace JobManagerByQuartz.CustomerFilters
         }
         private void _logError(Exception exception, ExceptionContext filterContext)
         {
-            var uniqueID = filterContext.Controller.ViewData["ID"] as string;
-            var url = filterContext.RequestContext.HttpContext.Request.Url.ToString();
-            var requestMethodParameters = _getRequestMethodParameters(filterContext);
-            filterContext.ExceptionHandled = true;
-            filterContext.HttpContext.Response.TrySkipIisCustomErrors = true;
-            CustomerLogUtil.Error(Log4NetKeys.Log4netWebErrorKey, CustomerLogFormatUtil.LogWebMsgFormat(uniqueID, url, requestMethodParameters["httpMethod"], requestMethodParameters["requestParams"]), exception);
+            //var uniqueID = filterContext.Controller.ViewData["ID"] as string;
+            //var url = filterContext.RequestContext.HttpContext.Request.Url.ToString();
+            //var requestMethodParameters = _getRequestMethodParameters(filterContext);
+            //filterContext.ExceptionHandled = true;
+            //filterContext.HttpContext.Response.TrySkipIisCustomErrors = true;
+            //CustomerLogUtil.Error(Log4NetKeys.Log4netWebErrorKey, CustomerLogFormatUtil.LogWebMsgFormat(uniqueID, url, requestMethodParameters["httpMethod"], requestMethodParameters["requestParams"]), exception);
 
         }
         private Dictionary<string, string> _getRequestMethodParameters(ControllerContext filterContext)

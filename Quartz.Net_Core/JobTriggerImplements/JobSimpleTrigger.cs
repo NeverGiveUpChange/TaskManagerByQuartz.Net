@@ -1,9 +1,10 @@
 ﻿
+using Models;
 using Quartz;
 using Quartz.Net_Core.JobCommon;
 using Quartz.Net_Core.JobExcute;
 using Quartz.Net_Core.JobTriggerAbstract;
-using Quartz.Net_EFModel_MySql;
+
 using System;
 using System.Reflection;
 
@@ -15,7 +16,7 @@ namespace Quartz.Net_Core.JobTriggerImplements
         {
             Scheduler = SchedulerManager.Instance;
         }
-        public override bool ModifyJobCron(customer_quartzjobinfo jobInfo)
+        public override bool ModifyJobCron(custom_job_infoes jobInfo)
         {
             var triggerKey = KeyManager.CreateTriggerKey(jobInfo.TriggerName, jobInfo.TriggerGroupName);
             ITrigger trigger = TriggerBuilder.Create().StartAt(DateTimeOffset.Now)
@@ -26,7 +27,7 @@ namespace Quartz.Net_Core.JobTriggerImplements
             return true;
         }
 
-        public override bool RunJob(customer_quartzjobinfo jobInfo)
+        public override bool RunJob(custom_job_infoes jobInfo)
         {
             //Assembly assembly = Assembly.LoadFile(AppDomain.CurrentDomain.BaseDirectory + $"bin/{jobInfo.DLLName}");
             //var type = assembly.GetType(jobInfo.FullJobName);

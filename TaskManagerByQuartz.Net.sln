@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartz.Net_RemoteServer", "Quartz.Net_RemoteServer\Quartz.Net_RemoteServer.csproj", "{D48A984F-0D7B-40DF-A2B2-633EAB6EC7B2}"
 EndProject
@@ -9,13 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartz.Net_RepositoryInterf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartz.Net_RepositoryImplements", "Quartz.Net_RepositoryImplements\Quartz.Net_RepositoryImplements.csproj", "{8C668A9F-3D9E-4D24-BD59-A58C0BE1C1E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartz.Net_EFModel_MySql", "Quartz.Net_EFModel_MySql\Quartz.Net_EFModel_MySql.csproj", "{FF0BD2B4-9619-4EF2-AE31-B341A26BDF7A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartz.Net_Infrastructure", "Quartz.Net_Infrastructure\Quartz.Net_Infrastructure.csproj", "{0DAE60BB-E900-4632-8593-096F2550FB13}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartz.Net_Core", "Quartz.Net_Core\Quartz.Net_Core.csproj", "{CB34C0FD-C614-4BA6-8DB9-BEED636E80BC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobManagerByQuartz", "JobManagerByQuartz\JobManagerByQuartz.csproj", "{52F79E78-6B47-404F-94AB-796C2E4617FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartz.Net_Model", "Quartz.Net_Model\Quartz.Net_Model.csproj", "{7FAC1F95-4F57-4762-9DE0-BAAD06BF52E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,12 +42,6 @@ Global
 		{8C668A9F-3D9E-4D24-BD59-A58C0BE1C1E0}.QA_Normal_Release|Any CPU.Build.0 = Release|Any CPU
 		{8C668A9F-3D9E-4D24-BD59-A58C0BE1C1E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C668A9F-3D9E-4D24-BD59-A58C0BE1C1E0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF0BD2B4-9619-4EF2-AE31-B341A26BDF7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF0BD2B4-9619-4EF2-AE31-B341A26BDF7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF0BD2B4-9619-4EF2-AE31-B341A26BDF7A}.QA_Normal_Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF0BD2B4-9619-4EF2-AE31-B341A26BDF7A}.QA_Normal_Release|Any CPU.Build.0 = Release|Any CPU
-		{FF0BD2B4-9619-4EF2-AE31-B341A26BDF7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF0BD2B4-9619-4EF2-AE31-B341A26BDF7A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0DAE60BB-E900-4632-8593-096F2550FB13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0DAE60BB-E900-4632-8593-096F2550FB13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DAE60BB-E900-4632-8593-096F2550FB13}.QA_Normal_Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -66,6 +60,12 @@ Global
 		{52F79E78-6B47-404F-94AB-796C2E4617FB}.QA_Normal_Release|Any CPU.Build.0 = QA_Normal_Release|Any CPU
 		{52F79E78-6B47-404F-94AB-796C2E4617FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52F79E78-6B47-404F-94AB-796C2E4617FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FAC1F95-4F57-4762-9DE0-BAAD06BF52E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FAC1F95-4F57-4762-9DE0-BAAD06BF52E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FAC1F95-4F57-4762-9DE0-BAAD06BF52E4}.QA_Normal_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FAC1F95-4F57-4762-9DE0-BAAD06BF52E4}.QA_Normal_Release|Any CPU.Build.0 = Release|Any CPU
+		{7FAC1F95-4F57-4762-9DE0-BAAD06BF52E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FAC1F95-4F57-4762-9DE0-BAAD06BF52E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

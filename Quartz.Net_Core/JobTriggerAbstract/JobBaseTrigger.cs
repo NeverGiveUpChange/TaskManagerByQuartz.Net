@@ -1,6 +1,6 @@
 ﻿
+using Models;
 using Quartz.Net_Core.JobCommon;
-using Quartz.Net_EFModel_MySql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +10,9 @@ namespace Quartz.Net_Core.JobTriggerAbstract
     public abstract class JobBaseTrigger
     {
         protected IScheduler Scheduler { get; set; }
-        public abstract bool RunJob(customer_quartzjobinfo jobInfo);
-        public abstract bool ModifyJobCron(customer_quartzjobinfo jobInfo);
-        public bool DeleteJob(customer_quartzjobinfo jobInfo) {
+        public abstract bool RunJob(custom_job_infoes jobInfo);
+        public abstract bool ModifyJobCron(custom_job_infoes jobInfo);
+        public bool DeleteJob(custom_job_infoes jobInfo) {
 
             var jobKey = KeyManager.CreateJobKey (jobInfo.JobName, jobInfo.JobGroupName);
             var triggerKey = KeyManager.CreateTriggerKey(jobInfo.TriggerName, jobInfo.TriggerGroupName);
@@ -22,14 +22,14 @@ namespace Quartz.Net_Core.JobTriggerAbstract
             return true;
         }
 
-        public bool PauseJob(customer_quartzjobinfo jobInfo)
+        public bool PauseJob(custom_job_infoes jobInfo)
         {
             var jobKey = KeyManager.CreateJobKey(jobInfo.JobName, jobInfo.JobGroupName);
             Scheduler.PauseJob(jobKey);
             return true;
         }
 
-        public bool ResumeJob(customer_quartzjobinfo jobInfo)
+        public bool ResumeJob(custom_job_infoes jobInfo)
         {
             var jobKey = KeyManager.CreateJobKey(jobInfo.JobName, jobInfo.JobGroupName);
             Scheduler.ResumeJob(jobKey);
@@ -59,7 +59,7 @@ namespace Quartz.Net_Core.JobTriggerAbstract
         /// <param name="pageIndex">当前索引页</param>
         /// <param name="pageSize">每页数量</param>
         /// <returns></returns>
-        public object GetJobList(List<customer_quartzjobinfo> customerJobInfoList, int jobStatus, int pageIndex, int pageSize)
+        public object GetJobList(List<custom_job_infoes> customerJobInfoList, int jobStatus, int pageIndex, int pageSize)
         {
             var allJobList = customerJobInfoList.Select(x => new
             {

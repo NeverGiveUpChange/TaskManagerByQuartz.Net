@@ -2,8 +2,9 @@
 using JobManagerByQuartz.CommonService;
 using JobManagerByQuartz.Factories;
 using JobManagerByQuartz.Models;
+using Models;
 using Quartz.Net_Core.JobTriggerAbstract;
-using Quartz.Net_EFModel_MySql;
+using Quartz.Net_Core.JobTriggerImplements;
 using Quartz.Net_RepositoryInterface;
 using System;
 using System.Linq;
@@ -23,25 +24,17 @@ namespace JobManagerByQuartz.Controllers
         {
             this._customerJobInfoRepository = _customerJobInfoRepository;
             this._serviceGetter = _serviceGetter;
+            JobBaseTrigger aa = new JobCronTrigger();
         }
         public JobManagerController()
         {
+
         }
-        // GET: Default
         public ActionResult Index()
         {
             return View();
         }
-        // GET: Default/Create
-        public JsonResult Test()
-        {
-            return Json("");
-        }
-        // GET: Default/Edit/5
-        public JsonResult Test1()
-        {
-            return Json("");
-        }
+
         [HttpPost]
         /// <summary>
         /// 添加任务
@@ -69,19 +62,21 @@ namespace JobManagerByQuartz.Controllers
         /// <returns></returns>
         public JsonResult ModifyJobCron(int jobId, string cron)
         {
-            var ajaxResponseData = _operateJob(jobId, (jobDetail) => { jobDetail.Cron = cron; _customerJobInfoRepository.UpdateCustomerJobInfo(jobDetail); return _triggerBase.ModifyJobCron(jobDetail); });
+            var ajaxResponseData = _operateJob(jobId, (jobDetail) => { jobDetail.Cron = cron; _customerJobInfoRepository.UpdateCustomerJobInfo(x => new custom_job_infoes { Cron = cron }, x => x.Id == jobId); return _triggerBase.ModifyJobCron(jobDetail); });
             return Json(ajaxResponseData);
+
         }
         /// <summary>
         /// 提供服务调用更改jobInfo接口
         /// </summary>
         /// <param name="updateJobInfoViewModel"></param>
         /// <returns></returns>
-        public async Task<JsonResult> UpdateJobInfo(UpdateJobInfoViewModel updateJobInfoViewModel)
+        public JsonResult UpdateJobInfo(UpdateJobInfoViewModel updateJobInfoViewModel)
         {
 
-            var jobName = await _customerJobInfoRepository.UpdateCustomerJobInfo(new customer_quartzjobinfo { JobName = updateJobInfoViewModel.JobName, Deleted = updateJobInfoViewModel.Deleted, TriggerState = updateJobInfoViewModel.JobState, Exception = updateJobInfoViewModel.Exception, PreTime = updateJobInfoViewModel.PreTime, NextTime = updateJobInfoViewModel.NextTime });
+            var jobName = _customerJobInfoRepository.UpdateCustomerJobInfo(x => new custom_job_infoes { JobName = updateJobInfoViewModel.JobName, Deleted = 1, TriggerState = updateJobInfoViewModel.JobState, PreTime = updateJobInfoViewModel.PreTime, NextTime = updateJobInfoViewModel.NextTime }, x => x.JobName == updateJobInfoViewModel.JobName);
             return Json(ResponseDataFactory.CreateAjaxResponseData("1", "操作成功", jobName));
+
         }
         [HttpPost]
         /// <summary>
@@ -142,7 +137,7 @@ namespace JobManagerByQuartz.Controllers
         public JsonResult GetJobList(int jobStatus, int pageIndex, int pageSize)
         {
 
-            var jobQueryable = _customerJobInfoRepository.LoadCustomerInfoes(x => x.TriggerState == jobStatus, x => x.Id, false, pageIndex, pageSize);
+            var jobQueryable = _customerJobInfoRepository.LoadCustomerInfoes(x => x.TriggerState == jobStatus, x => new { x.Id }, false, pageIndex, pageSize);
             var JobList = jobQueryable.Item1.ToList().Select(x => new
             {
                 x.Id,
@@ -154,10 +149,11 @@ namespace JobManagerByQuartz.Controllers
                 NextTime = x.NextTime.HasValue ? x.NextTime.Value.ToString("yyyy-MM-dd HH:mm:ss") : string.Empty,
                 JobStartTime = x.JobStartTime.HasValue ? x.JobStartTime.Value.ToString("yyyy-MM-dd HH:mm:ss") : string.Empty,
                 CreateTime = x.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
-                x.Exception
+
             }).ToList();
             var ajaxResponseData = ResponseDataFactory.CreateAjaxResponseData("1", "获取成功", new { JobList = JobList, TotalCount = jobQueryable.Item2 });
             return Json(ajaxResponseData, JsonRequestBehavior.AllowGet);
+
         }
         /// <summary>
         /// 操作任务
@@ -165,10 +161,10 @@ namespace JobManagerByQuartz.Controllers
         /// <param name="jobId">任务编号</param>
         /// <param name="operateJobFunc">具体操作任务的委托</param>
         /// <returns></returns>
-        private AjaxResponseData _operateJob(int jobId, Func<customer_quartzjobinfo, bool> operateJobFunc)
+        private AjaxResponseData _operateJob(int jobId, Func<custom_job_infoes, bool> operateJobFunc)
         {
             AjaxResponseData ajaxResponseData = null;
-            var jobDetail = _customerJobInfoRepository.LoadCustomerInfo(x => x.Id == jobId);
+            var jobDetail = _customerJobInfoRepository.LoadCustomerInfo( jobId);
             if (jobDetail == null)
             {
                 ajaxResponseData = ResponseDataFactory.CreateAjaxResponseData("0", "无此任务", jobDetail);
@@ -187,6 +183,7 @@ namespace JobManagerByQuartz.Controllers
                 }
             }
             return ajaxResponseData;
+
         }
         private void _setSpecificTrigger(string triggerType)
         {

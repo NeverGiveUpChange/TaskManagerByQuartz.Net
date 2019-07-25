@@ -7,7 +7,7 @@
 <html style="width:100%;height:100%;">
 <head>
     <title></title>
-
+   
     <link href="~/favicon.ico" rel="shortcut icon" type="images/x-icon">
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
@@ -92,7 +92,7 @@
                                         <input type="text" class="form-control" placeholder="xxx" name="jobName" v-model="addOrEditModel.jobName">
                                     </div>
                                     <br>
-                              
+
                                     <div v-if="cronCheck">
                                         <div class="input-group">
                                             <span class="input-group-addon">执行周期表达式：</span>
@@ -124,6 +124,11 @@
                                     <div class="input-group">
                                         <span class="input-group-addon">请求地址：</span>
                                         <input type="text" class="form-control" placeholder="xxx" name="requestUrl" v-model="addOrEditModel.requestUrl">
+                                    </div>
+                                    <br>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">选择服务节点：</span>
+                                        <input type="range" class="form-control" placeholder="xxx" name="requestUrl" v-model="addOrEditModel.requestUrl">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default"
@@ -231,7 +236,7 @@
     </div>
 </body>
 </html>
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script src="~/Scripts/bootstrap.min.js"></script>
 <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
 <script src="~/Scripts/bootstrap-datetimepicker.zh-CN.js"></script>
@@ -268,8 +273,8 @@
                     requestUrl: '',
                     jobDescription: '',
                     cronDescription: '',
-                    cycle:'',
-                    repeatCount:''
+                    cycle: '',
+                    repeatCount: ''
 
                 }
             },
@@ -288,11 +293,11 @@
                     var triggerType = '';
                     var cronJob = {};
                     var simpleJob = {};
-                    if(this.cronCheck){
+                    if (this.cronCheck) {
                         triggerType = 'JobCronTrigger';
                         cronJob.Cron = this.addOrEditModel.cron;
 
-                    }else{
+                    } else {
                         triggerType = 'JobSimpleTrigger';
                         simpleJob.Cycle = this.addOrEditModel.cycle;
                         simpleJob.RepeatCount = this.addOrEditModel.repeatCount;

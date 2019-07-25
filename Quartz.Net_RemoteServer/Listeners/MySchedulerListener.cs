@@ -174,7 +174,7 @@ namespace Quartz.Net_RemoteServer.Listeners
 
         public void SchedulerStarting()
         {
-            throw new NotImplementedException();
+            
         }
 
 
