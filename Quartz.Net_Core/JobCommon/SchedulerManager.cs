@@ -39,7 +39,6 @@ namespace Quartz.Net_Core.JobCommon
             {
                 try
                 {
-
                     if (item.Value.IsStarted)
                     {
                         _scheduler = item.Value;
@@ -55,7 +54,6 @@ namespace Quartz.Net_Core.JobCommon
                     continue;
                 }
             }
-
             if (_scheduler == null)
             {
                 var properties = new NameValueCollection();

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceProcess;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using JobManagerByQuartz.CommonService;
@@ -63,19 +65,31 @@ namespace JobManagerByQuartz.Controllers
             if (!scheduler.IsShutdown)
             {
                 scheduler.Shutdown(waitForJobsToComplete);
+                Task.Run(() =>
+                {
+                    while (true)
+                    {
+                        if (scheduler.IsShutdown)
+                        {
+                            ServiceController service = new ServiceController(schedulerInstanceId);
+                            service.Stop();
+                            break;
+                        }
+                    }
+                });
             }
 
             throw new Exception();
 
         }
 
-        public JsonResult StartDelayedSchedulers(string schedulerInstanceId, int delayedSeconds)
+        public JsonResult StartSchedulers(string schedulerInstanceId)
         {
 
-            var scheduler = SchedulerManager.ConnectionCache["localhost"];
-            if (scheduler.IsShutdown)
+            ServiceController service = new ServiceController(schedulerInstanceId);
+            if (service.Status == ServiceControllerStatus.Stopped)
             {
-                scheduler.StartDelayed(TimeSpan.FromSeconds(delayedSeconds));
+                service.Start();
             }
 
             throw new Exception();
