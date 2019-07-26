@@ -50,30 +50,34 @@ namespace JobManagerByQuartz.Controllers
         {
             throw new Exception();
         }
-
-        public JsonResult ShutDownSchedulers(List<string> schedulerInstanceIdList, bool waitForJobsToComplete)
+        /// <summary>
+        /// 关闭节点 不可以恢复
+        /// </summary>
+        /// <param name="schedulerInstanceId"></param>
+        /// <param name="waitForJobsToComplete"></param>
+        /// <returns></returns>
+        public JsonResult ShutDownSchedulers(string schedulerInstanceId, bool waitForJobsToComplete)
         {
-            foreach (var item in schedulerInstanceIdList)
+
+            var scheduler = SchedulerManager.ConnectionCache[schedulerInstanceId];
+            if (!scheduler.IsShutdown)
             {
-                var scheduler = SchedulerManager.ConnectionCache[item];
-                if (!scheduler.IsShutdown)
-                {
-                    scheduler.Shutdown(waitForJobsToComplete);
-                }
+                scheduler.Shutdown(waitForJobsToComplete);
             }
+
             throw new Exception();
 
         }
 
-        public JsonResult StartDelayedSchedulers(List<string> schedulerInstanceIdList, int delayedSeconds)
+        public JsonResult StartDelayedSchedulers(string schedulerInstanceId, int delayedSeconds)
         {
-            foreach (var item in schedulerInstanceIdList)
+
+            var scheduler = SchedulerManager.ConnectionCache["localhost"];
+            if (scheduler.IsShutdown)
             {
-                var scheduler = SchedulerManager.ConnectionCache[item];
-                if (scheduler.IsShutdown) {
-                    scheduler.StartDelayed(TimeSpan.FromSeconds(delayedSeconds));
-                }
+                scheduler.StartDelayed(TimeSpan.FromSeconds(delayedSeconds));
             }
+
             throw new Exception();
         }
     }

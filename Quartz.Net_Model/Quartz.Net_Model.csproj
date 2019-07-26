@@ -60,6 +60,7 @@
     <Compile Include="Models\qrtz_simprop_triggers.cs" />
     <Compile Include="Models\qrtz_triggers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SchedulerData.cs" />
     <Compile Include="ViewModels\AddJobViewModel.cs" />
     <Compile Include="ViewModels\UpdateJobInfoViewModel.cs" />
   </ItemGroup>

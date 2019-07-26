@@ -3,6 +3,7 @@ using JobManagerByQuartz.CommonService;
 using JobManagerByQuartz.Factories;
 using JobManagerByQuartz.Models;
 using Models;
+using Quartz.Net_Core.JobCommon;
 using Quartz.Net_Core.JobTriggerAbstract;
 using Quartz.Net_Core.JobTriggerImplements;
 using Quartz.Net_Model.ViewModels;
@@ -25,12 +26,29 @@ namespace JobManagerByQuartz.Controllers
             this._customerJobInfoRepository = _customerJobInfoRepository;
             this._serviceGetter = _serviceGetter;
             JobBaseTrigger aa = new JobCronTrigger();
-            _operateJob(50, (jobDetail) => { return _triggerBase.DeleteJob(jobDetail); });
+            //_operateJob(50, (jobDetail) => { return _triggerBase.DeleteJob(jobDetail); });
+
+            var scheduler = SchedulerManager.ConnectionCache["localhost"];
+            if (!scheduler.IsShutdown)
+            {
+                scheduler.Shutdown(true); 
+                //scheduler.Standby();
+                //SchedulerManager.ConnectionCache["localhost"] = null;
+            }
+
+
+            var scheduler1 = SchedulerManager.ConnectionCache["localhost"];
+            
+            //if (scheduler1==null)
+            //{
+                scheduler1 = SchedulerManager.Instance;
+                scheduler1.StartDelayed(TimeSpan.FromSeconds(0));
+            //}
             //var customeJobInfo = new custom_job_infoes() { CreateTime = DateTime.Now, Cron = "0/5 * * * * ? *", CurrentSchedulerHost = "10.129.170.188", CurrentSchedulerHostName = "1", CurrentSchedulerInstanceId = "aa", Deleted = 0, Description = "测试", DllName = "Quartz.Net_Core.dll", JobName = "aa", FullJobName = "Quartz.Net_Core.JobExcute.JobItem", OriginSchedulerHost = "10.129.170.188", OriginSchedulerHostName = "1", OriginSchedulerInstanceId = "aa", RequestUrl = "aa", TriggerState = 0, TriggerType = "JobCronTrigger", JobGroupName = "aa"+"group", TriggerGroupName ="aa"+"triggerGroup", TriggerName ="aa"+"trigger" };
             //    var jobId = _customerJobInfoRepository.AddCustomerJobInfo(customeJobInfo);
             //    _operateJob(jobId, (jobDetail) => { return _triggerBase.RunJob(jobDetail); });
 
-        
+
 
 
         }
