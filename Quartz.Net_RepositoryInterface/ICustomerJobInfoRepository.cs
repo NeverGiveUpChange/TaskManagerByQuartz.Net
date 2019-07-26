@@ -35,7 +35,13 @@ namespace Quartz.Net_RepositoryInterface
         /// <param name="pageIndex">索引页</param>
         /// <param name="pageSize">页数量</param>
         /// <returns>查询数据集和总条数</returns>
-        (List<custom_job_infoes>, int) LoadCustomerInfoes(Expression<Func<custom_job_infoes, bool>> whereExpression, Expression<Func<custom_job_infoes, object>> orderByExpression, bool isAsc, int pageIndex, int pageSize);
+        (List<custom_job_infoes>, int) LoadPageCustomerInfoes(Expression<Func<custom_job_infoes, bool>> whereExpression, Expression<Func<custom_job_infoes, object>> orderByExpression, bool isAsc, int pageIndex, int pageSize);
+        /// <summary>
+        /// 获取节点信息
+        /// </summary>
+        /// <param name="whereExpression">查询条件表达式</param>
+        /// <returns></returns>
+        List<custom_job_infoes> LoadSchedulerInfoes(Expression<Func<custom_job_infoes, bool>> whereExpression);
         /// <summary>
         /// 加载单个任务
         /// </summary>

@@ -6,11 +6,11 @@ using System.Configuration;
 
 namespace Quartz.Net_Core.JobCommon
 {
-    internal class SchedulerManager
+    public class SchedulerManager
     {
         static readonly object Locker = new object();
         static IScheduler _scheduler;
-        static readonly ConcurrentDictionary<string, IScheduler> ConnectionCache = new ConcurrentDictionary<string, IScheduler>();
+        public  static  ConcurrentDictionary<string, IScheduler> ConnectionCache = new ConcurrentDictionary<string, IScheduler>();
         static readonly string channelType = ConfigurationManager.AppSettings["channelType"];
         static readonly string localIp = ConfigurationManager.AppSettings["localIp"];
         static readonly string port = ConfigurationManager.AppSettings["port"];
@@ -37,14 +37,12 @@ namespace Quartz.Net_Core.JobCommon
             if (!ConnectionCache.ContainsKey(ip))
             {
                 var properties = new NameValueCollection();
-              
+
                 properties["quartz.scheduler.proxy"] = "true";
                 properties["quartz.scheduler.proxy.address"] = $"{channelType}://{localIp}:{port}/{bindName}";
                 var schedulerFactory = new StdSchedulerFactory(properties);
                 _scheduler = schedulerFactory.GetScheduler();
-                var aaa = _scheduler.SchedulerInstanceId;
-                var context = _scheduler.Context;
-                 ConnectionCache[ip] = _scheduler;
+                ConnectionCache[ip] = _scheduler;
             }
             return ConnectionCache[ip];
         }

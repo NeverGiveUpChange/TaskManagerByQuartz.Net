@@ -16,9 +16,23 @@ namespace Models
            /// <summary>
            /// Desc:
            /// Default:
+           /// Nullable:True
+           /// </summary>           
+           public string TIME_ZONE_ID {get;set;}
+
+           /// <summary>
+           /// Desc:
+           /// Default:
            /// Nullable:False
            /// </summary>           
            public string TRIGGER_GROUP {get;set;}
+
+           /// <summary>
+           /// Desc:
+           /// Default:
+           /// Nullable:False
+           /// </summary>           
+           public string TRIGGER_NAME {get;set;}
 
            /// <summary>
            /// Desc:
@@ -30,23 +44,9 @@ namespace Models
            /// <summary>
            /// Desc:
            /// Default:
-           /// Nullable:True
-           /// </summary>           
-           public string TIME_ZONE_ID {get;set;}
-
-           /// <summary>
-           /// Desc:
-           /// Default:
            /// Nullable:False
            /// </summary>           
            public string SCHED_NAME {get;set;}
-
-           /// <summary>
-           /// Desc:
-           /// Default:
-           /// Nullable:False
-           /// </summary>           
-           public string TRIGGER_NAME {get;set;}
 
     }
 }

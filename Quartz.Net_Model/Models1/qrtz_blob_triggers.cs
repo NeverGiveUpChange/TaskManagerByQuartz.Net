@@ -23,6 +23,13 @@ namespace Models
            /// <summary>
            /// Desc:
            /// Default:
+           /// Nullable:False
+           /// </summary>           
+           public string TRIGGER_NAME {get;set;}
+
+           /// <summary>
+           /// Desc:
+           /// Default:
            /// Nullable:True
            /// </summary>           
            public byte[] BLOB_DATA {get;set;}
@@ -33,13 +40,6 @@ namespace Models
            /// Nullable:False
            /// </summary>           
            public string SCHED_NAME {get;set;}
-
-           /// <summary>
-           /// Desc:
-           /// Default:
-           /// Nullable:False
-           /// </summary>           
-           public string TRIGGER_NAME {get;set;}
 
     }
 }

@@ -18,7 +18,28 @@ namespace Models
            /// Default:
            /// Nullable:False
            /// </summary>           
+           public string SCHED_NAME {get;set;}
+
+           /// <summary>
+           /// Desc:
+           /// Default:
+           /// Nullable:False
+           /// </summary>           
+           public long TIMES_TRIGGERED {get;set;}
+
+           /// <summary>
+           /// Desc:
+           /// Default:
+           /// Nullable:False
+           /// </summary>           
            public string TRIGGER_GROUP {get;set;}
+
+           /// <summary>
+           /// Desc:
+           /// Default:
+           /// Nullable:False
+           /// </summary>           
+           public string TRIGGER_NAME {get;set;}
 
            /// <summary>
            /// Desc:
@@ -33,27 +54,6 @@ namespace Models
            /// Nullable:False
            /// </summary>           
            public long REPEAT_INTERVAL {get;set;}
-
-           /// <summary>
-           /// Desc:
-           /// Default:
-           /// Nullable:False
-           /// </summary>           
-           public long TIMES_TRIGGERED {get;set;}
-
-           /// <summary>
-           /// Desc:
-           /// Default:
-           /// Nullable:False
-           /// </summary>           
-           public string SCHED_NAME {get;set;}
-
-           /// <summary>
-           /// Desc:
-           /// Default:
-           /// Nullable:False
-           /// </summary>           
-           public string TRIGGER_NAME {get;set;}
 
     }
 }

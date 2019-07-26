@@ -25,14 +25,14 @@ namespace Models
            /// Default:
            /// Nullable:False
            /// </summary>           
-           public long CHECKIN_INTERVAL {get;set;}
+           public string SCHED_NAME {get;set;}
 
            /// <summary>
            /// Desc:
            /// Default:
            /// Nullable:False
            /// </summary>           
-           public string SCHED_NAME {get;set;}
+           public long CHECKIN_INTERVAL {get;set;}
 
            /// <summary>
            /// Desc:

@@ -18,21 +18,14 @@ namespace Models
            /// Default:
            /// Nullable:False
            /// </summary>           
-           public string TRIGGER_NAME {get;set;}
-
-           /// <summary>
-           /// Desc:
-           /// Default:
-           /// Nullable:True
-           /// </summary>           
-           public string JOB_GROUP {get;set;}
+           public string INSTANCE_NAME {get;set;}
 
            /// <summary>
            /// Desc:
            /// Default:
            /// Nullable:False
            /// </summary>           
-           public string TRIGGER_GROUP {get;set;}
+           public string STATE {get;set;}
 
            /// <summary>
            /// Desc:
@@ -46,7 +39,35 @@ namespace Models
            /// Default:
            /// Nullable:False
            /// </summary>           
-           public string INSTANCE_NAME {get;set;}
+           public string TRIGGER_GROUP {get;set;}
+
+           /// <summary>
+           /// Desc:
+           /// Default:
+           /// Nullable:True
+           /// </summary>           
+           public string JOB_GROUP {get;set;}
+
+           /// <summary>
+           /// Desc:
+           /// Default:
+           /// Nullable:False
+           /// </summary>           
+           public string TRIGGER_NAME {get;set;}
+
+           /// <summary>
+           /// Desc:
+           /// Default:
+           /// Nullable:True
+           /// </summary>           
+           public string JOB_NAME {get;set;}
+
+           /// <summary>
+           /// Desc:
+           /// Default:
+           /// Nullable:False
+           /// </summary>           
+           public int PRIORITY {get;set;}
 
            /// <summary>
            /// Desc:
@@ -54,6 +75,20 @@ namespace Models
            /// Nullable:True
            /// </summary>           
            public byte? REQUESTS_RECOVERY {get;set;}
+
+           /// <summary>
+           /// Desc:
+           /// Default:
+           /// Nullable:False
+           /// </summary>           
+           public string ENTRY_ID {get;set;}
+
+           /// <summary>
+           /// Desc:
+           /// Default:
+           /// Nullable:False
+           /// </summary>           
+           public string SCHED_NAME {get;set;}
 
            /// <summary>
            /// Desc:
@@ -68,41 +103,6 @@ namespace Models
            /// Nullable:False
            /// </summary>           
            public long SCHED_TIME {get;set;}
-
-           /// <summary>
-           /// Desc:
-           /// Default:
-           /// Nullable:False
-           /// </summary>           
-           public int PRIORITY {get;set;}
-
-           /// <summary>
-           /// Desc:
-           /// Default:
-           /// Nullable:False
-           /// </summary>           
-           public string SCHED_NAME {get;set;}
-
-           /// <summary>
-           /// Desc:
-           /// Default:
-           /// Nullable:False
-           /// </summary>           
-           public string STATE {get;set;}
-
-           /// <summary>
-           /// Desc:
-           /// Default:
-           /// Nullable:False
-           /// </summary>           
-           public string ENTRY_ID {get;set;}
-
-           /// <summary>
-           /// Desc:
-           /// Default:
-           /// Nullable:True
-           /// </summary>           
-           public string JOB_NAME {get;set;}
 
     }
 }

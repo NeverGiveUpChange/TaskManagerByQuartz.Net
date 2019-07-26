@@ -35,7 +35,7 @@ namespace Quartz.Net_RemoteServer
             //通道类型
             properties["quartz.scheduler.exporter.channelType"] = ConfigurationManager.AppSettings["channelType"];
             properties["quartz.scheduler.exporter.channelName"] = "httpQuartz";
-            properties["quartz.scheduler.exporter.rejectRemoteRequests"] = "false";
+            //properties["quartz.scheduler.exporter.rejectRemoteRequests"] = "false";
             //集群配置
             properties["quartz.jobStore.clustered"] = "true";
             //存储类型
@@ -50,7 +50,7 @@ namespace Quartz.Net_RemoteServer
             properties["quartz.dataSource.myDS.connectionString"] = ConfigurationManager.AppSettings["connectionString"];
             //版本
             properties["quartz.dataSource.myDS.provider"] = "MySql-695";
-            properties["quartz.scheduler.instanceId"] = "AUTO";
+            properties["quartz.scheduler.instanceId"] = ConfigurationManager.AppSettings["intanceId"]; 
           
 
         }

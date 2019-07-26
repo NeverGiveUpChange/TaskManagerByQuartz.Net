@@ -35,7 +35,7 @@ namespace Quartz.Net_RepositoryImplements
         }
 
 
-        public (List<custom_job_infoes>, int) LoadCustomerInfoes(Expression<Func<custom_job_infoes, bool>> whereExpression, Expression<Func<custom_job_infoes, object>> orderByExpression, bool isAsc, int pageIndex, int pageSize)
+        public (List<custom_job_infoes>, int) LoadPageCustomerInfoes(Expression<Func<custom_job_infoes, bool>> whereExpression, Expression<Func<custom_job_infoes, object>> orderByExpression, bool isAsc, int pageIndex, int pageSize)
         {
             var pageModel = new PageModel() { PageIndex = pageIndex, PageSize = pageSize };
             var result = _dbContext.customer_quartzjobinfoDb.GetPageList(whereExpression, pageModel, orderByExpression, isAsc ? OrderByType.Asc : OrderByType.Desc);
@@ -86,6 +86,11 @@ namespace Quartz.Net_RepositoryImplements
         public custom_job_infoes LoadCustomerInfo(int id)
         {
             return _dbContext.customer_quartzjobinfoDb.GetById(id);
+        }
+
+        public List<custom_job_infoes> LoadSchedulerInfoes(Expression<Func<custom_job_infoes, bool>> whereExpression)
+        {
+            return _dbContext.customer_quartzjobinfoDb.GetList(whereExpression);
         }
     }
 }

@@ -18,14 +18,14 @@ namespace Models
            /// Default:
            /// Nullable:False
            /// </summary>           
-           public byte[] CALENDAR {get;set;}
+           public string SCHED_NAME {get;set;}
 
            /// <summary>
            /// Desc:
            /// Default:
            /// Nullable:False
            /// </summary>           
-           public string SCHED_NAME {get;set;}
+           public byte[] CALENDAR {get;set;}
 
            /// <summary>
            /// Desc:

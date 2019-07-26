@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Quartz.Net_RemoteServer.Events;
 using Quartz.Net_Infrastructure.LogUtil;
 using Quartz.Net_RemoteServer.Models;
+using System.Configuration;
 
 namespace Quartz.Net_RemoteServer.Listeners
 {
@@ -30,6 +31,7 @@ namespace Quartz.Net_RemoteServer.Listeners
             Console.WriteLine("任务被部署");
             var jobState = -2;
             var operateType = "部署";
+       
             _postAsync(jobDetail.Key.Name, jobState, operateType);
         }
         /// <summary>
@@ -97,7 +99,7 @@ namespace Quartz.Net_RemoteServer.Listeners
             var operateState = "正常";
             var subject = "调度器被启动";
             _sendMail(subject, null, Log4NetKeys.Log4netSchedulerInfoKey, CustomerLogUtil.Info, operateState, operateType);
-            Console.WriteLine("调度器被启动");
+            Console.WriteLine($"调度器{ConfigurationManager.AppSettings["intanceId"]}被启动");
         }
         /// <summary>
         ///调度器关闭时执行

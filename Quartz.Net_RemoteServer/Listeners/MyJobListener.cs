@@ -5,6 +5,8 @@ using Quartz.Net_RemoteServer.Events;
 using Quartz.Net_RemoteServer.Models;
 using System;
 
+using System.Collections.Generic;
+
 namespace Quartz.Net_RemoteServer.Listeners
 {
     //TODOThink:log4netkey是否可以动态得到？
@@ -12,7 +14,7 @@ namespace Quartz.Net_RemoteServer.Listeners
     internal class MyJobListener : SubjectBase, IJobListener
     {
 
-
+        
         public MyJobListener()
         {
             new Observer(this);
@@ -35,15 +37,18 @@ namespace Quartz.Net_RemoteServer.Listeners
 
         public void JobWasExecuted(IJobExecutionContext context, JobExecutionException jobException)
         {
-            var jobName = context.JobDetail.Key.Name;
-            var jobState = 6;
-            var operateType = "运行";
+            //var jobName = context.JobDetail.Key.Name;
+            //var jobState = 6;
+            //var operateType = "运行";
 
-            string exceptionMessage = jobException == null ? null : jobException.Message;
+           
+            Console.WriteLine($"{context.Scheduler.SchedulerInstanceId}执行了任务{context.JobDetail.Key.Name}");
+            
+            //string exceptionMessage = jobException == null ? null : jobException.Message;
 
             
-            this.NotifyAsync(new JobExcutedCallBackModel { IsJobDeleted = false, JobName = jobName, JobState = jobState, Log4NetKey_JobError = Log4NetKeys.Log4netJobErrorKey, Log4NetKey_JobInfo = Log4NetKeys.Log4netJobInfoKey, OperateType = operateType, RequestUrl = "", RequestBody = new { JobName = jobName, JobState = jobState, Exception = exceptionMessage, PreTime = context.Trigger.GetPreviousFireTimeUtc().HasValue ? context.Trigger.GetPreviousFireTimeUtc().Value.LocalDateTime as DateTime? : null, NextTime = context.Trigger.GetNextFireTimeUtc().HasValue ? context.Trigger.GetNextFireTimeUtc().Value.LocalDateTime as DateTime? : null } });
-            CustomerLogUtil.Info(Log4NetKeys.Log4netJobInfoKey, CustomerLogFormatUtil.LogJobMsgFormat(jobName, jobState, operateType));
+            //this.NotifyAsync(new JobExcutedCallBackModel { IsJobDeleted = false, JobName = jobName, JobState = jobState, Log4NetKey_JobError = Log4NetKeys.Log4netJobErrorKey, Log4NetKey_JobInfo = Log4NetKeys.Log4netJobInfoKey, OperateType = operateType, RequestUrl = "", RequestBody = new { JobName = jobName, JobState = jobState, Exception = exceptionMessage, PreTime = context.Trigger.GetPreviousFireTimeUtc().HasValue ? context.Trigger.GetPreviousFireTimeUtc().Value.LocalDateTime as DateTime? : null, NextTime = context.Trigger.GetNextFireTimeUtc().HasValue ? context.Trigger.GetNextFireTimeUtc().Value.LocalDateTime as DateTime? : null } });
+            //CustomerLogUtil.Info(Log4NetKeys.Log4netJobInfoKey, CustomerLogFormatUtil.LogJobMsgFormat(jobName, jobState, operateType));
 
         }
 

@@ -16,30 +16,9 @@ namespace Models
            /// <summary>
            /// Desc:
            /// Default:
-           /// Nullable:False
-           /// </summary>           
-           public string TRIGGER_GROUP {get;set;}
-
-           /// <summary>
-           /// Desc:
-           /// Default:
            /// Nullable:True
            /// </summary>           
            public decimal? DEC_PROP_1 {get;set;}
-
-           /// <summary>
-           /// Desc:
-           /// Default:
-           /// Nullable:True
-           /// </summary>           
-           public string STR_PROP_1 {get;set;}
-
-           /// <summary>
-           /// Desc:
-           /// Default:
-           /// Nullable:True
-           /// </summary>           
-           public decimal? DEC_PROP_2 {get;set;}
 
            /// <summary>
            /// Desc:
@@ -53,7 +32,7 @@ namespace Models
            /// Default:
            /// Nullable:True
            /// </summary>           
-           public byte? BOOL_PROP_1 {get;set;}
+           public decimal? DEC_PROP_2 {get;set;}
 
            /// <summary>
            /// Desc:
@@ -61,13 +40,6 @@ namespace Models
            /// Nullable:True
            /// </summary>           
            public string STR_PROP_3 {get;set;}
-
-           /// <summary>
-           /// Desc:
-           /// Default:
-           /// Nullable:True
-           /// </summary>           
-           public byte? BOOL_PROP_2 {get;set;}
 
            /// <summary>
            /// Desc:
@@ -95,7 +67,7 @@ namespace Models
            /// Default:
            /// Nullable:False
            /// </summary>           
-           public string SCHED_NAME {get;set;}
+           public string TRIGGER_GROUP {get;set;}
 
            /// <summary>
            /// Desc:
@@ -117,6 +89,34 @@ namespace Models
            /// Nullable:True
            /// </summary>           
            public long? LONG_PROP_2 {get;set;}
+
+           /// <summary>
+           /// Desc:
+           /// Default:
+           /// Nullable:True
+           /// </summary>           
+           public byte? BOOL_PROP_1 {get;set;}
+
+           /// <summary>
+           /// Desc:
+           /// Default:
+           /// Nullable:False
+           /// </summary>           
+           public string SCHED_NAME {get;set;}
+
+           /// <summary>
+           /// Desc:
+           /// Default:
+           /// Nullable:True
+           /// </summary>           
+           public byte? BOOL_PROP_2 {get;set;}
+
+           /// <summary>
+           /// Desc:
+           /// Default:
+           /// Nullable:True
+           /// </summary>           
+           public string STR_PROP_1 {get;set;}
 
     }
 }

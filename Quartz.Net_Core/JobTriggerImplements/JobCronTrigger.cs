@@ -44,11 +44,11 @@ namespace Quartz.Net_Core.JobTriggerImplements
                     .WithSchedule(scheduleBuilder.WithMisfireHandlingInstructionDoNothing())
                     .Build();
                 Scheduler.ScheduleJob(job, trigger);
-                Task.Run(() =>
-                {
-                    //执行更新任务所在节点信息
+                //Task.Run(() =>
+                //{
+                //    //执行更新任务所在节点信息
                     
-                });
+                //});
             }
             return true;
         }

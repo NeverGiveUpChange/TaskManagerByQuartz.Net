@@ -18,14 +18,14 @@ namespace Models
            /// Default:
            /// Nullable:False
            /// </summary>           
-           public string SCHED_NAME {get;set;}
+           public string LOCK_NAME {get;set;}
 
            /// <summary>
            /// Desc:
            /// Default:
            /// Nullable:False
            /// </summary>           
-           public string LOCK_NAME {get;set;}
+           public string SCHED_NAME {get;set;}
 
     }
 }
