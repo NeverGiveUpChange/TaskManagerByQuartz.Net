@@ -42,7 +42,9 @@ namespace Quartz.Net_Core.JobCommon
                 properties["quartz.scheduler.proxy.address"] = $"{channelType}://{localIp}:{port}/{bindName}";
                 var schedulerFactory = new StdSchedulerFactory(properties);
                 _scheduler = schedulerFactory.GetScheduler();
-                ConnectionCache[ip] = _scheduler;
+                var aaa = _scheduler.SchedulerInstanceId;
+                var context = _scheduler.Context;
+                 ConnectionCache[ip] = _scheduler;
             }
             return ConnectionCache[ip];
         }

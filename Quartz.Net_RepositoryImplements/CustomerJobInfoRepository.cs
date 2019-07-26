@@ -15,7 +15,7 @@ using Models;
 
 namespace Quartz.Net_RepositoryImplements
 {
-    
+
     internal class CustomerJobInfoRepository : ICustomerJobInfoRepository
     {
         private readonly DbContext _dbContext;
@@ -24,29 +24,9 @@ namespace Quartz.Net_RepositoryImplements
         {
             this._dbContext = _dbContext;
         }
-        public int AddCustomerJobInfo(string jobName, string jobGroupName, string triggerName, string triggerGroupName, string cron, string jobDescription, string requestUrl, int? cycle, int? repeatCount, string triggerType)
+        public int AddCustomerJobInfo(custom_job_infoes addJobModel)
         {
-            return _dbContext.customer_quartzjobinfoDb.InsertReturnIdentity(new custom_job_infoes
-            {
-                CreateTime = DateTime.Now,
-                Cron = cron,
-                Description = jobDescription,
-                JobGroupName = jobGroupName,
-                JobName = jobName,
-                TriggerState = -1,
-                TriggerName = triggerName,
-                TriggerGroupName = triggerGroupName,
-                DllName = ConfigurationManager.AppSettings["dllName"],
-                FullJobName = ConfigurationManager.AppSettings["FullJobName"],
-                RequestUrl = requestUrl,
-                Deleted = 1,
-                Cycle = cycle,
-                TriggerType = triggerType,
-                RepeatCount = repeatCount
-
-            });
-          
-            
+            return _dbContext.customer_quartzjobinfoDb.InsertReturnIdentity(addJobModel);
         }
 
         public bool UpdateCustomerJobInfo(Expression<Func<custom_job_infoes, custom_job_infoes>> cloums, Expression<Func<custom_job_infoes, bool>> whereExpression)
@@ -62,10 +42,7 @@ namespace Quartz.Net_RepositoryImplements
             return (result, pageModel.PageCount);
 
         }
-
-
-    
-
+        #region 自己编写更新制定列
         private void ReflectObjectFields<T>(T TModel, List<string> updateFieldNames)
         {
             var type = TModel.GetType();
@@ -94,7 +71,6 @@ namespace Quartz.Net_RepositoryImplements
                 }
             }
         }
-
         private void _getUpdateFieldNames(string fieldName, object value, object defaultValue, List<string> updateFieldNames)
         {
             if (value != null && !value.Equals(defaultValue))
@@ -106,8 +82,7 @@ namespace Quartz.Net_RepositoryImplements
         {
             return targetType.IsValueType ? Activator.CreateInstance(targetType) : null;
         }
-
-
+        #endregion
         public custom_job_infoes LoadCustomerInfo(int id)
         {
             return _dbContext.customer_quartzjobinfoDb.GetById(id);

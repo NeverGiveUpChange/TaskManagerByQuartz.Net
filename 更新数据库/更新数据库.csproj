@@ -4,17 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7FAC1F95-4F57-4762-9DE0-BAAD06BF52E4}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Quartz.Net_Model</RootNamespace>
-    <AssemblyName>Quartz.Net_Model</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <ProjectGuid>{FFB7906F-7B49-417D-848C-F14CBB4F96C4}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>更新数据库</RootNamespace>
+    <AssemblyName>更新数据库</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,11 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.5\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="SqlSugar, Version=5.0.0.9, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\sqlSugar.5.0.0.9\lib\SqlSugar.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,25 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbContext.cs" />
-    <Compile Include="Models\custom_job_infoes.cs" />
-    <Compile Include="Models\qrtz_blob_triggers.cs" />
-    <Compile Include="Models\qrtz_calendars.cs" />
-    <Compile Include="Models\qrtz_cron_triggers.cs" />
-    <Compile Include="Models\qrtz_fired_triggers.cs" />
-    <Compile Include="Models\qrtz_job_details.cs" />
-    <Compile Include="Models\qrtz_locks.cs" />
-    <Compile Include="Models\qrtz_paused_trigger_grps.cs" />
-    <Compile Include="Models\qrtz_scheduler_state.cs" />
-    <Compile Include="Models\qrtz_simple_triggers.cs" />
-    <Compile Include="Models\qrtz_simprop_triggers.cs" />
-    <Compile Include="Models\qrtz_triggers.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\AddJobViewModel.cs" />
-    <Compile Include="ViewModels\UpdateJobInfoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Quartz.Net_Model\Quartz.Net_Model.csproj">
+      <Project>{7FAC1F95-4F57-4762-9DE0-BAAD06BF52E4}</Project>
+      <Name>Quartz.Net_Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

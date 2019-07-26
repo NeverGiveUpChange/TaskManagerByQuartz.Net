@@ -5,10 +5,10 @@ using JobManagerByQuartz.Models;
 using Models;
 using Quartz.Net_Core.JobTriggerAbstract;
 using Quartz.Net_Core.JobTriggerImplements;
+using Quartz.Net_Model.ViewModels;
 using Quartz.Net_RepositoryInterface;
 using System;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 
@@ -48,8 +48,20 @@ namespace JobManagerByQuartz.Controllers
             {
                 return Json(ResponseDataFactory.CreateAjaxResponseData("-10001", "添加失败", "输入参数错误:" + ModelState.Values.Where(item => item.Errors.Count == 1).Aggregate(string.Empty, (current, item) => current + (item.Errors[0].ErrorMessage + ";   "))));
             }
-
-            var jobId = _customerJobInfoRepository.AddCustomerJobInfo(addJobViewModel.JobName, addJobViewModel.JobGroupName, addJobViewModel.TriggerName, addJobViewModel.TriggerGroupName, addJobViewModel.CronJob == null ? null : addJobViewModel.CronJob.Cron, addJobViewModel.JobDescription, addJobViewModel.RequestUrl, addJobViewModel.SimpleJob == null ? null : addJobViewModel.SimpleJob.Cycle, addJobViewModel.SimpleJob == null ? null : addJobViewModel.SimpleJob.RepeatCount, addJobViewModel.TriggerType);
+            var values = addJobViewModel.SchedulerHost.Split('/');
+            var host = values[0];
+            var name = string.Empty;
+            var instanceId = string.Empty;
+            if (host.Length > 1 && host.Length <= 2)
+            {
+                name = addJobViewModel.SchedulerHost.Split('/')[1];
+            }
+            else
+            {
+                instanceId = addJobViewModel.SchedulerHost.Split('/')[2];
+            }
+            var customeJobInfo = new custom_job_infoes() { CreateTime = DateTime.Now, Cron = addJobViewModel.CronJob.Cron, CurrentSchedulerHost = host, CurrentSchedulerHostName = name, CurrentSchedulerInstanceId = instanceId, Cycle = addJobViewModel.SimpleJob.Cycle, Deleted = 0, Description = addJobViewModel.JobDescription, DllName = string.Empty, JobName = addJobViewModel.JobName, FullJobName = string.Empty, OriginSchedulerHost = host, OriginSchedulerHostName = name, OriginSchedulerInstanceId = instanceId, RepeatCount = addJobViewModel.SimpleJob.RepeatCount, RequestUrl = addJobViewModel.RequestUrl, TriggerState = 0, TriggerType = addJobViewModel.TriggerType };
+            var jobId = _customerJobInfoRepository.AddCustomerJobInfo(customeJobInfo);
             return Json(ResponseDataFactory.CreateAjaxResponseData("1", "添加成功", jobId));
 
         }
@@ -164,7 +176,7 @@ namespace JobManagerByQuartz.Controllers
         private AjaxResponseData _operateJob(int jobId, Func<custom_job_infoes, bool> operateJobFunc)
         {
             AjaxResponseData ajaxResponseData = null;
-            var jobDetail = _customerJobInfoRepository.LoadCustomerInfo( jobId);
+            var jobDetail = _customerJobInfoRepository.LoadCustomerInfo(jobId);
             if (jobDetail == null)
             {
                 ajaxResponseData = ResponseDataFactory.CreateAjaxResponseData("0", "无此任务", jobDetail);

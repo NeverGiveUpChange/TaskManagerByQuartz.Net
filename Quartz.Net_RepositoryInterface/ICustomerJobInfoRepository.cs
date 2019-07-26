@@ -1,5 +1,6 @@
 ﻿
 using Models;
+using Quartz.Net_Model.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,18 +15,8 @@ namespace Quartz.Net_RepositoryInterface
         /// <summary>
         /// 添加任务
         /// </summary>
-        /// <param name="jobName">任务名称</param>
-        /// <param name="jobGroupName">任务所在组名称</param>
-        /// <param name="triggerName">触发器名称</param>
-        /// <param name="triggerGroupName">触发器所在的组名称</param>
-        /// <param name="cron">执行周期表达式</param>
-        /// <param name="jobDescription">任务描述</param>
-        /// <param name="requestUrl">请求地址</param>
-        /// <param name="cycle">重复周期</param>
-        /// <param name="repeatCount">重复次数</param>
-        /// <param name="triggerType">触发器类型</param>
         /// <returns>添加后任务编号</returns>
-        int AddCustomerJobInfo(string jobName, string jobGroupName, string triggerName, string triggerGroupName, string cron, string jobDescription, string requestUrl, int? cycle, int? repeatCount, string triggerType);
+        int AddCustomerJobInfo(custom_job_infoes addJobModel);
 
         /// <summary>
         /// 更新任务

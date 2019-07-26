@@ -1,17 +1,15 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
-namespace JobManagerByQuartz.Models
+namespace Quartz.Net_Model.ViewModels
 {
-    /// <summary>
-    /// 添加任务模型
-    /// </summary>
-    public class AddJobViewModel : IValidatableObject
+    public class AddJobViewModel: IValidatableObject
     {
-
         private string _jobName;
         /// <summary>
         /// 任务名称
@@ -70,6 +68,11 @@ namespace JobManagerByQuartz.Models
         /// Simple模型
         /// </summary>
         public SimpleJob SimpleJob { get; set; }
+        /// <summary>
+        /// 节点所在ip/name组合
+        /// </summary>
+
+        public string SchedulerHost { get; set; }
 
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
@@ -86,20 +89,21 @@ namespace JobManagerByQuartz.Models
                 TriggerGroupName = "";
 
             }
-            if (TriggerType== "JobCronTrigger")
+            if (TriggerType == "JobCronTrigger")
             {
-                if (CronJob==null||string.IsNullOrWhiteSpace(CronJob.Cron))
+                if (CronJob == null || string.IsNullOrWhiteSpace(CronJob.Cron))
                 {
                     validationResult.Add(new ValidationResult("Cron为必填参数"));
                 }
             }
             else
             {
-                if (SimpleJob==null||!SimpleJob.RepeatCount.HasValue || SimpleJob.RepeatCount.Value < 1)
+                if (SimpleJob == null || !SimpleJob.RepeatCount.HasValue || SimpleJob.RepeatCount.Value < 1)
                 {
                     validationResult.Add(new ValidationResult("当为简单任务时，重复次数是必须的且不小1"));
                 }
-                if (SimpleJob != null && SimpleJob.RepeatCount.HasValue && SimpleJob.RepeatCount.Value > 1 && !SimpleJob.Cycle.HasValue) {
+                if (SimpleJob != null && SimpleJob.RepeatCount.HasValue && SimpleJob.RepeatCount.Value > 1 && !SimpleJob.Cycle.HasValue)
+                {
 
                     validationResult.Add(new ValidationResult("当为简单任务时且重复次数大于1时，重复周期必填"));
                 }
@@ -113,6 +117,13 @@ namespace JobManagerByQuartz.Models
             if (string.IsNullOrWhiteSpace(RequestUrl))
             {
                 validationResult.Add(new ValidationResult("RequestUrl为必填参数"));
+            }
+            if (string.IsNullOrWhiteSpace(SchedulerHost))
+            {
+                validationResult.Add(new ValidationResult("SchedulerHost为必填参数"));
+            }
+            else if (SchedulerHost.Split('/').Length < 1) {
+                validationResult.Add(new ValidationResult("节点ip必须拥有"));
             }
             return validationResult;
         }

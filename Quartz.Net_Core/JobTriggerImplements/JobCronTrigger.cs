@@ -4,6 +4,7 @@ using Quartz.Net_Core.JobTriggerAbstract;
 using Quartz.Net_Core.JobCommon;
 using Quartz.Net_Core.JobExcute;
 using Models;
+using System.Threading.Tasks;
 
 namespace Quartz.Net_Core.JobTriggerImplements
 {
@@ -43,6 +44,11 @@ namespace Quartz.Net_Core.JobTriggerImplements
                     .WithSchedule(scheduleBuilder.WithMisfireHandlingInstructionDoNothing())
                     .Build();
                 Scheduler.ScheduleJob(job, trigger);
+                Task.Run(() =>
+                {
+                    //执行更新任务所在节点信息
+                    
+                });
             }
             return true;
         }

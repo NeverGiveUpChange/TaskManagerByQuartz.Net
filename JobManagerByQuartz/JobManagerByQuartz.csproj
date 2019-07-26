@@ -224,9 +224,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AddJobViewModel.cs" />
     <Compile Include="Models\AjaxResponseData.cs" />
-    <Compile Include="Models\UpdateJobInfoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

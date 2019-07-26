@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace JobManagerByQuartz.Models
+namespace Quartz.Net_Model.ViewModels
 {
     public class UpdateJobInfoViewModel:IValidatableObject
     {
         /// <summary>
         /// 任务名称
         /// </summary>
-        public string  JobName { get; set; }
+        public string JobName { get; set; }
         /// <summary>
         /// 任务状态
         /// </summary>
-        public int  JobState { get; set; }
+        public int JobState { get; set; }
         /// <summary>
         /// 是否删除
         /// </summary>
@@ -36,10 +37,12 @@ namespace JobManagerByQuartz.Models
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             List<ValidationResult> validationResult = new List<ValidationResult>();
-            if (string.IsNullOrWhiteSpace(JobName)) {
+            if (string.IsNullOrWhiteSpace(JobName))
+            {
                 validationResult.Add(new ValidationResult("JobName为必填参数"));
             }
-            if (JobState == 0) {
+            if (JobState == 0)
+            {
                 validationResult.Add(new ValidationResult("JobState为必填参数"));
             }
             return validationResult;
