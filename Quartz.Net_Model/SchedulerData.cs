@@ -8,13 +8,15 @@ namespace Quartz.Net_Model
 {
    public static class SchedulerData
     {
-        public static Dictionary<string, IpPort> schedulerIdEquivalentIp = new Dictionary<string, IpPort>() {
-            { "444444",new IpPort{ Ip="localhost", Port="999" }},
-            { "333333",new IpPort{Ip="localhost" ,Port="998"}}
+        public static Dictionary<string, schedulerInstanceInfo> schedulerInstanceIdEquivalentIp = new Dictionary<string, schedulerInstanceInfo>() {
+            { "444444",new schedulerInstanceInfo{ Ip="localhost", Port="999" , schedulerInstanceId="444444"}},
+            { "333333",new schedulerInstanceInfo{Ip="localhost" ,Port="998", schedulerInstanceId="333333"}}
             
         };
     }
-    public class IpPort {
+    public class schedulerInstanceInfo
+    {
+        public string schedulerInstanceId { get; set; }
         public string Ip { get; set; }
         public string Port { get; set; }
     }

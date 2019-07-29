@@ -3,6 +3,7 @@ using Quartz.Impl;
 using Quartz.Net_Model;
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Configuration;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Quartz.Net_Core.JobCommon
     {
         static readonly object Locker = new object();
         static IScheduler _scheduler;
-        public static ConcurrentDictionary<string, IScheduler> ConnectionCache = new ConcurrentDictionary<string, IScheduler>();
+        public static Dictionary<string, IScheduler> ConnectionCache = new Dictionary<string, IScheduler>();
         static readonly string channelType = ConfigurationManager.AppSettings["channelType"];
         static readonly string bindName = ConfigurationManager.AppSettings["bindName"];
         public static IScheduler Instance
@@ -56,17 +57,12 @@ namespace Quartz.Net_Core.JobCommon
             }
             if (_scheduler == null)
             {
-                var properties = new NameValueCollection();
-                properties["quartz.scheduler.proxy"] = "true";
-                foreach (var item in SchedulerData.schedulerIdEquivalentIp)
+
+                foreach (var schedulerInstanceInfo in SchedulerData.schedulerInstanceIdEquivalentIp)
                 {
                     try
                     {
-                        var ipPort = item.Value;
-                        properties["quartz.scheduler.proxy.address"] = $"{channelType}://{ipPort.Ip}:{ipPort.Port}/{bindName}";
-                        var schedulerFactory = new StdSchedulerFactory(properties);
-                        _scheduler = schedulerFactory.GetScheduler();
-                        ConnectionCache[item.Key] = _scheduler;
+                        GetScheduler(schedulerInstanceInfo.Key);
                         break;
                     }
                     catch (Exception ex)
@@ -76,6 +72,23 @@ namespace Quartz.Net_Core.JobCommon
                 }
             }
             return _scheduler;
+        }
+
+        public static IScheduler GetScheduler(string schedulerInstanceId)
+        {
+            IScheduler scheduler = null;
+            var schedulerInstanceInfo = SchedulerData.schedulerInstanceIdEquivalentIp[schedulerInstanceId];
+            if (schedulerInstanceInfo != null)
+            {
+                var properties = new NameValueCollection();
+                properties["quartz.scheduler.proxy"] = "true";
+                properties["quartz.scheduler.proxy.address"] = $"{channelType}://{schedulerInstanceInfo.Ip}:{schedulerInstanceInfo.Port}/{bindName}";
+                var schedulerFactory = new StdSchedulerFactory(properties);
+                scheduler = schedulerFactory.GetScheduler();
+                ConnectionCache[schedulerInstanceId] = scheduler;
+            }
+
+            return scheduler;
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using JobManagerByQuartz.CommonService;
 using JobManagerByQuartz.Factories;
 using Quartz.Net_Core.JobCommon;
+using Quartz.Net_Model;
 using Quartz.Net_RepositoryInterface;
 
 namespace JobManagerByQuartz.Controllers
@@ -42,10 +43,8 @@ namespace JobManagerByQuartz.Controllers
             return Json(ajaxResponseData, JsonRequestBehavior.AllowGet);
 
         }
-
-        public JsonResult DeleteSchedulers(string schedulerInstanceId)
+        public JsonResult DeleteSchedulers(List<string> schedulerInstanceIdList)
         {
-
             throw new Exception();
         }
         public JsonResult AddScheduler(string ip, string port, string schedulerInstanceId)
@@ -58,39 +57,57 @@ namespace JobManagerByQuartz.Controllers
         /// <param name="schedulerInstanceId"></param>
         /// <param name="waitForJobsToComplete"></param>
         /// <returns></returns>
-        public JsonResult ShutDownSchedulers(string schedulerInstanceId, bool waitForJobsToComplete)
+        public JsonResult ShutDownSchedulers(List<string> schedulerInstanceIdList, bool waitForJobsToComplete)
         {
-
-            var scheduler = SchedulerManager.ConnectionCache[schedulerInstanceId];
-            if (!scheduler.IsShutdown)
+            foreach (var schedulerInstanceId in schedulerInstanceIdList)
             {
-                scheduler.Shutdown(waitForJobsToComplete);
-                Task.Run(() =>
+                var scheduler = SchedulerManager.ConnectionCache[schedulerInstanceId];
+                if (scheduler != null && !scheduler.IsShutdown)
                 {
-                    while (true)
+                    scheduler.Shutdown(waitForJobsToComplete);
+                    SchedulerManager.ConnectionCache.Remove(schedulerInstanceId);//删除可用节点连接
+                    if (SchedulerData.schedulerInstanceIdEquivalentIp.ContainsKey(schedulerInstanceId))
                     {
-                        if (scheduler.IsShutdown)
-                        {
-                            ServiceController service = new ServiceController(schedulerInstanceId);
-                            service.Stop();
-                            break;
-                        }
+                        SchedulerData.schedulerInstanceIdEquivalentIp.Remove(schedulerInstanceId);//删除服务节点
                     }
-                });
+                    Task.Run(() =>
+                    {
+                        ServiceController service = new ServiceController(schedulerInstanceId);
+                        while (true)
+                        {
+                            if (scheduler.IsShutdown)
+                            {
+                                service.Stop();
+                                break;
+                            }
+                            else
+                            {
+                                service.Stop();
+                                break;
+                            }
+                        }
+                    });
+                }
             }
-
             throw new Exception();
-
         }
 
-        public JsonResult StartSchedulers(string schedulerInstanceId)
+        public JsonResult StartSchedulers(List<string> schedulerInstanceIdList)
         {
-
-            ServiceController service = new ServiceController(schedulerInstanceId);
-            if (service.Status == ServiceControllerStatus.Stopped)
+            foreach (var schedulerInstanceId in schedulerInstanceIdList)
             {
-                service.Start();
+                ServiceController service = new ServiceController(schedulerInstanceId);
+                if (service.Status == ServiceControllerStatus.Stopped)
+                {
+                    service.Start();
+                    if (SchedulerData.schedulerInstanceIdEquivalentIp.ContainsKey(schedulerInstanceId))
+                    {
+                        SchedulerManager.GetScheduler(schedulerInstanceId);
+                        //SchedulerData.schedulerInstanceIdEquivalentIp.Add(schedulerInstanceId,new schedulerInstanceInfo { });//增加服务节点
+                    }
+                }
             }
+
 
             throw new Exception();
         }
