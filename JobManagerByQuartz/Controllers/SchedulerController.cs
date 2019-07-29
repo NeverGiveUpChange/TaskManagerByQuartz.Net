@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.ServiceProcess;
 using System.Threading.Tasks;
@@ -10,6 +13,7 @@ using JobManagerByQuartz.Factories;
 using Quartz.Net_Core.JobCommon;
 using Quartz.Net_Model;
 using Quartz.Net_RepositoryInterface;
+
 
 namespace JobManagerByQuartz.Controllers
 {
@@ -45,11 +49,83 @@ namespace JobManagerByQuartz.Controllers
         }
         public JsonResult DeleteSchedulers(List<string> schedulerInstanceIdList)
         {
+            Process process = new Process();
+            ServiceController serviceController = new ServiceController();
+
+            foreach (var schedulerInstanceId in schedulerInstanceIdList)
+            {
+                serviceController.ServiceName = schedulerInstanceId;
+                serviceController.Stop();
+                if (!System.IO.File.Exists($@"E:\{schedulerInstanceId}\WindowsServerBats\{schedulerInstanceId}_Delete.bat"))
+                {
+                    FileStream fs1 = new FileStream($@"E:\{schedulerInstanceId}\WindowsServerBats\{schedulerInstanceId}_Delete.bat", FileMode.Create, FileAccess.Write);
+                    StreamWriter sw = new StreamWriter(fs1);
+                    sw.Write($"sc Delete {schedulerInstanceId}");
+
+                }
+                process.StartInfo.WorkingDirectory = @"E:\{ schedulerInstanceId}\WindowsServerBats";
+                process.StartInfo.FileName = $"{schedulerInstanceId}_Delete.bat";
+                process.StartInfo.Arguments = "1";
+                process.Start();
+                process.WaitForExit();
+                if (SchedulerData.schedulerInstanceIdEquivalentIp.ContainsKey(schedulerInstanceId))
+                {
+                    SchedulerData.schedulerInstanceIdEquivalentIp.Remove(schedulerInstanceId);
+
+                }
+                if (SchedulerManager.ConnectionCache.ContainsKey(schedulerInstanceId))
+                {
+                    SchedulerManager.ConnectionCache.Remove(schedulerInstanceId);
+                }
+            }
             throw new Exception();
         }
-        public JsonResult AddScheduler(string ip, string port, string schedulerInstanceId)
+        public JsonResult AddScheduler(string ip, string port, string schedulerInstanceId, string threadCount)
         {
+            Process process = new Process();
+            System.IO.File.Copy(@"E:\TaskManagerByQuartz.Net\Quartz.Net_RemoteServer", $@"E:\{schedulerInstanceId}\Code", true);
+            if (!System.IO.File.Exists($@"E:\{schedulerInstanceId}\WindowsServerBats\{schedulerInstanceId}_install.bat"))
+            {
+                FileStream fs1 = new FileStream($@"E:\{schedulerInstanceId}\WindowsServerBats\{schedulerInstanceId}_install.bat", FileMode.Create, FileAccess.Write);
+                StreamWriter sw = new StreamWriter(fs1);
+                sw.Write($@"E:\{schedulerInstanceId}\Code\bin\Release\Quartz.Net_RemoteServer.exe install 
+  pause");
+                Configuration config = ConfigurationManager.OpenExeConfiguration($@"E:\{schedulerInstanceId}\Code\RemoteServer.config");
+                if (config.AppSettings.Settings["localIp"] != null)
+                {
+                    config.AppSettings.Settings.Remove("localIp");
+                }
+                if (config.AppSettings.Settings["port"] != null)
+                {
+                    config.AppSettings.Settings.Remove("port");
+                }
+                if (config.AppSettings.Settings["intanceId"] != null)
+                {
+                    config.AppSettings.Settings.Remove("intanceId");
+                }
+
+                if (config.AppSettings.Settings["threadCount"] != null)
+                {
+                    config.AppSettings.Settings.Remove("threadCount");
+                }
+                config.AppSettings.Settings.Add("localIp", ip);
+                config.AppSettings.Settings.Add("port", port);
+                config.AppSettings.Settings.Add("schedulerInstanceId", schedulerInstanceId);
+                config.AppSettings.Settings.Add("threadCount", threadCount);
+                config.Save(ConfigurationSaveMode.Modified);
+                process.StartInfo.WorkingDirectory = $@"E:\{schedulerInstanceId}\WindowsServerBats";
+                process.StartInfo.FileName = $"{schedulerInstanceId}_install.bat";
+                process.StartInfo.Arguments = "1";
+                process.Start();
+                process.WaitForExit();
+            }
+            if (!SchedulerData.schedulerInstanceIdEquivalentIp.ContainsKey(schedulerInstanceId))
+            {
+                SchedulerData.schedulerInstanceIdEquivalentIp.Add(schedulerInstanceId,new schedulerInstanceInfo {  Ip=ip, Port=port, schedulerInstanceId= schedulerInstanceId });
+
+            }
             throw new Exception();
+
         }
         /// <summary>
         /// 关闭节点 不可以恢复
@@ -89,7 +165,8 @@ namespace JobManagerByQuartz.Controllers
                     });
                 }
             }
-            throw new Exception();
+            //todo:参数修正
+            return Json(ResponseDataFactory.CreateAjaxResponseData("1", "服务下线成功", 1));
         }
 
         public JsonResult StartSchedulers(List<string> schedulerInstanceIdList)
@@ -106,10 +183,9 @@ namespace JobManagerByQuartz.Controllers
                         //SchedulerData.schedulerInstanceIdEquivalentIp.Add(schedulerInstanceId,new schedulerInstanceInfo { });//增加服务节点
                     }
                 }
+
             }
-
-
-            throw new Exception();
+            return Json(ResponseDataFactory.CreateAjaxResponseData("1", "服务上线成功", 1));
         }
     }
 }

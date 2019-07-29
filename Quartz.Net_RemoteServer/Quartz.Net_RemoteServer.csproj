@@ -74,7 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="InstallWindowsServer\Install.bat" />
+    <None Include="WindowsServerBats\Install.bat" />
     <None Include="log4net.config" />
     <None Include="packages.config" />
     <None Include="RemoteServer.config">

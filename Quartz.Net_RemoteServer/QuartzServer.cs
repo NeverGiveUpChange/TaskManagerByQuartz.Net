@@ -26,7 +26,7 @@ namespace Quartz.Net_RemoteServer
         {
             properties["quartz.scheduler.instanceName"] = "RemoteServer";
             properties["quartz.threadPool.type"] = "Quartz.Simpl.SimpleThreadPool, Quartz";
-            properties["quartz.threadPool.threadCount"] = "5";
+            properties["quartz.threadPool.threadCount"] = ConfigurationManager.AppSettings["threadCount"];
             properties["lazy-init"] = "false";
             properties["quartz.threadPool.threadPriority"] = "Normal";
             properties["quartz.scheduler.exporter.type"] = "Quartz.Simpl.RemotingSchedulerExporter, Quartz";
