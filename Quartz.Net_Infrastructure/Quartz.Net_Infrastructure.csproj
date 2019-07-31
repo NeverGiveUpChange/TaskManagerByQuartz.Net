@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileUtil\FileHelper.cs" />
     <Compile Include="HttpClientUtil\HttpClientHelper.cs" />
     <Compile Include="IPUtil\IPHelper.cs" />
     <Compile Include="LogUtil\CustomerLogFormatUtil.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryableExtensionUtil\QueryableExtension.cs" />
     <Compile Include="RsaCryptionUtil\RsaCryptionHelper.cs" />
+    <Compile Include="WindowsServerUtil\WindowsServerHelper.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,6 +7,7 @@ using Quartz.Net_RemoteServer.Events;
 using Quartz.Net_Infrastructure.LogUtil;
 using Quartz.Net_RemoteServer.Models;
 using System.Configuration;
+using Quartz.Net_Model.DataEnum;
 
 namespace Quartz.Net_RemoteServer.Listeners
 {
@@ -29,9 +30,9 @@ namespace Quartz.Net_RemoteServer.Listeners
         {
 
             Console.WriteLine("任务被部署");
-            var jobState = -2;
+            var jobState = (int)TriggerStateEnum.Deploy;
             var operateType = "部署";
-       
+
             _postAsync(jobDetail.Key.Name, jobState, operateType);
         }
         /// <summary>
@@ -41,7 +42,7 @@ namespace Quartz.Net_RemoteServer.Listeners
         public void JobDeleted(JobKey jobKey)
         {
             Console.WriteLine("任务被删除,删除时间为：" + DateTime.Now);
-            var jobState = 5;
+            var jobState = (int)TriggerStateEnum.Deleted;
             var operateType = "删除";
             var isDelete = true;
             _postAsync(jobKey.Name, jobState, operateType, isDelete);
@@ -53,7 +54,7 @@ namespace Quartz.Net_RemoteServer.Listeners
         public void JobPaused(JobKey jobKey)
         {
             Console.WriteLine("任务被暂停");
-            var jobState = 1;
+            var jobState = (int)TriggerStateEnum.Pause;
             var operateType = "暂停";
             _postAsync(jobKey.Name, jobState, operateType);
         }
@@ -65,7 +66,7 @@ namespace Quartz.Net_RemoteServer.Listeners
         {
             Console.WriteLine("任务被恢复");
 
-            var jobState = 6;
+            var jobState = (int)TriggerStateEnum.Run;
             var operateType = "运行";
             _postAsync(jobKey.Name, jobState, operateType);
         }
@@ -75,6 +76,9 @@ namespace Quartz.Net_RemoteServer.Listeners
         /// <param name="trigger"></param>
         public void TriggerFinalized(ITrigger trigger)
         {
+            var jobState = (int)TriggerStateEnum.Complete;
+            var operateType = "完成";
+            _postAsync(trigger.JobKey.Name, jobState, operateType);
             Console.WriteLine("任务完成使命，不在被执行");
         }
         /// <summary>
@@ -110,7 +114,7 @@ namespace Quartz.Net_RemoteServer.Listeners
             var operateState = "正常";
             var subject = "调度器被关闭";
             _sendMail(subject, null, Log4NetKeys.Log4netSchedulerInfoKey, CustomerLogUtil.Info, operateState, operateType);
- 
+
             Console.WriteLine("调度器被关闭");
         }
 
@@ -176,7 +180,7 @@ namespace Quartz.Net_RemoteServer.Listeners
 
         public void SchedulerStarting()
         {
-            
+
         }
 
 

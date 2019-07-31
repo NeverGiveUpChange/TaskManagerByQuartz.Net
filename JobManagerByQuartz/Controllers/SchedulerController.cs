@@ -10,8 +10,11 @@ using System.Web;
 using System.Web.Mvc;
 using JobManagerByQuartz.CommonService;
 using JobManagerByQuartz.Factories;
+using Newtonsoft.Json;
 using Quartz.Net_Core.JobCommon;
 using Quartz.Net_Model;
+using Quartz.Net_Model.DataEnum;
+using Quartz.Net_Model.ViewModels;
 using Quartz.Net_RepositoryInterface;
 
 
@@ -38,15 +41,17 @@ namespace JobManagerByQuartz.Controllers
                 SchedulerInstanceId = x.FirstOrDefault().CurrentSchedulerInstanceId,
                 IsNormalScheduler = true,
                 TotalCount = x.Count(),
-                NotStarttingCount = x.Where(s => s.TriggerState == 1).Count(),
-                StarttingCount = x.Where(s => s.TriggerState == 2).Count(),
-                PauseCount = x.Where(s => s.TriggerState == 3).Count(),
-                DeletedCount = x.Where(s => s.TriggerState == 4).Count()
+                DeployCount = x.Where(s => s.TriggerState == (int)TriggerStateEnum.Deploy).Count(),
+                RunCount = x.Where(s => s.TriggerState == (int)TriggerStateEnum.Run).Count(),
+                PauseCount = x.Where(s => s.TriggerState ==(int) TriggerStateEnum.Pause).Count(),
+                DeletedCount = x.Where(s => s.TriggerState == (int)TriggerStateEnum.Deleted).Count(),
+                CompleteCount=x.Where(s=>s.TriggerState==(int)TriggerStateEnum.Complete).Count()
             }).ToList();
             var ajaxResponseData = ResponseDataFactory.CreateAjaxResponseData("1", "获取成功", new { SchedulerStatistics = schedulerStatistics });
             return Json(ajaxResponseData, JsonRequestBehavior.AllowGet);
 
         }
+        [HttpPost]
         public JsonResult DeleteSchedulers(List<string> schedulerInstanceIdList)
         {
             Process process = new Process();
@@ -78,19 +83,21 @@ namespace JobManagerByQuartz.Controllers
                     SchedulerManager.ConnectionCache.Remove(schedulerInstanceId);
                 }
             }
-            throw new Exception();
+            var ajaxResponseData = ResponseDataFactory.CreateAjaxResponseData("1", "删除服务节点成功", JsonConvert.SerializeObject(schedulerInstanceIdList));
+            return Json(ajaxResponseData);
         }
-        public JsonResult AddScheduler(string ip, string port, string schedulerInstanceId, string threadCount)
+        [HttpPost]
+        public JsonResult AddScheduler(AddSchedulerViewModel addSchedulerViewModel)
         {
             Process process = new Process();
-            System.IO.File.Copy(@"E:\TaskManagerByQuartz.Net\Quartz.Net_RemoteServer", $@"E:\{schedulerInstanceId}\Code", true);
-            if (!System.IO.File.Exists($@"E:\{schedulerInstanceId}\WindowsServerBats\{schedulerInstanceId}_install.bat"))
+            System.IO.File.Copy(@"E:\TaskManagerByQuartz.Net\Quartz.Net_RemoteServer", $@"E:\{addSchedulerViewModel.SchedulerInstanceId}\Code", true);
+            if (!System.IO.File.Exists($@"E:\{addSchedulerViewModel.SchedulerInstanceId}\WindowsServerBats\{addSchedulerViewModel.SchedulerInstanceId}_install.bat"))
             {
-                FileStream fs1 = new FileStream($@"E:\{schedulerInstanceId}\WindowsServerBats\{schedulerInstanceId}_install.bat", FileMode.Create, FileAccess.Write);
+                FileStream fs1 = new FileStream($@"E:\{addSchedulerViewModel.SchedulerInstanceId}\WindowsServerBats\{addSchedulerViewModel.SchedulerInstanceId}_install.bat", FileMode.Create, FileAccess.Write);
                 StreamWriter sw = new StreamWriter(fs1);
-                sw.Write($@"E:\{schedulerInstanceId}\Code\bin\Release\Quartz.Net_RemoteServer.exe install 
+                sw.Write($@"E:\{addSchedulerViewModel.SchedulerInstanceId}\Code\bin\Release\Quartz.Net_RemoteServer.exe install 
   pause");
-                Configuration config = ConfigurationManager.OpenExeConfiguration($@"E:\{schedulerInstanceId}\Code\RemoteServer.config");
+                Configuration config = ConfigurationManager.OpenExeConfiguration($@"E:\{addSchedulerViewModel.SchedulerInstanceId}\Code\RemoteServer.config");
                 if (config.AppSettings.Settings["localIp"] != null)
                 {
                     config.AppSettings.Settings.Remove("localIp");
@@ -103,28 +110,27 @@ namespace JobManagerByQuartz.Controllers
                 {
                     config.AppSettings.Settings.Remove("intanceId");
                 }
-
                 if (config.AppSettings.Settings["threadCount"] != null)
                 {
                     config.AppSettings.Settings.Remove("threadCount");
                 }
-                config.AppSettings.Settings.Add("localIp", ip);
-                config.AppSettings.Settings.Add("port", port);
-                config.AppSettings.Settings.Add("schedulerInstanceId", schedulerInstanceId);
-                config.AppSettings.Settings.Add("threadCount", threadCount);
+                config.AppSettings.Settings.Add("localIp", addSchedulerViewModel.Ip);
+                config.AppSettings.Settings.Add("port", addSchedulerViewModel.Port);
+                config.AppSettings.Settings.Add("schedulerInstanceId", addSchedulerViewModel.SchedulerInstanceId);
+                config.AppSettings.Settings.Add("threadCount", addSchedulerViewModel.ThreadCount);
                 config.Save(ConfigurationSaveMode.Modified);
-                process.StartInfo.WorkingDirectory = $@"E:\{schedulerInstanceId}\WindowsServerBats";
-                process.StartInfo.FileName = $"{schedulerInstanceId}_install.bat";
+                process.StartInfo.WorkingDirectory = $@"E:\{addSchedulerViewModel.SchedulerInstanceId}\WindowsServerBats";
+                process.StartInfo.FileName = $"{addSchedulerViewModel.SchedulerInstanceId}_install.bat";
                 process.StartInfo.Arguments = "1";
                 process.Start();
                 process.WaitForExit();
             }
-            if (!SchedulerData.schedulerInstanceIdEquivalentIp.ContainsKey(schedulerInstanceId))
+            if (!SchedulerData.schedulerInstanceIdEquivalentIp.ContainsKey(addSchedulerViewModel.SchedulerInstanceId))
             {
-                SchedulerData.schedulerInstanceIdEquivalentIp.Add(schedulerInstanceId,new schedulerInstanceInfo {  Ip=ip, Port=port, schedulerInstanceId= schedulerInstanceId });
-
+                SchedulerData.schedulerInstanceIdEquivalentIp.Add(addSchedulerViewModel.SchedulerInstanceId, new schedulerInstanceInfo { Ip = addSchedulerViewModel.Ip, Port = addSchedulerViewModel.Port, schedulerInstanceId = addSchedulerViewModel.SchedulerInstanceId });
             }
-            throw new Exception();
+            var ajaxResponseData = ResponseDataFactory.CreateAjaxResponseData("1", "增加服务节点成功", JsonConvert.SerializeObject(addSchedulerViewModel));
+            return Json(ajaxResponseData);
 
         }
         /// <summary>
@@ -148,7 +154,9 @@ namespace JobManagerByQuartz.Controllers
                     }
                     Task.Run(() =>
                     {
+                        
                         ServiceController service = new ServiceController(schedulerInstanceId);
+                  
                         while (true)
                         {
                             if (scheduler.IsShutdown)

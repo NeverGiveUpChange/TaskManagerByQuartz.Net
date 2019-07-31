@@ -86,6 +86,10 @@
       <Project>{0dae60bb-e900-4632-8593-096f2550fb13}</Project>
       <Name>Quartz.Net_Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Quartz.Net_Model\Quartz.Net_Model.csproj">
+      <Project>{7FAC1F95-4F57-4762-9DE0-BAAD06BF52E4}</Project>
+      <Name>Quartz.Net_Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Quartz.Net_RepositoryImplements\Quartz.Net_RepositoryImplements.csproj">
       <Project>{8c668a9f-3d9e-4d24-bd59-a58c0be1c1e0}</Project>
       <Name>Quartz.Net_RepositoryImplements</Name>
