@@ -358,6 +358,10 @@
       <Project>{CB34C0FD-C614-4BA6-8DB9-BEED636E80BC}</Project>
       <Name>Quartz.Net_Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Quartz.Net_Infrastructure\Quartz.Net_Infrastructure.csproj">
+      <Project>{0DAE60BB-E900-4632-8593-096F2550FB13}</Project>
+      <Name>Quartz.Net_Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Quartz.Net_Model\Quartz.Net_Model.csproj">
       <Project>{7FAC1F95-4F57-4762-9DE0-BAAD06BF52E4}</Project>
       <Name>Quartz.Net_Model</Name>

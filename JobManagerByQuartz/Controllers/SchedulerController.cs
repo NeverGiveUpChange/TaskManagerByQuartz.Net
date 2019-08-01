@@ -12,6 +12,7 @@ using JobManagerByQuartz.CommonService;
 using JobManagerByQuartz.Factories;
 using Newtonsoft.Json;
 using Quartz.Net_Core.JobCommon;
+using Quartz.Net_Infrastructure.WindowsServerUtil;
 using Quartz.Net_Model;
 using Quartz.Net_Model.DataEnum;
 using Quartz.Net_Model.ViewModels;
@@ -43,9 +44,9 @@ namespace JobManagerByQuartz.Controllers
                 TotalCount = x.Count(),
                 DeployCount = x.Where(s => s.TriggerState == (int)TriggerStateEnum.Deploy).Count(),
                 RunCount = x.Where(s => s.TriggerState == (int)TriggerStateEnum.Run).Count(),
-                PauseCount = x.Where(s => s.TriggerState ==(int) TriggerStateEnum.Pause).Count(),
+                PauseCount = x.Where(s => s.TriggerState == (int)TriggerStateEnum.Pause).Count(),
                 DeletedCount = x.Where(s => s.TriggerState == (int)TriggerStateEnum.Deleted).Count(),
-                CompleteCount=x.Where(s=>s.TriggerState==(int)TriggerStateEnum.Complete).Count()
+                CompleteCount = x.Where(s => s.TriggerState == (int)TriggerStateEnum.Complete).Count()
             }).ToList();
             var ajaxResponseData = ResponseDataFactory.CreateAjaxResponseData("1", "获取成功", new { SchedulerStatistics = schedulerStatistics });
             return Json(ajaxResponseData, JsonRequestBehavior.AllowGet);
@@ -54,25 +55,15 @@ namespace JobManagerByQuartz.Controllers
         [HttpPost]
         public JsonResult DeleteSchedulers(List<string> schedulerInstanceIdList)
         {
-            Process process = new Process();
+            
             ServiceController serviceController = new ServiceController();
-
+            WindowsServerHelper windowsServerHelper = new WindowsServerHelper();
             foreach (var schedulerInstanceId in schedulerInstanceIdList)
             {
+                
                 serviceController.ServiceName = schedulerInstanceId;
                 serviceController.Stop();
-                if (!System.IO.File.Exists($@"E:\{schedulerInstanceId}\WindowsServerBats\{schedulerInstanceId}_Delete.bat"))
-                {
-                    FileStream fs1 = new FileStream($@"E:\{schedulerInstanceId}\WindowsServerBats\{schedulerInstanceId}_Delete.bat", FileMode.Create, FileAccess.Write);
-                    StreamWriter sw = new StreamWriter(fs1);
-                    sw.Write($"sc Delete {schedulerInstanceId}");
-
-                }
-                process.StartInfo.WorkingDirectory = @"E:\{ schedulerInstanceId}\WindowsServerBats";
-                process.StartInfo.FileName = $"{schedulerInstanceId}_Delete.bat";
-                process.StartInfo.Arguments = "1";
-                process.Start();
-                process.WaitForExit();
+                windowsServerHelper.DeleteWindowsServer(schedulerInstanceId, "delete");
                 if (SchedulerData.schedulerInstanceIdEquivalentIp.ContainsKey(schedulerInstanceId))
                 {
                     SchedulerData.schedulerInstanceIdEquivalentIp.Remove(schedulerInstanceId);
@@ -89,42 +80,8 @@ namespace JobManagerByQuartz.Controllers
         [HttpPost]
         public JsonResult AddScheduler(AddSchedulerViewModel addSchedulerViewModel)
         {
-            Process process = new Process();
-            System.IO.File.Copy(@"E:\TaskManagerByQuartz.Net\Quartz.Net_RemoteServer", $@"E:\{addSchedulerViewModel.SchedulerInstanceId}\Code", true);
-            if (!System.IO.File.Exists($@"E:\{addSchedulerViewModel.SchedulerInstanceId}\WindowsServerBats\{addSchedulerViewModel.SchedulerInstanceId}_install.bat"))
-            {
-                FileStream fs1 = new FileStream($@"E:\{addSchedulerViewModel.SchedulerInstanceId}\WindowsServerBats\{addSchedulerViewModel.SchedulerInstanceId}_install.bat", FileMode.Create, FileAccess.Write);
-                StreamWriter sw = new StreamWriter(fs1);
-                sw.Write($@"E:\{addSchedulerViewModel.SchedulerInstanceId}\Code\bin\Release\Quartz.Net_RemoteServer.exe install 
-  pause");
-                Configuration config = ConfigurationManager.OpenExeConfiguration($@"E:\{addSchedulerViewModel.SchedulerInstanceId}\Code\RemoteServer.config");
-                if (config.AppSettings.Settings["localIp"] != null)
-                {
-                    config.AppSettings.Settings.Remove("localIp");
-                }
-                if (config.AppSettings.Settings["port"] != null)
-                {
-                    config.AppSettings.Settings.Remove("port");
-                }
-                if (config.AppSettings.Settings["intanceId"] != null)
-                {
-                    config.AppSettings.Settings.Remove("intanceId");
-                }
-                if (config.AppSettings.Settings["threadCount"] != null)
-                {
-                    config.AppSettings.Settings.Remove("threadCount");
-                }
-                config.AppSettings.Settings.Add("localIp", addSchedulerViewModel.Ip);
-                config.AppSettings.Settings.Add("port", addSchedulerViewModel.Port);
-                config.AppSettings.Settings.Add("schedulerInstanceId", addSchedulerViewModel.SchedulerInstanceId);
-                config.AppSettings.Settings.Add("threadCount", addSchedulerViewModel.ThreadCount);
-                config.Save(ConfigurationSaveMode.Modified);
-                process.StartInfo.WorkingDirectory = $@"E:\{addSchedulerViewModel.SchedulerInstanceId}\WindowsServerBats";
-                process.StartInfo.FileName = $"{addSchedulerViewModel.SchedulerInstanceId}_install.bat";
-                process.StartInfo.Arguments = "1";
-                process.Start();
-                process.WaitForExit();
-            }
+            var windowsServerHelper = new WindowsServerHelper();
+            windowsServerHelper.AddWindowsServer(addSchedulerViewModel, "install");
             if (!SchedulerData.schedulerInstanceIdEquivalentIp.ContainsKey(addSchedulerViewModel.SchedulerInstanceId))
             {
                 SchedulerData.schedulerInstanceIdEquivalentIp.Add(addSchedulerViewModel.SchedulerInstanceId, new schedulerInstanceInfo { Ip = addSchedulerViewModel.Ip, Port = addSchedulerViewModel.Port, schedulerInstanceId = addSchedulerViewModel.SchedulerInstanceId });
@@ -154,9 +111,7 @@ namespace JobManagerByQuartz.Controllers
                     }
                     Task.Run(() =>
                     {
-                        
                         ServiceController service = new ServiceController(schedulerInstanceId);
-                  
                         while (true)
                         {
                             if (scheduler.IsShutdown)

@@ -9,29 +9,42 @@ namespace Quartz.Net_Infrastructure.FileUtil
 {
     public class FileHelper
     {
-        static string batFormatFilePath = @"E:\{ 0}\WindowsServerBats\{1}_{2}.bat";
-        public bool Exists(string schedulerInstanceId,string opName)
+        static string batFormatWorkingDirectory = @"E:\{ 0}\WindowsServerBats";
+        static string batFormatFileName = "{0}_{1}.bat";
+        static string formatFilePath = @"{0}\{1}";
+        public static bool Exists(string filePath)
         {
-            string batFilePath = string.Format(batFormatFilePath, schedulerInstanceId,schedulerInstanceId, opName);
-            return File.Exists(batFilePath);
+            return File.Exists(filePath);
         }
 
-        public bool Copy(string schedulerInstanceId,string opName)
+        public static (string, string) CreateFile(string schedulerInstanceId, string opName)
         {
             string fileFromPath = $@"E:\TaskManagerByQuartz.Net\Quartz.Net_RemoteServer";
             string fielToPath = $@"E:\{schedulerInstanceId}\Code";
-            string batFilePath = string.Format(batFormatFilePath, schedulerInstanceId, schedulerInstanceId, opName);
-            if (!Exists(schedulerInstanceId, opName)) {
-                using (FileStream fs1 = new FileStream(batFilePath, FileMode.Create, FileAccess.Write)) {
+            string batWorkingDirectory = string.Format(batFormatWorkingDirectory, schedulerInstanceId);
+            string batFileName = string.Format(batFormatFileName, schedulerInstanceId, opName);
+            string filePath = string.Format(formatFilePath, batWorkingDirectory, batFileName);
+            File.Copy(fileFromPath, fielToPath, true);
+            if (!Exists(filePath))
+            {
+                using (FileStream fs1 = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+                {
                     using (StreamWriter sw = new StreamWriter(fs1))
                     {
-                        sw.Write($@"E:\{schedulerInstanceId}\Code\bin\Release\Quartz.Net_RemoteServer.exe install 
+                        if (opName == "install")
+                        {
+                            sw.Write($@"E:\{schedulerInstanceId}\Code\bin\Release\Quartz.Net_RemoteServer.exe install 
   pause");
+                        }
+                        else if (opName == "delete")
+                        {
+                            sw.Write($"sc delete {schedulerInstanceId}");
+                        }
+
                     }
                 }
             }
-            throw new Exception();
-
+            return (batWorkingDirectory, batFileName);
         }
     }
 }
